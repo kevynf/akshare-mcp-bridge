@@ -79,8 +79,8 @@
   <line class="mcp-line" x1="813.97" y1="36" x2="813.97" y2="58" stroke="#2da44e" stroke-width="4" stroke-linecap="round" />
   <line class="mcp-line" x1="826.98" y1="36" x2="826.98" y2="58" stroke="#2da44e" stroke-width="4" stroke-linecap="round" />
   <line class="mcp-line" x1="840.00" y1="36" x2="840.00" y2="58" stroke="#2da44e" stroke-width="4" stroke-linecap="round" />
-  <text class="primary" x="16" y="94" font-size="22" font-weight="600">数据源可用性 74.27%</text>
-  <text class="muted" x="844" y="94" font-size="18" font-weight="400" text-anchor="end">814 / 1096</text>
+  <text class="primary" x="16" y="94" font-size="22" font-weight="600">数据源可用性 71.90%</text>
+  <text class="muted" x="844" y="94" font-size="18" font-weight="400" text-anchor="end">788 / 1096</text>
   <line class="availability-line" x1="20.00" y1="108" x2="20.00" y2="130" stroke="#2da44e" stroke-width="4" stroke-linecap="round" />
   <line class="availability-line" x1="33.02" y1="108" x2="33.02" y2="130" stroke="#2da44e" stroke-width="4" stroke-linecap="round" />
   <line class="availability-line" x1="46.03" y1="108" x2="46.03" y2="130" stroke="#2da44e" stroke-width="4" stroke-linecap="round" />
@@ -126,9 +126,9 @@
   <line class="availability-line" x1="566.67" y1="108" x2="566.67" y2="130" stroke="#2da44e" stroke-width="4" stroke-linecap="round" />
   <line class="availability-line" x1="579.68" y1="108" x2="579.68" y2="130" stroke="#2da44e" stroke-width="4" stroke-linecap="round" />
   <line class="availability-line" x1="592.70" y1="108" x2="592.70" y2="130" stroke="#2da44e" stroke-width="4" stroke-linecap="round" />
-  <line class="availability-line" x1="605.71" y1="108" x2="605.71" y2="130" stroke="#2da44e" stroke-width="4" stroke-linecap="round" />
-  <line class="availability-line" x1="618.73" y1="108" x2="618.73" y2="130" stroke="#0969da" stroke-width="4" stroke-linecap="round" />
-  <line class="availability-line" x1="631.75" y1="108" x2="631.75" y2="130" stroke="#0969da" stroke-width="4" stroke-linecap="round" />
+  <line class="availability-line" x1="605.71" y1="108" x2="605.71" y2="130" stroke="#0969da" stroke-width="4" stroke-linecap="round" />
+  <line class="availability-line" x1="618.73" y1="108" x2="618.73" y2="130" stroke="#cf222e" stroke-width="4" stroke-linecap="round" />
+  <line class="availability-line" x1="631.75" y1="108" x2="631.75" y2="130" stroke="#cf222e" stroke-width="4" stroke-linecap="round" />
   <line class="availability-line" x1="644.76" y1="108" x2="644.76" y2="130" stroke="#cf222e" stroke-width="4" stroke-linecap="round" />
   <line class="availability-line" x1="657.78" y1="108" x2="657.78" y2="130" stroke="#cf222e" stroke-width="4" stroke-linecap="round" />
   <line class="availability-line" x1="670.79" y1="108" x2="670.79" y2="130" stroke="#cf222e" stroke-width="4" stroke-linecap="round" />
@@ -146,13 +146,13 @@
   <line class="availability-line" x1="826.98" y1="108" x2="826.98" y2="130" stroke="#bf8700" stroke-width="4" stroke-linecap="round" />
   <line class="availability-line" x1="840.00" y1="108" x2="840.00" y2="130" stroke="#bf8700" stroke-width="4" stroke-linecap="round" />
   <line class="legend-line" x1="17" y1="147" x2="17" y2="166" stroke="#2da44e" stroke-width="5" stroke-linecap="round" />
-  <text class="primary" x="31" y="164" font-size="17" font-weight="400">成功返回 796（72.63%）</text>
+  <text class="primary" x="31" y="164" font-size="17" font-weight="400">成功返回 766（69.89%）</text>
   <line class="legend-line" x1="224" y1="147" x2="224" y2="166" stroke="#0969da" stroke-width="5" stroke-linecap="round" />
-  <text class="primary" x="238" y="164" font-size="17" font-weight="400">正常空结果 18（1.64%）</text>
+  <text class="primary" x="238" y="164" font-size="17" font-weight="400">正常空结果 22（2.01%）</text>
   <line class="legend-line" x1="431" y1="147" x2="431" y2="166" stroke="#cf222e" stroke-width="5" stroke-linecap="round" />
-  <text class="primary" x="445" y="164" font-size="17" font-weight="400">运行失败 196（17.88%）</text>
+  <text class="primary" x="445" y="164" font-size="17" font-weight="400">运行失败 220（20.07%）</text>
   <line class="legend-line" x1="638" y1="147" x2="638" y2="166" stroke="#bf8700" stroke-width="5" stroke-linecap="round" />
-  <text class="primary" x="652" y="164" font-size="17" font-weight="400">超时 84（7.66%）</text>
+  <text class="primary" x="652" y="164" font-size="17" font-weight="400">超时 86（7.85%）</text>
   <line class="legend-line" x1="17" y1="181" x2="17" y2="200" stroke="#8250df" stroke-width="5" stroke-linecap="round" />
   <text class="primary" x="31" y="198" font-size="17" font-weight="400">缺少验收参数 2（0.18%）</text>
 </svg>
