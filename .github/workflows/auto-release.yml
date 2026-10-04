@@ -223,9 +223,28 @@ jobs:
   publish:
     needs: release
     if: needs.release.outputs.created == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
     permissions:
+      # Dispatching another workflow needs actions: write. The dispatched run
+      # performs the Trusted Publishing exchange itself: PyPI rejects OIDC
+      # tokens whose claims come from a reusable-workflow call, so publishing
+      # must happen in a top-level run of publish-pypi.yml.
+      actions: write
       contents: read
-      id-token: write
-    uses: ./.github/workflows/publish-pypi.yml
-    with:
-      release_tag: ${{ needs.release.outputs.tag }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_TAG: ${{ needs.release.outputs.tag }}
+    steps:
+      - name: Dispatch the publish workflow
+        shell: bash
+        run: |
+          gh workflow run publish-pypi.yml --ref "${RELEASE_BRANCH}" -f "release_tag=${RELEASE_TAG}"
+          echo "Dispatched publish-pypi.yml for ${RELEASE_TAG} on ${RELEASE_BRANCH}."
+      - name: Confirm the dispatched run started
+        shell: bash
+        run: |
+          sleep 5
+          gh run list --workflow=publish-pypi.yml --event=workflow_dispatch --limit=1 \
+            --json url,status,headBranch \
+            --jq '.[] | "publish run: \(.url) [\(.status)] branch=\(.headBranch)"'
