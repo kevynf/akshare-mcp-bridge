@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "akshare_version": "1.18.94",
-  "generated_at": "2026-10-04T00:40:11.810755+00:00",
+  "akshare_version": "1.19.1",
+  "generated_at": "2026-10-04T02:51:23.552155+00:00",
   "interface_count": 1096,
   "interfaces": [
     {
@@ -8206,11 +8206,11 @@
       ],
       "examples": [
         {
-          "date": "20200702"
+          "date": "20260924"
         }
       ],
-      "description": "上海期货交易所指定交割仓库期货仓单日报\nhttps://tsite.shfe.com.cn/statements/dataview.html?paramid=dailystock&paramdate=20200703\n:param date: 交易日，e.g., \"20200702\"\n:type date: str\n:return: 指定日期的仓单日报数据\n:rtype: dict",
-      "signature": "(date: str = '20200702') -> dict",
+      "description": "上海期货交易所指定交割仓库期货仓单日报\nhttps://www.shfe.com.cn/reports/tradedata/dailyandweeklydata/\n:param date: 交易日，e.g., \"20260924\"\n:type date: str\n:return: 指定日期的仓单日报数据\n:rtype: dict",
+      "signature": "(date: str = '20260924') -> dict",
       "return": {
         "kind": "unknown",
         "description": "指定日期的仓单日报数据",
@@ -8218,12 +8218,12 @@
       },
       "parameters": {
         "date": {
-          "description": "交易日，e.g., \"20200702\"",
+          "description": "交易日，e.g., \"20260924\"",
           "type": "str"
         }
       },
       "side_effect": false,
-      "source_url": "https://tsite.shfe.com.cn/statements/dataview.html?paramid=dailystock&paramdate=20200703",
+      "source_url": "https://www.shfe.com.cn/reports/tradedata/dailyandweeklydata/",
       "source_module": "akshare.futures.futures_warehouse_receipt"
     },
     {
@@ -8658,7 +8658,7 @@
           "date": "20251027"
         }
       ],
-      "description": "大连商品交易所-行情数据-统计数据-日统计-仓单日报\nhttp://www.dce.com.cn/dce/channel/list/187.html\n:param date: 交易日，e.g., \"20200702\"\n:type date: str\n:return: 指定日期的仓单日报数据\n:rtype: dict",
+      "description": "大连商品交易所-行情数据-统计数据-日统计-仓单日报\nhttp://www.dce.com.cn/dce/channel/list/187.html\n:param date: 交易日，e.g., \"20200702\"\n:type date: str\n:return: 指定日期的仓单日报数据\n:rtype: dict\n:raises APIError: 大连商品交易所网站启用瑞数反爬虫验证，拒绝程序请求时抛出",
       "signature": "(date: str = '20251027') -> pandas.DataFrame",
       "return": {
         "kind": "dataframe",
@@ -25964,7 +25964,7 @@
           "indicator": "按报告期"
         }
       ],
-      "description": "同花顺-财务指标-资产负债表\nhttps://basic.10jqka.com.cn/astockpc/astockmain/index.html#/financen?code=000063\n:param symbol: 股票代码\n:type symbol: str\n:param indicator: 指标；choice of {\"按报告期\", \"按年度\"}\n:type indicator: str\n:return: 同花顺-财务指标-资产负债表\n:rtype: pandas.DataFrame",
+      "description": "同花顺-财务指标-资产负债表\nhttps://basic.10jqka.com.cn/astockpc/astockmain/index.html#/financen?code=000063\n:param symbol: 股票代码\n:type symbol: str\n:param indicator: 指标；choice of {\"按报告期\", \"一季度\", \"二季度\", \"三季度\", \"四季度\", \"按年度\"}\n:type indicator: str\n:return: 同花顺-财务指标-资产负债表\n:rtype: pandas.DataFrame",
       "signature": "(symbol: str = '000063', indicator: str = '按报告期') -> pandas.DataFrame",
       "return": {
         "kind": "dataframe",
@@ -25977,7 +25977,7 @@
           "type": "str"
         },
         "indicator": {
-          "description": "指标；choice of {\"按报告期\", \"按年度\"}",
+          "description": "指标；choice of {\"按报告期\", \"一季度\", \"二季度\", \"三季度\", \"四季度\", \"按年度\"}",
           "type": "str"
         }
       },
