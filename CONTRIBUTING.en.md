@@ -34,7 +34,7 @@ Offline acceptance does not contact third-party providers or call an LLM. A sepa
 
 ## Publishing to PyPI
 
-The release workflow uses PyPI Trusted Publishing and stores no API token in the repository. Before the first release, configure the GitHub Publisher for project `akbridge` on PyPI with repository `kevynf/akbridge`, workflow `publish-pypi.yml`, and environment `pypi`.
+The release workflow uses PyPI Trusted Publishing and stores no API token in the repository. Before the first release, configure the GitHub Publisher for project `akbridge` on PyPI with repository **`kevynf/akshare-mcp-bridge`** (not the PyPI project name `akbridge`, and not the pre-rename repository name), workflow `publish-pypi.yml`, and environment `pypi`. After a repository rename this value must be updated too, otherwise the OIDC claims no longer match and publishing fails with `invalid-publisher`.
 
 Releases are version-driven and also dependency-driven. For a manual release, update `pyproject.toml`,
 `src/akbridge/__init__.py`, and both version fields in `server.json`, then merge into the default

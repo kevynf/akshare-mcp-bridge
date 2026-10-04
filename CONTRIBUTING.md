@@ -35,8 +35,10 @@ uv run --no-sync twine check dist/*
 ## 发布到 PyPI
 
 发布工作流使用 PyPI Trusted Publishing，不在仓库中保存 API Token。首次发布前，在 PyPI
-为项目 `akbridge` 配置 GitHub Publisher：仓库 `kevynf/akbridge`、工作流
-`publish-pypi.yml`、环境 `pypi`。
+为项目 `akbridge` 配置 GitHub Publisher：仓库 **`kevynf/akshare-mcp-bridge`**（注意不是
+PyPI 项目名 `akbridge`，也不是改名前的旧仓库名）、工作流 `publish-pypi.yml`、环境 `pypi`。
+仓库改名后必须同步更新这里的值，否则 OIDC 声明与配置不匹配，发布会以
+`invalid-publisher` 失败。
 
 发布由版本号驱动，也支持依赖驱动。人工发布：同步更新 `pyproject.toml`、
 `src/akbridge/__init__.py`，以及 `server.json` 中的顶层版本和包版本，合并到默认分支，
