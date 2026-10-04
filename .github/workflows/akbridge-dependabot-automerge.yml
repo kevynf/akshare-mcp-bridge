@@ -67,8 +67,15 @@ jobs:
             const invalidFile = files.find(
               (file) => !allowedFiles.has(file.filename) || file.status === "removed",
             );
-            if (invalidFile || !changedFiles.includes("pyproject.toml")) {
+            if (invalidFile) {
               core.setFailed(`Unexpected changed files: ${changedFiles.join(", ")}`);
+              return;
+            }
+            if (!changedFiles.includes("pyproject.toml")) {
+              // A lock-only update is a transitive or security bump; the pin
+              // policy below cannot evaluate it, so it stays open for manual
+              // review instead of failing the check.
+              core.info(`Lock-only update, leaving for manual review: ${changedFiles.join(", ")}`);
               return;
             }
 

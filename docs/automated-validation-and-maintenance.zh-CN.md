@@ -124,3 +124,5 @@
 `Read and write permissions`。建议为默认分支要求
 `AKBridge automated validation and maintenance / offline-contract` 状态检查；如分支规则还要求
 人工批准，自动合并不会绕过规则，PR 将保持打开并在 Actions 中记录失败原因。
+
+`allow` 列表除 akshare 与 mcp 外还包含 pyjwt 与 urllib3：二者是带未修复告警的传递依赖，不放行则 Dependabot 永远不会为它们开 PR。只修改 `uv.lock` 的 PR（传递依赖或安全更新）会被自动合并流程保留并记录原因，不判失败；判定失败仍限于越界文件、pyproject 杂项改动和降级。

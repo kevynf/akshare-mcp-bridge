@@ -10,6 +10,11 @@ updates:
     allow:
       - dependency-name: "akshare"
       - dependency-name: "mcp"
+      # Transitive dependencies with open security alerts. Without these entries
+      # the allow list suppresses Dependabot pull requests for them entirely,
+      # so the alerts could never be fixed automatically.
+      - dependency-name: "pyjwt"
+      - dependency-name: "urllib3"
     ignore:
       - dependency-name: "mcp"
         versions: [">= 2.0.0"]

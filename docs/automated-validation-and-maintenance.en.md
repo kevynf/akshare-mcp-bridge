@@ -134,3 +134,5 @@ Four constraints worth knowing:
 Enable read and write workflow permissions and require the maintenance `offline-contract` check on
 the default branch. Branch rules that also demand human approval are not bypassed: the PR stays open
 and Actions records the reason.
+
+The `allow` list also contains pyjwt and urllib3: they are transitive dependencies with open alerts, and without those entries Dependabot would never open pull requests for them. Pull requests that touch only `uv.lock` (transitive or security updates) are kept open with a recorded reason instead of failing the check; failures remain limited to out-of-scope files, unrelated `pyproject.toml` edits, and downgrades.
