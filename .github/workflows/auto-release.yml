@@ -239,12 +239,14 @@ jobs:
       - name: Dispatch the publish workflow
         shell: bash
         run: |
-          gh workflow run publish-pypi.yml --ref "${RELEASE_BRANCH}" -f "release_tag=${RELEASE_TAG}"
+          gh workflow run publish-pypi.yml -R "${GITHUB_REPOSITORY}" \
+            --ref "${RELEASE_BRANCH}" -f "release_tag=${RELEASE_TAG}"
           echo "Dispatched publish-pypi.yml for ${RELEASE_TAG} on ${RELEASE_BRANCH}."
       - name: Confirm the dispatched run started
         shell: bash
         run: |
           sleep 5
-          gh run list --workflow=publish-pypi.yml --event=workflow_dispatch --limit=1 \
+          gh run list -R "${GITHUB_REPOSITORY}" --workflow=publish-pypi.yml \
+            --event=workflow_dispatch --limit=1 \
             --json url,status,headBranch \
             --jq '.[] | "publish run: \(.url) [\(.status)] branch=\(.headBranch)"'
