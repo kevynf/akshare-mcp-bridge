@@ -4,7 +4,7 @@
   "title": "AKBridge",
   "description": "Search and call AKShare financial data interfaces through three routed MCP tools",
   "repository": {
-    "url": "https://github.com/kevynf/akbridge",
+    "url": "https://github.com/kevynf/akshare-mcp-bridge",
     "source": "github"
   },
   "version": "0.1.4",

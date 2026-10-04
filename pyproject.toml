@@ -28,10 +28,10 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/kevynf/akbridge"
-Repository = "https://github.com/kevynf/akbridge.git"
-Issues = "https://github.com/kevynf/akbridge/issues"
-Documentation = "https://github.com/kevynf/akbridge#readme"
+Homepage = "https://github.com/kevynf/akshare-mcp-bridge"
+Repository = "https://github.com/kevynf/akshare-mcp-bridge.git"
+Issues = "https://github.com/kevynf/akshare-mcp-bridge/issues"
+Documentation = "https://github.com/kevynf/akshare-mcp-bridge#readme"
 
 [project.optional-dependencies]
 release = [
