@@ -16,7 +16,10 @@ updates:
     cooldown:
       exclude:
         - "akshare"
-    open-pull-requests-limit: 1
+    # Keep room for PRs that require manual review to coexist with automated
+    # ones: a single open manual-review PR used to freeze every dependency
+    # update for the whole repository.
+    open-pull-requests-limit: 3
     rebase-strategy: "auto"
     commit-message:
       prefix: "chore"

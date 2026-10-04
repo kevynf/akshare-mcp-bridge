@@ -47,8 +47,8 @@ jobs:
               core.info(`Ignoring PR author ${pull.user?.login ?? "unknown"}.`);
               return;
             }
-            if (!pull.head.ref.startsWith("dependabot/uv/akshare-")) {
-              core.info(`Leaving non-AKShare Dependabot PR for manual review: ${pull.head.ref}`);
+            if (!pull.head.ref.startsWith("dependabot/uv/")) {
+              core.info(`Leaving non-Dependabot uv PR for manual review: ${pull.head.ref}`);
               return;
             }
             if (pull.head.sha !== run.head_sha) {
@@ -85,12 +85,16 @@ jobs:
               return Buffer.from(data.content, "base64").toString("utf8");
             }
 
-            function extractAkshareVersion(text) {
-              const matches = [...text.matchAll(/"akshare==([^"\r\n]+)"/g)];
-              if (matches.length !== 1) {
-                throw new Error(`Expected one pinned AKShare dependency, found ${matches.length}.`);
+            // Scans the whole file, so the map also contains dev-group and
+            // extra pins (ruff, pytest, twine). Those can only ever be rejected
+            // by the policy table below; the allow-list in dependabot.yml keeps
+            // the reachable set to akshare and mcp today.
+            function extractPins(text) {
+              const pins = {};
+              for (const match of text.matchAll(/"([A-Za-z0-9._-]+)(==|>=)([^"\r\n]+)"/g)) {
+                pins[match[1]] = { spec: match[2], version: match[3] };
               }
-              return matches[0][1];
+              return pins;
             }
 
             function parseStableVersion(version) {
@@ -103,18 +107,40 @@ jobs:
 
             const baseText = await readText("pyproject.toml", pull.base.sha);
             const headText = await readText("pyproject.toml", pull.head.sha);
-            const baseVersion = extractAkshareVersion(baseText);
-            const headVersion = extractAkshareVersion(headText);
-            const normalizedBase = baseText.replace(
-              `"akshare==${baseVersion}"`,
-              '"akshare==__VERSION__"',
-            );
-            const normalizedHead = headText.replace(
-              `"akshare==${headVersion}"`,
-              '"akshare==__VERSION__"',
-            );
-            if (normalizedBase !== normalizedHead) {
-              core.setFailed("pyproject.toml contains changes other than the AKShare version.");
+            const basePins = extractPins(baseText);
+            const headPins = extractPins(headText);
+            const changedPins = [
+              ...new Set([...Object.keys(basePins), ...Object.keys(headPins)]),
+            ].filter((name) => JSON.stringify(basePins[name]) !== JSON.stringify(headPins[name]));
+            if (changedPins.length !== 1) {
+              core.info(
+                `Expected exactly one changed dependency pin, found ${changedPins.length}: ` +
+                  `${changedPins.join(", ") || "none"}.`
+              );
+              return;
+            }
+            const dependency = changedPins[0];
+            const baseVersion = basePins[dependency].version;
+            const headVersion = headPins[dependency].version;
+            if (basePins[dependency].spec !== "==" || headPins[dependency].spec !== "==") {
+              core.notice(
+                `Dependency ${dependency} is not an exact pin; leaving it for manual review.`
+              );
+              return;
+            }
+            // AKShare upgrades within the same major and MCP patch upgrades within
+            // the same minor may merge automatically; everything else stays open.
+            const allowMinorUpdate = { akshare: true, mcp: false }[dependency];
+            if (allowMinorUpdate === undefined) {
+              core.notice(`Dependency ${dependency} is outside the auto-merge policy.`);
+              return;
+            }
+            const placeholder = `"${dependency}==__VERSION__"`;
+            if (
+              baseText.replace(`"${dependency}==${baseVersion}"`, placeholder) !==
+              headText.replace(`"${dependency}==${headVersion}"`, placeholder)
+            ) {
+              core.setFailed("pyproject.toml contains changes other than the dependency pin.");
               return;
             }
 
@@ -123,25 +149,33 @@ jobs:
             const comparison = headParts.findIndex((value, index) => value !== baseParts[index]);
             const isUpgrade = comparison >= 0 && headParts[comparison] > baseParts[comparison];
             if (!isUpgrade) {
-              core.setFailed(`AKShare ${baseVersion} -> ${headVersion} is not an upgrade.`);
+              core.setFailed(`${dependency} ${baseVersion} -> ${headVersion} is not an upgrade.`);
               return;
             }
             if (baseParts[0] !== headParts[0]) {
               core.notice(`Major update ${baseVersion} -> ${headVersion} requires manual review.`);
               return;
             }
+            if (!allowMinorUpdate && baseParts[1] !== headParts[1]) {
+              core.notice(
+                `${dependency} ${baseVersion} -> ${headVersion} is a minor update ` +
+                  "and requires manual review."
+              );
+              return;
+            }
 
+            const displayName = { akshare: "AKShare", mcp: "mcp" }[dependency];
             const result = await github.rest.pulls.merge({
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: pullNumber,
               merge_method: "squash",
               sha: run.head_sha,
-              commit_title: `chore: update AKShare to ${headVersion} (#${pullNumber})`,
+              commit_title: `chore: update ${displayName} to ${headVersion} (#${pullNumber})`,
               commit_message: "Validated by the complete AKBridge offline acceptance gate.",
             });
             if (!result.data.merged) {
               core.setFailed(result.data.message || "GitHub did not merge the PR.");
               return;
             }
-            core.notice(`Merged AKShare ${baseVersion} -> ${headVersion}.`);
+            core.notice(`Merged ${displayName} ${baseVersion} -> ${headVersion}.`);

@@ -3,6 +3,15 @@ name: Publish AKBridge to PyPI
 on:
   release:
     types: [published]
+  # Allows re-running a publish whose workflow_call attempt failed: a release
+  # created with GITHUB_TOKEN does not emit the release event, so the automatic
+  # chain cannot retry it.
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Existing release tag to build and publish
+        required: true
+        type: string
   workflow_call:
     inputs:
       release_tag:

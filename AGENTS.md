@@ -23,7 +23,7 @@ Use four-space indentation, type annotations, and concise docstrings. Ruff targe
 
 ## Testing Guidelines
 
-Tests use pytest and are named `tests/test_<area>.py`; test functions begin with `test_`. Add regression coverage for behavioral changes, including async, serialization, or router edge cases where relevant. Provider-independent tests are preferred. Changes to interface contracts must update `artifacts/acceptance/manifest.json` and `artifacts/catalog.json`, while preserving `--mode all` compatibility.
+Tests use pytest and are named `tests/test_<area>.py`; test functions begin with `test_`. Add regression coverage for behavioral changes, including async, serialization, or router edge cases where relevant. Provider-independent tests are preferred. Changes to interface contracts must update `artifacts/acceptance/manifest.json` and `artifacts/catalog.json` (the maintenance workflow commits refreshed copies once the strict gate passes and the regenerated content differs), while preserving `--mode all` compatibility. The strict gate and the manifest baseline must always run under the repository's canonical interpreter, Python 3.14, via `UV_PYTHON`; other interpreters render PEP 604 unions differently and produce false schema regressions.
 
 ## Commit & Pull Request Guidelines
 
