@@ -22,7 +22,7 @@ classifiers = [
   "Topic :: Office/Business :: Financial",
 ]
 dependencies = [
-  "akshare==1.18.94",
+  "akshare==1.19.1",
   "mcp==1.30.0",
   "pandas>=2.2.0",
 ]
