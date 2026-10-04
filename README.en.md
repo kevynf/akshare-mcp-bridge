@@ -3,11 +3,11 @@
   <h1>AKBridge</h1>
   <p><strong>Automatically connect AKShare public interfaces to MCP.</strong></p>
   <p>
-    <a href="https://github.com/kevynf/akbridge/blob/master/README.md">简体中文</a> |
-    <a href="https://github.com/kevynf/akbridge/blob/master/README.en.md">English</a>
+    <a href="https://github.com/kevynf/akshare-mcp-bridge/blob/master/README.md">简体中文</a> |
+    <a href="https://github.com/kevynf/akshare-mcp-bridge/blob/master/README.en.md">English</a>
   </p>
   <p>
-    <a href="https://github.com/kevynf/akbridge/actions/workflows/akbridge-maintenance.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/kevynf/akbridge/akbridge-maintenance.yml?branch=master&amp;label=CI"></a>
+    <a href="https://github.com/kevynf/akshare-mcp-bridge/actions/workflows/akbridge-maintenance.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/kevynf/akbridge/akbridge-maintenance.yml?branch=master&amp;label=CI"></a>
     <img alt="Python 3.11+" src="https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white">
     <a href="https://pypi.org/project/akbridge/"><img alt="PyPI version" src="https://img.shields.io/pypi/v/akbridge?label=PyPI"></a>
     <a href="https://pypi.org/project/akbridge/"><img alt="AKShare dependency" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fpypi.org%2Fpypi%2Fakbridge%2Fjson&amp;query=%24.info.requires_dist%5B0%5D&amp;label=AKShare"></a>
@@ -52,7 +52,7 @@ reported separately.
 
 ## Acceptance status
 
-![Latest AKBridge acceptance status](https://raw.githubusercontent.com/kevynf/akbridge/master/artifacts/acceptance/status.svg)
+![Latest AKBridge acceptance status](https://raw.githubusercontent.com/kevynf/akshare-mcp-bridge/master/artifacts/acceptance/status.svg)
 
 The status image is generated automatically by the acceptance report command. For detailed results,
 see the [Chinese acceptance summary](artifacts/acceptance/SUMMARY.md), the
