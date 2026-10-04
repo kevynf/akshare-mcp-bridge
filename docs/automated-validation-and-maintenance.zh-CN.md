@@ -2,27 +2,28 @@
 
 [English](automated-validation-and-maintenance.en.md)
 
-本文定义 AKBridge 的自动维护边界。所有默认命令均为确定性程序：它们不调用 LLM、不等待人工输入，也不把外部数据源的短暂不可用误判为 MCP 适配回归。
+本文定义 AKBridge 的自动维护边界。所有默认命令都是确定性程序：不调用 LLM、不等待人工输入，
+也不把外部数据源的短暂不可用误判为 MCP 适配回归。
 
 ## 分层检查
 
-| 层级 | 命令 | 是否访问第三方数据源 | 失败含义 |
+| 层级 | 命令 | 访问数据源 | 失败含义 |
 | --- | --- | ---: | --- |
-| 本地契约 | `akbridge-maintain ci --strict` | 否 | 发现、Schema、目录或路由契约回归。 |
-| 离线逐接口 | `akbridge-accept run --offline` | 否 | 单个接口的本地适配契约未通过。 |
-| 数据源探测 | `akbridge-maintain ci --provider` | 是 | 上游网络、反爬、凭据、数据格式或 AKShare 运行时可能变化。 |
+| 本地契约 | `akbridge-maintain ci --strict` | 否 | 发现、Schema、目录或路由契约回归 |
+| 离线逐接口 | `akbridge-accept run --offline` | 否 | 单个接口的本地适配契约未通过 |
+| 数据源探测 | `akbridge-maintain ci --strict --provider` | 是 | 上游网络、反爬、凭据、数据格式或 AKShare 运行时变化 |
 
-前两层应当成为提交和定时 CI 的稳定门禁。第三层建议在独立计划任务中运行并保留验收记录，不应因短暂网络抖动直接覆盖基线。
+前两层是提交和定时 CI 的稳定门禁。第三层在独立计划任务中运行，只把 MCP/Schema 回归和隔离进程
+故障作为严格失败条件，其验收资产由机器人提交，但不改写契约基线。
 
-## 每次升级流程
+## 升级流程
 
-1. 在隔离分支升级 `akshare` 和锁文件。
-2. 运行严格离线门禁，生成新 manifest、语义目录和报告。
-3. 检查 `artifacts/maintenance/latest.json`：新增接口是信息项；删除接口、签名变化和 Schema 变化是回归项，严格模式会返回非零退出码。
-4. 运行 `--offline` 全量逐接口验收，确认每个接口都仍被发现并可生成 Schema。
-5. 需要评估上游可用性时，再运行 `--provider`，按 `ledger.csv` 的错误范围归类问题。
-6. 同一主版本的 Dependabot PR 在严格门禁通过后可自动合并；主版本升级或异常变更必须人工审核。
-7. 只有明确接受新的兼容性边界后，才更新 `artifacts/acceptance/manifest.json` 作为新基线。
+1. 在隔离分支升级 `akshare` 或 `mcp` 及锁文件。
+2. 运行严格离线门禁与全量离线验收，生成 manifest、语义目录和报告。
+3. 检查 `artifacts/maintenance/latest.json`：新增接口是信息项；删除、签名或 Schema 变化是回归项，严格模式返回非零退出码。
+4. 需要评估上游可用性时再运行 `--provider`，按 `ledger.csv` 的错误范围归类问题。
+5. 门禁通过后，AKShare 的同主版本升级与 mcp 的同主版本 patch 升级可自动合并；跨主版本、mcp 的 minor 升级与异常变更必须人工审核。
+6. 门禁通过、且重新生成的基线工件与已提交内容不一致时，CI 自动重新生成并提交 `artifacts/acceptance/manifest.json` 与 `artifacts/catalog.json`；删除、签名或 Schema 变化会先于刷新失败，保持人工把关。
 
 ## 命令
 
@@ -35,7 +36,8 @@
   --output artifacts\catalog.json
 ```
 
-严格离线检查：
+严格离线检查（定时任务附加 `--check-latest` 查询 PyPI 最新 AKShare 版本；网络不可用记为
+`unavailable`，不误报回归，需要门禁失败时再加 `--fail-on-update`）：
 
 ```powershell
 .venv\Scripts\python.exe -m akbridge.maintenance ci --strict `
@@ -45,53 +47,80 @@
   --report artifacts\maintenance\latest.json
 ```
 
-在定时任务中附加 `--check-latest` 可查询 PyPI 的最新 AKShare 版本。网络不可用时报告状态为 `unavailable`，不会误报适配回归；若需要把发现新版本作为升级告警门禁，可再附加 `--fail-on-update`。
-
-只运行离线逐接口适配验收：
+离线逐接口验收与报告，以及基线差异比较：
 
 ```powershell
 .venv\Scripts\python.exe -m akbridge.acceptance run --offline --workers 4 `
   --output artifacts\acceptance\runs\offline.json
 .venv\Scripts\python.exe -m akbridge.acceptance report `
   --run artifacts\acceptance\runs\offline.json
-```
-
-比较两个 manifest：
-
-```powershell
 .venv\Scripts\python.exe -m akbridge.maintenance diff --strict `
   --baseline artifacts\acceptance\manifest.json `
   --current artifacts\maintenance\manifest.json
+```
+
+报告写入 `SUMMARY.md` 与 `SUMMARY.en.md`、机器可读的 `summary.json`、状态图和逐接口
+`ledger.csv`；其中的文档部分记录文档块数量、必填字段完整率、公开接口关联覆盖率和未关联接口。
+
+`akbridge-accept run` 的常用参数：`--limit` 控制本次验收数量，`--resume` 继续上次进度，
+`--retry-status timeout` 复验超时接口，`--name` 只验收指定接口（可重复），`--timeout` 与
+`--workers` 控制单接口超时与并发；`akbridge-accept manifest` 可随时重新生成清单。示例：
+
+```powershell
+.venv\Scripts\python.exe -m akbridge.acceptance run --resume --limit 100 --timeout 30 --workers 4
+.venv\Scripts\python.exe -m akbridge.acceptance run --name stock_zh_a_hist --name macro_china_cpi --timeout 30
+.venv\Scripts\python.exe -m akbridge.acceptance manifest
 ```
 
 ## 退出码与报告
 
 `akbridge-maintain ci --strict` 在以下情况返回非零退出码：
 
-- 当前发现接口数低于最小阈值；
-- 接口被删除且超过 `--max-removed`；
+- 接口数低于最小阈值，或接口被删除且超过 `--max-removed`；
 - 既有接口的 Python 签名或输入 Schema 哈希变化；
-- 目录、输入 Schema 或路由索引验证失败。
+- 目录、输入 Schema、MCP 工具（`all`/`router` 契约）或路由索引验证失败。
 
-报告中包含稳定的 `current_fingerprint`。相同 AKShare 版本和相同本地代码应生成相同指纹；生成时间不参与指纹计算。`metadata_hash` 的变化会被记录，但只有签名和 Schema 变化会被严格门禁视为兼容性回归。
+报告包含稳定的 `current_fingerprint`：相同 AKShare 版本与本地代码生成相同指纹，生成时间不参与
+计算；`metadata_hash` 变化只记录，不判定回归。指纹只对解释器稳定——门禁与基线必须在仓库规范
+解释器 Python 3.14 下生成和比较，因为不同解释器对同一签名的 PEP 604 联合类型渲染不同
+（`str | None` 与 `Optional[str]`），会产生假回归；定时门禁作业通过 `UV_PYTHON: "3.14"`
+固定该不变量。
 
-## 上游探测的处理方式
+## 数据源探测
 
-第三方数据源具有验证码、限流、登录、地理网络和临时故障等特性。AKBridge 会把这些问题分离到 `provider_success`、`upstream_transport`、`upstream_response`、`upstream_timeout` 和 `akshare_runtime` 范围，而不会把它们写成 MCP Schema 失败。
-
-网络探测可自动重试，但不应自动篡改接口参数、伪造空数据或覆盖验收基线。凭据经环境变量提供，报告与结构化日志会对 token、密码、Cookie 和 API Key 脱敏。
+第三方数据源具有验证码、限流、登录、地理网络和临时故障等特性。AKBridge 将这些问题分离到
+`provider_success`、`upstream_transport`、`upstream_response`、`upstream_timeout` 和
+`akshare_runtime` 范围，不写成 MCP Schema 失败。探测可自动重试，但不得篡改接口参数、伪造空
+数据或覆盖契约基线。凭据经环境变量提供，报告与结构化日志对 token、密码、Cookie 和 API Key
+脱敏。
 
 ## GitHub Actions
 
-所有计划任务均在 GitHub 云端运行，不会在用户本机创建定时任务或常驻进程。定时工作流使用 UTC Cron，以下时间均按北京时间（UTC+8）列出；Dependabot 直接使用 `Asia/Shanghai` 时区。
+定时任务在 GitHub 托管运行器上执行，不在本机创建定时任务或常驻进程；时间按北京时间（UTC+8）
+列出，Dependabot 直接使用 `Asia/Shanghai`。
 
 | 任务 | 触发方式 | 北京时间 | 仓库行为 |
 | --- | --- | --- | --- |
-| 离线测试、逐接口验收、严格 MCP 门禁和构建 | 推送或 PR；每周一 | 推送或 PR 时；每周一 12:00 | 上传 Actions 报告 |
-| AKShare 依赖检查 | Dependabot 每天检查 | 每天 12:00 | 更新 `pyproject.toml` 和 `uv.lock`，创建 PR |
-| AKShare 受控自动合并 | 对应 PR 的完整验收成功后 | 无固定时间 | 同一主版本更新由 `github-actions[bot]` squash 合并 |
-| 真实数据源全量验收 | 每月 1 日 | 12:00 | 提交状态图、验收汇总和逐接口明细 |
+| 离线测试、逐接口验收、严格门禁、文档索引与构建 | 推送或 PR；每周一 | 推送或 PR 时；每周一 12:00 | 上传报告；基线工件与重新生成内容不一致时由机器人提交刷新 |
+| 依赖检查（akshare、mcp） | Dependabot 每天 | 每天 12:00 | 更新 `pyproject.toml` 与 `uv.lock` 并开 PR，并发上限 3 |
+| 受控自动合并 | 对应 PR 的维护流水线成功后 | 无固定时间 | AKShare 同主版本升级、mcp 同主版本 patch 升级由机器人 squash 合并；其余保留并记录原因 |
+| 真实数据源全量验收 | 每月 1 日和 15 日 | 12:00 | 提交状态图、验收汇总与逐接口明细 |
+| 依赖变更自动发版 | 推送或每周定时维护成功后 | 无固定时间 | 自动 bump patch 版本，同一作业内打 tag 并创建 Release，随后发布 |
 
-`.github/workflows/akbridge-maintenance.yml` 每周一运行离线测试和严格门禁，并上传 `artifacts/maintenance/`。`.github/workflows/akbridge-provider-probe.yml` 每月运行一次全量隔离数据源探测，保留全部结果但只把 MCP/Schema 回归作为严格失败条件；完成后自动刷新并提交 README 使用的状态图、验收汇总和逐接口明细。`.github/workflows/akbridge-dependabot-automerge.yml` 在维护流水线成功后核验 Dependabot PR：作者必须是 `dependabot[bot]`，只能修改 `pyproject.toml` 与 `uv.lock`，`pyproject.toml` 中只能改变 AKShare 固定版本，并且升级不能跨主版本。核验通过后由 `github-actions[bot]` squash 合并；否则保留 PR 并给出失败原因。三个流程都不使用 LLM 或人工交互。
+需要知道的四条约束：
 
-仓库需要在 `Settings → Actions → General → Workflow permissions` 中启用 `Read and write permissions`。建议为默认分支要求 `AKBridge automated validation and maintenance / offline-contract` 状态检查；如分支规则还要求人工批准或禁止 `github-actions[bot]` 合并，自动合并工作流不会绕过规则，PR 将保持打开状态并在 Actions 中记录失败原因。
+- **`GITHUB_TOKEN` 推送不触发新工作流。** 刷新基线与创建 Release 都在发起作业内完成，不依赖
+  事件链；自动合并的依赖升级自身也不启动维护流水线，由下一次推送或每周定时任务兜底。
+- **自动发版按依赖漂移触发。** 比较 HEAD 与上一发布 tag 的依赖固定版本，仅在变化时 bump；发布
+  步骤校验分支头与目标提交的血缘关系，并发组加远端版本检查保证重复触发只产生一个发版提交。
+  需要在无依赖变化时发版，手动 bump 版本后推送到默认分支即可。
+- **发布失败可重试。** `publish-pypi.yml` 保留 `workflow_dispatch` 入口（输入 `release_tag`），
+  因为机器人创建的 Release 不会触发 `release` 事件，`workflow_call` 失败后只能靠它手动重跑。
+- **自动合并的判定。** 作者必须是 `dependabot[bot]`，只修改 `pyproject.toml` 与 `uv.lock`，
+  恰好一个固定版本依赖变化，且 `pyproject.toml` 除该版本串外无其他改动。mcp 是 MCP 协议库，
+  minor 升级可能改变协议行为，因此保留人工确认。
+
+仓库需要在 `Settings → Actions → General → Workflow permissions` 中启用
+`Read and write permissions`。建议为默认分支要求
+`AKBridge automated validation and maintenance / offline-contract` 状态检查；如分支规则还要求
+人工批准，自动合并不会绕过规则，PR 将保持打开并在 Actions 中记录失败原因。

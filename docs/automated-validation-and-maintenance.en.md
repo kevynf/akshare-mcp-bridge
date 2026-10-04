@@ -2,28 +2,30 @@
 
 [简体中文](automated-validation-and-maintenance.zh-CN.md)
 
-This document defines AKBridge's automated maintenance boundaries. Default commands are deterministic:
-they do not call an LLM, wait for human input, or treat temporary provider outages as MCP adapter regressions.
+This document defines AKBridge's automated maintenance boundaries. Default commands are
+deterministic: they do not call an LLM, wait for human input, or treat temporary provider outages as
+MCP adapter regressions.
 
 ## Validation layers
 
-| Layer | Command | Third-party data source | Failure meaning |
+| Layer | Command | Provider access | Failure meaning |
 | --- | --- | ---: | --- |
 | Local contract | `akbridge-maintain ci --strict` | No | Discovery, schema, catalog, or routing regression. |
 | Offline per-interface | `akbridge-accept run --offline` | No | A local adapter contract failed. |
-| Provider probe | `akbridge-maintain ci --provider` | Yes | Upstream network, anti-scraping, credentials, data format, or runtime changes. |
+| Provider probe | `akbridge-maintain ci --strict --provider` | Yes | Upstream network, anti-scraping, credentials, data format, or runtime change. |
 
-The first two layers should be stable commit and scheduled CI gates. Run provider probes separately and retain their reports; transient network failures must not replace the contract baseline.
+The first two layers are the stable commit and scheduled CI gates. The third runs in a separate
+scheduled workflow, fails strictly only on MCP/Schema regressions and isolated worker failures, and
+commits its acceptance assets without rewriting the contract baseline.
 
 ## Upgrade workflow
 
-1. Upgrade `akshare` and its lock file on an isolated branch.
-2. Run the strict offline gate and generate a new manifest, semantic catalog, and report.
-3. Inspect `artifacts/maintenance/latest.json`: added interfaces are informational; removed interfaces, signature changes, and schema changes are regressions in strict mode.
-4. Run the full offline per-interface acceptance to confirm discovery and schema generation.
-5. Run `--provider` only when upstream availability needs assessment; classify failures using the ledger scope.
-6. Dependabot updates within the same major version may merge automatically after the complete gate passes; major upgrades or unusual changes require review.
-7. Update `artifacts/acceptance/manifest.json` only after explicitly accepting the new compatibility boundary.
+1. Upgrade `akshare` or `mcp` and the lock file on an isolated branch.
+2. Run the strict offline gate and the full offline acceptance to generate the manifest, semantic catalog, and report.
+3. Inspect `artifacts/maintenance/latest.json`: added interfaces are informational; removed interfaces, signature changes, and schema changes are regressions and exit nonzero in strict mode.
+4. Run `--provider` only when upstream availability needs assessment, and classify failures by the ledger scope.
+5. Same-major AKShare upgrades and same-minor MCP patch upgrades may merge automatically once the gate passes; major bumps, MCP minor bumps, and unusual changes require human review.
+6. When the gate passes and the regenerated baseline artifacts differ from the committed ones, CI regenerates and commits `artifacts/acceptance/manifest.json` and `artifacts/catalog.json`; removals, signature changes, and schema changes fail the gate before any refresh and stay manual.
 
 ## Commands
 
@@ -36,7 +38,9 @@ Generate an auditable baseline:
   --output artifacts\catalog.json
 ```
 
-Run the strict offline check:
+Strict offline check (append `--check-latest` in scheduled jobs to query the latest AKShare release
+on PyPI; network unavailability is reported as `unavailable` rather than a regression, and
+`--fail-on-update` makes a newly available release fail the gate):
 
 ```powershell
 .venv\Scripts\python.exe -m akbridge.maintenance ci --strict `
@@ -46,27 +50,87 @@ Run the strict offline check:
   --report artifacts\maintenance\latest.json
 ```
 
-Append `--check-latest` in scheduled jobs to query the latest AKShare release on PyPI. Network unavailability is reported as `unavailable`, not as an adapter regression. Add `--fail-on-update` only when a newly available release should fail the gate.
-
-Run offline per-interface adapter acceptance:
+Offline per-interface acceptance, report rendering, and baseline comparison:
 
 ```powershell
 .venv\Scripts\python.exe -m akbridge.acceptance run --offline --workers 4 `
   --output artifacts\acceptance\runs\offline.json
 .venv\Scripts\python.exe -m akbridge.acceptance report `
   --run artifacts\acceptance\runs\offline.json
+.venv\Scripts\python.exe -m akbridge.maintenance diff --strict `
+  --baseline artifacts\acceptance\manifest.json `
+  --current artifacts\maintenance\manifest.json
 ```
 
-The report writes `SUMMARY.md` and `SUMMARY.en.md`, the machine-readable `summary.json`, the status image, and the per-interface `ledger.csv`. The documentation section records document-chunk count, required-field completeness, public-interface coverage, and unlinked interfaces.
+The report writes `SUMMARY.md` and `SUMMARY.en.md`, the machine-readable `summary.json`, the status
+image, and the per-interface `ledger.csv`; its documentation section records document-chunk count,
+required-field completeness, public-interface coverage, and unlinked interfaces.
+
+Useful flags for `akbridge-accept run`: `--limit` bounds this run, `--resume` continues the previous
+progress, `--retry-status timeout` re-runs timed-out interfaces, `--name` (repeatable) restricts the
+run to named interfaces, and `--timeout`/`--workers` control the per-interface timeout and
+concurrency; `akbridge-accept manifest` regenerates the manifest at any time:
+
+```powershell
+.venv\Scripts\python.exe -m akbridge.acceptance run --resume --limit 100 --timeout 30 --workers 4
+.venv\Scripts\python.exe -m akbridge.acceptance run --name stock_zh_a_hist --name macro_china_cpi --timeout 30
+.venv\Scripts\python.exe -m akbridge.acceptance manifest
+```
 
 ## Exit codes and reports
 
-`akbridge-maintain ci --strict` exits nonzero when the discovered interface count falls below its minimum, interfaces are removed beyond `--max-removed`, existing signatures or input-schema hashes change, or catalog, schema, or routing validation fails.
+`akbridge-maintain ci --strict` exits nonzero when the discovered interface count falls below its
+minimum, when interfaces are removed beyond `--max-removed`, when an existing signature or
+input-schema hash changes, or when catalog, schema, MCP tool (`all`/`router` contract), or routing
+validation fails.
 
-Reports contain a stable `current_fingerprint`. The same AKShare version and local code should produce the same fingerprint; generation time is excluded. Metadata-hash changes are recorded, while only signature and schema changes are strict compatibility regressions.
+Reports contain a stable `current_fingerprint`: the same AKShare version and local code produce the
+same fingerprint, and generation time is excluded. Metadata-hash changes are recorded without
+counting as regressions. The fingerprint is only stable per interpreter — the gate and the baseline
+must be generated and compared under the repository's canonical interpreter, Python 3.14, because
+interpreters render PEP 604 unions in the same signature differently (`str | None` versus
+`Optional[str]`) and produce false regressions. Scheduled gate jobs pin this invariant through
+`UV_PYTHON: "3.14"`.
+
+## Provider probes
+
+Third-party data sources have CAPTCHAs, rate limits, logins, geography restrictions, and transient
+failures. AKBridge separates these into the `provider_success`, `upstream_transport`,
+`upstream_response`, `upstream_timeout`, and `akshare_runtime` scopes instead of reporting them as
+MCP schema failures. Probes may retry automatically, but must never tamper with interface arguments,
+fabricate empty data, or overwrite the contract baseline. Credentials come from environment
+variables, and reports and structured logs redact tokens, passwords, cookies, and API keys.
 
 ## GitHub Actions
 
-Scheduled tasks run in GitHub-hosted runners and do not create local scheduled jobs or resident processes. The maintenance workflow runs offline tests, the strict gate, and the version-matched AKShare documentation build; it uploads the maintenance and acceptance reports, including both language summaries. The provider workflow runs a monthly isolated upstream probe and retains the complete ledger. Dependabot opens daily AKShare update PRs, and the auto-merge workflow verifies that only the pinned dependency files changed before merging a same-major upgrade.
+Scheduled tasks run on GitHub-hosted runners and never create local scheduled jobs or resident
+processes. Times below are Beijing time (UTC+8); Dependabot uses `Asia/Shanghai` directly.
 
-Repository settings should enable read and write workflow permissions when workflows need to update generated status artifacts. Branch protection should require the maintenance `offline-contract` check. No workflow uses an LLM or interactive human input.
+| Task | Trigger | Beijing time | Repository effect |
+| --- | --- | --- | --- |
+| Offline tests, per-interface acceptance, strict gate, documentation index, build | Push or PR; every Monday | On push/PR; Mondays 12:00 | Uploads reports; commits a baseline refresh when the regenerated artifacts differ from the committed ones |
+| Dependency checks (akshare, mcp) | Dependabot daily | Daily 12:00 | Updates `pyproject.toml` and `uv.lock` and opens PRs, at most 3 open |
+| Controlled auto-merge | After the PR's maintenance run succeeds | No fixed time | Squash-merges same-major AKShare upgrades and same-minor MCP patch upgrades; keeps everything else open with a reason |
+| Full provider acceptance | 1st and 15th monthly | 12:00 | Commits the status image, acceptance summaries, and per-interface ledger |
+| Dependency-driven release | After a push or the weekly maintenance run succeeds | No fixed time | Bumps the patch version, then tags and creates the Release in the same job before publishing |
+
+Four constraints worth knowing:
+
+- **`GITHUB_TOKEN` pushes do not trigger workflows.** The baseline refresh and the Release are
+  therefore finished inside the job that starts them, not through an event chain; an auto-merged
+  dependency upgrade also does not start the maintenance pipeline, which the next push or the weekly
+  schedule covers.
+- **Releases follow dependency drift.** HEAD's pins are compared with the last release tag and the
+  version is bumped only when they differ; the release step checks the ancestry of its target commit,
+  and a concurrency group plus a remote-version check keeps repeated triggers to one release commit.
+  To release without a dependency change, bump the version manually and push to the default branch.
+- **Failed publishes are retried through `workflow_dispatch`** (input `release_tag`) on
+  `publish-pypi.yml`, because a Release created with `GITHUB_TOKEN` emits no `release` event, so a
+  failed `workflow_call` has no other retry path.
+- **Auto-merge requires** the author to be `dependabot[bot]`, only `pyproject.toml` and `uv.lock` to
+  change, exactly one exact-pin dependency to move, and no other `pyproject.toml` edit. MCP is the
+  protocol library, so minor upgrades may change protocol behavior and stay manual.
+
+Enable read and write workflow permissions and require the maintenance `offline-contract` check on
+the default branch. Branch rules that also demand human approval are not bypassed: the PR stays open
+and Actions records the reason.

@@ -36,4 +36,14 @@ Offline acceptance does not contact third-party providers or call an LLM. A sepa
 
 The release workflow uses PyPI Trusted Publishing and stores no API token in the repository. Before the first release, configure the GitHub Publisher for project `akbridge` on PyPI with repository `kevynf/akbridge`, workflow `publish-pypi.yml`, and environment `pypi`.
 
-Releases are version-driven. Update `pyproject.toml`, `src/akbridge/__init__.py`, and both version fields in `server.json`, then merge the change into the default branch. After the full CI succeeds, `auto-release.yml` creates the matching tag and GitHub Release (for example, `v0.1.3`) only if the default branch still points to the validated commit. It then reuses `publish-pypi.yml` to publish to PyPI and the MCP Registry. Existing releases are a no-op; a tag without a release, or a tag pointing elsewhere, fails for maintainer review. Manually published GitHub Releases still trigger the same publishing workflow.
+Releases are version-driven and also dependency-driven. For a manual release, update `pyproject.toml`,
+`src/akbridge/__init__.py`, and both version fields in `server.json`, then merge into the default
+branch; the release follows a successful CI run. For a dependency-driven release, `auto-release.yml`
+bumps the patch version automatically when the pinned dependencies differ from the last release tag,
+then creates the matching GitHub Release (for example, `v0.1.3`) **in the same job**, targeting that
+commit, and reuses `publish-pypi.yml` to publish to PyPI and the MCP Registry; it is a no-op when
+nothing changed, and a concurrency group plus a remote-version check keeps repeated triggers to a
+single release commit. Existing releases are idempotent; a tag without a release, or a tag pointing
+elsewhere, fails for maintainer review. After a failed `workflow_call` publish, retry through the
+`workflow_dispatch` entry point of `publish-pypi.yml` (input `release_tag`). Manually published
+GitHub Releases still trigger the same publishing workflow.
