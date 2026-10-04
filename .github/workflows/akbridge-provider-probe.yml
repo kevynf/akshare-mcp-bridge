@@ -2,7 +2,9 @@ name: AKBridge scheduled provider acceptance
 
 on:
   schedule:
-    - cron: "0 4 1 * *"
+    # Twice a month keeps the published acceptance ledger reasonably fresh
+    # without doubling provider-side pressure from a weekly full probe.
+    - cron: "0 4 1,15 * *"
   workflow_dispatch:
 
 permissions:
@@ -13,20 +15,24 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 180
     env:
-      UV_PYTHON: "3.11"
+      # The strict schema gate compares against the checked-in manifest, which
+      # is generated with the repository's canonical interpreter. Running the
+      # gate under any other interpreter renders PEP 604 unions differently
+      # (``Optional[str]`` vs ``str | None``) and produces false regressions.
+      UV_PYTHON: "3.14"
     steps:
       - name: Check out source
         uses: actions/checkout@v7
       - name: Set up Python
         uses: actions/setup-python@v7
         with:
-          python-version: "3.11"
+          python-version: "3.14"
       - name: Install uv
         uses: astral-sh/setup-uv@v9.0.0
         with:
           version: "0.11.32"
       - name: Install dependencies
-        run: uv sync --group dev --python "3.11"
+        run: uv sync --group dev --python "3.14"
       - name: Run isolated full provider acceptance
         run: >-
           uv run --no-sync akbridge-maintain ci --strict --provider
@@ -56,7 +62,13 @@ jobs:
             echo "Acceptance assets are unchanged."
           else
             git commit -m "chore: update provider acceptance results"
-            git push
+            # Rebase before pushing: the maintenance workflow can land a
+            # refreshed baseline while this probe is still calling providers
+            # (both start at 04:00 UTC when the 1st or 15th falls on a Monday),
+            # and a plain push would be rejected as non-fast-forward.
+            git fetch origin "${GITHUB_REF_NAME}"
+            git rebase "FETCH_HEAD"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
       - name: Upload provider acceptance report
         if: always()
