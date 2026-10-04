@@ -7,7 +7,7 @@
     <a href="https://github.com/kevynf/akshare-mcp-bridge/blob/master/README.en.md">English</a>
   </p>
   <p>
-    <a href="https://github.com/kevynf/akshare-mcp-bridge/actions/workflows/akbridge-maintenance.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/kevynf/akbridge/akbridge-maintenance.yml?branch=master&amp;label=CI"></a>
+    <a href="https://github.com/kevynf/akshare-mcp-bridge/actions/workflows/akbridge-maintenance.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/kevynf/akshare-mcp-bridge/akbridge-maintenance.yml?branch=master&amp;label=CI"></a>
     <img alt="Python 3.11+" src="https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white">
     <a href="https://pypi.org/project/akbridge/"><img alt="PyPI version" src="https://img.shields.io/pypi/v/akbridge?label=PyPI"></a>
     <a href="https://pypi.org/project/akbridge/"><img alt="AKShare dependency" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fpypi.org%2Fpypi%2Fakbridge%2Fjson&amp;query=%24.info.requires_dist%5B0%5D&amp;label=AKShare"></a>
@@ -69,12 +69,12 @@ akbridge --help
 akbridge --mode router
 ```
 
-第二条命令启动 stdio MCP 服务并等待客户端连接，终端看起来没有输出是正常现象，可按 `Ctrl+C` 停止。安装默认分支的开发版本用 `uv tool install --force "git+https://github.com/kevynf/akbridge.git"`；升级和卸载分别是 `uv tool upgrade akbridge` 与 `uv tool uninstall akbridge`。
+第二条命令启动 stdio MCP 服务并等待客户端连接，终端看起来没有输出是正常现象，可按 `Ctrl+C` 停止。安装默认分支的开发版本用 `uv tool install --force "git+https://github.com/kevynf/akshare-mcp-bridge.git"`；升级和卸载分别是 `uv tool upgrade akbridge` 与 `uv tool uninstall akbridge`。
 
 参与开发或需要修改代码时才克隆仓库：
 
 ```powershell
-git clone https://github.com/kevynf/akbridge.git
+git clone https://github.com/kevynf/akshare-mcp-bridge.git
 cd akbridge
 uv sync --group dev
 uv run --no-sync akbridge --mode router

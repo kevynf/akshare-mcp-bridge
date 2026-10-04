@@ -7,7 +7,7 @@
     <a href="https://github.com/kevynf/akshare-mcp-bridge/blob/master/README.en.md">English</a>
   </p>
   <p>
-    <a href="https://github.com/kevynf/akshare-mcp-bridge/actions/workflows/akbridge-maintenance.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/kevynf/akbridge/akbridge-maintenance.yml?branch=master&amp;label=CI"></a>
+    <a href="https://github.com/kevynf/akshare-mcp-bridge/actions/workflows/akbridge-maintenance.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/kevynf/akshare-mcp-bridge/akbridge-maintenance.yml?branch=master&amp;label=CI"></a>
     <img alt="Python 3.11+" src="https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white">
     <a href="https://pypi.org/project/akbridge/"><img alt="PyPI version" src="https://img.shields.io/pypi/v/akbridge?label=PyPI"></a>
     <a href="https://pypi.org/project/akbridge/"><img alt="AKShare dependency" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fpypi.org%2Fpypi%2Fakbridge%2Fjson&amp;query=%24.info.requires_dist%5B0%5D&amp;label=AKShare"></a>
@@ -99,14 +99,14 @@ akbridge --mode router
 
 The second command starts the stdio MCP server and waits for a client connection; it is normal for
 the terminal to show no output, and `Ctrl+C` stops it. Use
-`uv tool install --force "git+https://github.com/kevynf/akbridge.git"` to install the development
+`uv tool install --force "git+https://github.com/kevynf/akshare-mcp-bridge.git"` to install the development
 version from the default branch; upgrade and uninstall are `uv tool upgrade akbridge` and
 `uv tool uninstall akbridge`.
 
 Clone the repository only when contributing or modifying the code:
 
 ```powershell
-git clone https://github.com/kevynf/akbridge.git
+git clone https://github.com/kevynf/akshare-mcp-bridge.git
 cd akbridge
 uv sync --group dev
 uv run --no-sync akbridge --mode router
