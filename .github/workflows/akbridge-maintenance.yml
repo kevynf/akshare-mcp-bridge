@@ -180,7 +180,9 @@ jobs:
           git fetch origin "${GITHUB_REF_NAME}"
           git add artifacts/acceptance/manifest.json artifacts/catalog.json
           git commit -m "chore: refresh acceptance baseline for akshare ${akshare_version}"
-          git rebase "FETCH_HEAD"
+          # Autostash: the maintenance run may refresh tracked files outside the
+          # staged pair; a plain rebase aborts on the unstaged leftovers.
+          git rebase --autostash "FETCH_HEAD"
           git push origin "HEAD:${GITHUB_REF_NAME}"
           echo "Refreshed baseline for akshare ${akshare_version}; the next run on ${GITHUB_REF_NAME} compares against it."
       - name: Publish documentation coverage summary

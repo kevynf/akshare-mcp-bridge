@@ -67,7 +67,10 @@ jobs:
             # (both start at 04:00 UTC when the 1st or 15th falls on a Monday),
             # and a plain push would be rejected as non-fast-forward.
             git fetch origin "${GITHUB_REF_NAME}"
-            git rebase "FETCH_HEAD"
+            # Autostash: the acceptance run refreshes tracked files outside the
+            # staged set (e.g. the manifest baseline), and a plain rebase aborts
+            # with "cannot rebase: You have unstaged changes."
+            git rebase --autostash "FETCH_HEAD"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
       - name: Upload provider acceptance report
