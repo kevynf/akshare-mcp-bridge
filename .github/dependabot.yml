@@ -15,6 +15,7 @@ updates:
       # so the alerts could never be fixed automatically.
       - dependency-name: "pyjwt"
       - dependency-name: "urllib3"
+      - dependency-name: "certifi"
     ignore:
       - dependency-name: "mcp"
         versions: [">= 2.0.0"]
