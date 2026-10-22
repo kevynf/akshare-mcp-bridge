@@ -688,6 +688,7 @@ def run_acceptance(
     *,
     names: list[str] | None = None,
     limit: int | None = None,
+    shard: str | None = None,
     timeout: float = 30,
     resume: bool = False,
     retry_statuses: set[str] | None = None,
@@ -704,7 +705,17 @@ def run_acceptance(
             for name, item in results_by_name.items()
             if item.get("status") not in retry_statuses
         }
-    selected = names or list(catalog)
+    selected = names if names is not None else list(catalog)
+    if shard is not None:
+        try:
+            index_text, _, count_text = shard.partition("/")
+            index, count = int(index_text), int(count_text)
+        except ValueError:
+            raise ValueError(f"Invalid --shard value {shard!r}; expected I/N") from None
+        if count < 1 or not 1 <= index <= count:
+            raise ValueError(f"Invalid --shard value {shard!r}; expected 1 <= I <= N")
+        ordered = names if names is not None else sorted(catalog)
+        selected = [name for position, name in enumerate(ordered) if position % count == index - 1]
     unknown = sorted(set(selected) - set(catalog))
     if unknown:
         raise ValueError(f"Unknown AKShare APIs: {', '.join(unknown)}")
@@ -774,6 +785,11 @@ def main() -> None:
         "--fixtures", type=Path, default=Path("artifacts/acceptance/fixtures.json")
     )
     run_parser.add_argument("--name", action="append", dest="names")
+    run_parser.add_argument(
+        "--shard",
+        metavar="I/N",
+        help="run only shard I of N (1-based) over the sorted catalog; combinable with --name",
+    )
     run_parser.add_argument("--limit", type=int)
     run_parser.add_argument("--timeout", type=float, default=30)
     run_parser.add_argument("--resume", action="store_true")
@@ -804,6 +820,7 @@ def main() -> None:
             fixtures,
             names=args.names,
             limit=args.limit,
+            shard=args.shard,
             timeout=args.timeout,
             resume=args.resume,
             retry_statuses=set(args.retry_status),

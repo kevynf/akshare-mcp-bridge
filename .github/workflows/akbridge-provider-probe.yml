@@ -13,7 +13,13 @@ permissions:
 jobs:
   provider-acceptance:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        # Four parallel shards keep the wall clock near the slowest shard while
+        # bounding per-runner provider pressure.
+        shard: ["1/4", "2/4", "3/4", "4/4"]
     env:
       # The strict schema gate compares against the checked-in manifest, which
       # is generated with the repository's canonical interpreter. Running the
@@ -33,22 +39,121 @@ jobs:
           version: "0.11.32"
       - name: Install dependencies
         run: uv sync --group dev --python "3.14"
-      - name: Run isolated full provider acceptance
+      - name: Run isolated provider acceptance shard
         run: >-
           uv run --no-sync akbridge-maintain ci --strict --provider
-          --timeout 30 --workers 4
+          --timeout 30 --workers 8
+          --provider-shard "${{ matrix.shard }}"
           --baseline artifacts/acceptance/manifest.json
           --current artifacts/maintenance/provider-manifest.json
           --catalog artifacts/provider-catalog.json
           --report artifacts/maintenance/provider-latest.json
+      - name: Upload provider acceptance shard
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: akbridge-provider-acceptance-${{ replace(matrix.shard, '/', '-') }}
+          path: |
+            artifacts/maintenance/provider-run.json
+            artifacts/maintenance/provider-latest.json
+          include-hidden-files: true
+
+  provider-acceptance-publish:
+    runs-on: ubuntu-latest
+    needs: provider-acceptance
+    if: ${{ always() }}
+    timeout-minutes: 30
+    env:
+      UV_PYTHON: "3.14"
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+      - name: Install uv
+        uses: astral-sh/setup-uv@v9.0.0
+        with:
+          version: "0.11.32"
+      - name: Install dependencies
+        run: uv sync --group dev --python "3.14"
+      - name: Download shard results
+        uses: actions/download-artifact@v8
+        with:
+          pattern: akbridge-provider-acceptance-*
+          path: artifacts/shards
+          merge-multiple: false
+      - name: Merge shard runs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          shard_dirs = sorted(Path("artifacts/shards").glob("akbridge-provider-acceptance-*"))
+          results: dict[str, dict] = {}
+          latest: dict | None = None
+          for shard_dir in shard_dirs:
+              run_path = shard_dir / "provider-run.json"
+              if run_path.exists():
+                  data = json.loads(run_path.read_text(encoding="utf-8"))
+                  for item in data.get("results", []):
+                      results[item["name"]] = item
+              latest_path = shard_dir / "provider-latest.json"
+              if latest_path.exists() and latest is None:
+                  latest = json.loads(latest_path.read_text(encoding="utf-8"))
+
+          merged = {
+              "akshare_version": (latest or {}).get("akshare_version", "unknown"),
+              "results": list(results.values()),
+          }
+          merged["generated_at"] = max(
+              (item.get("generated_at", "") for item in results.values()), default=""
+          ) or None
+
+          maintenance_dir = Path("artifacts/maintenance")
+          maintenance_dir.mkdir(parents=True, exist_ok=True)
+          (maintenance_dir / "provider-run.json").write_text(
+              json.dumps(merged, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+          )
+
+          worker_failures = sum(
+              1 for item in merged["results"] if item.get("status") == "worker_failed"
+          )
+          report = dict(latest or {})
+          report["provider_status_counts"] = {}
+          for item in merged["results"]:
+              status = item.get("status")
+              report["provider_status_counts"][status] = (
+                  report["provider_status_counts"].get(status, 0) + 1
+              )
+          if worker_failures:
+              report["exit_code"] = 1
+          (maintenance_dir / "provider-latest.json").write_text(
+              json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          print(
+              json.dumps(
+                  {
+                      "shards": len(shard_dirs),
+                      "results": len(merged["results"]),
+                      "worker_failures": worker_failures,
+                  },
+                  sort_keys=True,
+              )
+          )
+          PY
       - name: Refresh README acceptance assets
-        if: ${{ always() && hashFiles('artifacts/maintenance/provider-run.json') != '' }}
+        if: ${{ hashFiles('artifacts/maintenance/provider-run.json') != '' }}
         run: >-
           uv run --no-sync akbridge-accept report
           --run artifacts/maintenance/provider-run.json
           --output-dir artifacts/acceptance
       - name: Commit refreshed acceptance assets
-        if: ${{ always() && hashFiles('artifacts/acceptance/status.svg') != '' }}
+        if: ${{ hashFiles('artifacts/acceptance/status.svg') != '' }}
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
@@ -56,6 +161,7 @@ jobs:
           git add \
             artifacts/acceptance/status.svg \
             artifacts/acceptance/SUMMARY.md \
+            artifacts/acceptance/SUMMARY.en.md \
             artifacts/acceptance/summary.json \
             artifacts/acceptance/ledger.csv
           if git diff --cached --quiet; then
@@ -66,14 +172,14 @@ jobs:
             # refreshed baseline while this probe is still calling providers
             # (both start at 04:00 UTC when the 1st or 15th falls on a Monday),
             # and a plain push would be rejected as non-fast-forward.
-            git fetch origin "${GITHUB_REF_NAME}"
             # Autostash: the acceptance run refreshes tracked files outside the
             # staged set (e.g. the manifest baseline), and a plain rebase aborts
             # with "cannot rebase: You have unstaged changes."
+            git fetch origin "${GITHUB_REF_NAME}"
             git rebase --autostash "FETCH_HEAD"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
-      - name: Upload provider acceptance report
+      - name: Upload merged provider acceptance report
         if: always()
         uses: actions/upload-artifact@v7
         with:
@@ -81,3 +187,15 @@ jobs:
           path: |
             artifacts/maintenance/
             artifacts/acceptance/
+      - name: Fail on worker failures
+        if: ${{ hashFiles('artifacts/maintenance/provider-latest.json') != '' }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          report = json.loads(Path("artifacts/maintenance/provider-latest.json").read_text(encoding="utf-8"))
+          sys.exit(1 if report.get("exit_code") else 0)
+          PY

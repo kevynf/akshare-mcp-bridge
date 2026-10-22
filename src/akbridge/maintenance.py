@@ -407,6 +407,11 @@ def main() -> None:
     )
     ci_parser.add_argument("--timeout", type=float, default=30)
     ci_parser.add_argument("--workers", type=int, default=4)
+    ci_parser.add_argument(
+        "--provider-shard",
+        metavar="I/N",
+        help="restrict the provider acceptance to shard I of N (1-based) of the sorted catalog",
+    )
 
     args = parser.parse_args()
     if args.command == "manifest":
@@ -460,13 +465,36 @@ def main() -> None:
         )
         if args.provider:
             run_path = args.report.with_name("provider-run.json")
+            catalog_functions = discover_functions()
+            provider_names: list[str] | None = None
+            if args.provider_shard:
+                try:
+                    index_text, _, count_text = args.provider_shard.partition("/")
+                    index, count = int(index_text), int(count_text)
+                except ValueError:
+                    raise ValueError(
+                        f"Invalid --provider-shard value {args.provider_shard!r}; expected I/N"
+                    ) from None
+                if count < 1 or not 1 <= index <= count:
+                    raise ValueError(
+                        f"Invalid --provider-shard value {args.provider_shard!r}; "
+                        "expected 1 <= I <= N"
+                    )
+                ordered = sorted(catalog_functions)
+                provider_names = [
+                    name for position, name in enumerate(ordered) if position % count == index - 1
+                ]
             provider_report = run_acceptance(
-                discover_functions(),
+                catalog_functions,
                 run_path,
                 _load_fixtures(Path("artifacts/acceptance/fixtures.json")),
+                names=provider_names,
                 timeout=args.timeout,
                 workers=args.workers,
-                resume=True,
+                # Sharded runs must not resume a previous full-coverage run file,
+                # otherwise the first shard would report results for the entire
+                # catalog instead of its own slice.
+                resume=args.provider_shard is None,
             )
             report["provider"] = write_acceptance_artifacts(run_path, args.report.parent)
             report["provider_status_counts"] = {

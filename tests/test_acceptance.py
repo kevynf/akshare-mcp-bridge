@@ -43,3 +43,23 @@ def test_run_acceptance_supports_concurrent_workers(tmp_path: Path) -> None:
 
     assert {item["name"] for item in report["results"]} == {"first", "second"}
     assert {item["status"] for item in report["results"]} == {"fixture_required"}
+
+
+def test_run_acceptance_shards_sorted_catalog(tmp_path: Path) -> None:
+    catalog = {name: _api(name) for name in ("alpha", "beta", "delta", "gamma")}
+
+    first = run_acceptance(catalog, tmp_path / "shard1.json", {}, shard="1/2")
+    second = run_acceptance(catalog, tmp_path / "shard2.json", {}, shard="2/2")
+
+    first_names = {item["name"] for item in first["results"]}
+    second_names = {item["name"] for item in second["results"]}
+    assert first_names == {"alpha", "delta"}
+    assert second_names == {"beta", "gamma"}
+    assert first_names.isdisjoint(second_names)
+
+
+def test_run_acceptance_rejects_invalid_shard(tmp_path: Path) -> None:
+    with pytest.raises(ValueError, match="Invalid --shard"):
+        run_acceptance({"sample": _api("sample")}, tmp_path / "report.json", {}, shard="0/2")
+    with pytest.raises(ValueError, match="Invalid --shard"):
+        run_acceptance({"sample": _api("sample")}, tmp_path / "report.json", {}, shard="3/2")
