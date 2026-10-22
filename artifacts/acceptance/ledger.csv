@@ -1,10 +1,10 @@
 ﻿name,status,scope,error_type,duration_seconds,error
-air_city_table,failed,akshare_runtime,ValueError,1.150743,ValueError: No tables found
+air_city_table,failed,akshare_runtime,ValueError,1.245685,ValueError: No tables found
 air_quality_hebei,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-air_quality_hist,failed,upstream_response,JSONDecodeError,1.288208,JSONDecodeError: No value to decode
-air_quality_rank,failed,akshare_runtime,ValueError,1.141351,ValueError: No tables found
-air_quality_watch_point,passed_empty,provider_success,,1.417422,
-amac_aoin_info,passed,provider_success,,13.26818,
+air_quality_hist,failed,upstream_response,JSONDecodeError,1.323587,JSONDecodeError: No value to decode
+air_quality_rank,failed,akshare_runtime,ValueError,1.695661,ValueError: No tables found
+air_quality_watch_point,passed_empty,provider_success,,1.335585,
+amac_aoin_info,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 amac_fund_abs,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 amac_fund_account_info,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 amac_fund_info,timeout,upstream_timeout,Timeout,,exceeded 30.0s
@@ -15,1083 +15,1083 @@ amac_manager_classify_info,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 amac_manager_info,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 amac_member_info,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 amac_member_sub_info,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-amac_person_bond_org_list,passed,provider_success,,2.025467,
-amac_person_fund_org_list,timeout,upstream_timeout,Timeout,,exceeded 30.0s
+amac_person_bond_org_list,passed,provider_success,,1.994108,
+amac_person_fund_org_list,passed,provider_success,,12.766006,
 amac_securities_info,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-article_epu_index,passed,provider_success,,0.24068,
-article_ff_crr,passed,provider_success,,0.933988,
-article_oman_rv,failed,upstream_transport,ConnectionError,0.326395,"ConnectionError: HTTPSConnectionPool(host='realized.oxford-man.ox.ac.uk', port=443): Max retries exceeded with url: /theme/js/visualization-data.js?20191111113154 (Caused by NameResolutionError(""HTTPSConnection(host='realized.oxford-man.ox.ac.uk', port=443): Failed to resolve 'realized.oxford-man.ox.ac.uk' ([Errno -2] Name or service not known)""))"
-article_oman_rv_short,failed,upstream_transport,ConnectionError,0.330097,"ConnectionError: HTTPSConnectionPool(host='realized.oxford-man.ox.ac.uk', port=443): Max retries exceeded with url: /theme/js/front-page-chart.js (Caused by NameResolutionError(""HTTPSConnection(host='realized.oxford-man.ox.ac.uk', port=443): Failed to resolve 'realized.oxford-man.ox.ac.uk' ([Errno -2] Name or service not known)""))"
-article_rlab_rv,failed,akshare_runtime,AttributeError,5.178075,AttributeError: 'NoneType' object has no attribute 'get_text'
+article_epu_index,passed,provider_success,,0.717508,
+article_ff_crr,passed,provider_success,,1.277461,
+article_oman_rv,failed,upstream_transport,ConnectionError,0.342297,"ConnectionError: HTTPSConnectionPool(host='realized.oxford-man.ox.ac.uk', port=443): Max retries exceeded with url: /theme/js/visualization-data.js?20191111113154 (Caused by NameResolutionError(""HTTPSConnection(host='realized.oxford-man.ox.ac.uk', port=443): Failed to resolve 'realized.oxford-man.ox.ac.uk' ([Errno -2] Name or service not known)""))"
+article_oman_rv_short,failed,upstream_transport,ConnectionError,1.250555,"ConnectionError: HTTPSConnectionPool(host='realized.oxford-man.ox.ac.uk', port=443): Max retries exceeded with url: /theme/js/front-page-chart.js (Caused by NameResolutionError(""HTTPSConnection(host='realized.oxford-man.ox.ac.uk', port=443): Failed to resolve 'realized.oxford-man.ox.ac.uk' ([Errno -2] Name or service not known)""))"
+article_rlab_rv,failed,akshare_runtime,AttributeError,5.42007,AttributeError: 'NoneType' object has no attribute 'get_text'
 bank_fjcf_table_detail,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-bond_available_index_cbond,passed,provider_success,,0.156599,
-bond_buy_back_hist_em,failed,upstream_transport,ConnectionError,0.949265,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-bond_cash_summary_sse,passed,provider_success,,1.516193,
-bond_cb_adj_logs_jsl,passed,provider_success,,1.271923,
-bond_cb_index_jsl,passed,provider_success,,1.529726,
-bond_cb_jsl,passed,provider_success,,1.587665,
-bond_cb_profile_sina,passed,provider_success,,1.076443,
-bond_cb_redeem_jsl,passed,provider_success,,1.83988,
-bond_cb_summary_sina,passed,provider_success,,1.558138,
-bond_china_close_return,failed,akshare_runtime,KeyError,1.363334,KeyError: 'newDateValue'
-bond_china_close_return_map,passed,provider_success,,1.131081,
-bond_china_yield,passed,provider_success,,14.612394,
-bond_composite_index_cbond,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-bond_corporate_issue_cninfo,passed,provider_success,,1.983684,
-bond_cov_comparison,failed,upstream_transport,ConnectionError,8.003888,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-bond_cov_issue_cninfo,passed,provider_success,,1.242782,
-bond_cov_stock_issue_cninfo,passed,provider_success,,1.778197,
-bond_deal_summary_sse,passed,provider_success,,1.258828,
-bond_debt_nafmii,failed,upstream_response,JSONDecodeError,0.768858,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-bond_gb_us_sina,passed,provider_success,,1.266859,
-bond_gb_zh_sina,passed,provider_success,,1.209749,
-bond_index_general_cbond,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-bond_info_cm,failed,akshare_runtime,KeyError,0.83195,KeyError: 'pageTotal'
-bond_info_cm_query,failed,akshare_runtime,KeyError,1.018825,KeyError: 'bondRtngShrt'
-bond_info_detail_cm,failed,akshare_runtime,KeyError,0.783576,KeyError: 'pageTotal'
-bond_local_government_issue_cninfo,passed,provider_success,,3.021693,
-bond_new_composite_index_cbond,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-bond_sh_buy_back_em,failed,upstream_response,JSONDecodeError,1.30391,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-bond_spot_deal,passed,provider_success,,3.683529,
-bond_spot_quote,passed,provider_success,,1.216781,
-bond_sz_buy_back_em,failed,upstream_response,JSONDecodeError,1.186114,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-bond_treasure_issue_cninfo,passed,provider_success,,1.360625,
-bond_treasury_index_cbond,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-bond_zh_cov,passed,provider_success,,14.417828,
-bond_zh_cov_info,passed,provider_success,,0.909536,
-bond_zh_cov_info_ths,passed,provider_success,,2.105063,
-bond_zh_cov_value_analysis,failed,akshare_runtime,ValueError,7.543364,"ValueError: Length mismatch: Expected axis has 15 elements, new values have 13 elements"
-bond_zh_hs_cov_daily,passed,provider_success,,1.361263,
-bond_zh_hs_cov_min,failed,upstream_transport,ConnectionError,2.950183,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-bond_zh_hs_cov_pre_min,failed,akshare_runtime,TypeError,2.055826,TypeError: 'NoneType' object is not subscriptable
-bond_zh_hs_cov_spot,passed,provider_success,,3.030458,
-bond_zh_hs_daily,passed,provider_success,,0.482804,
-bond_zh_hs_spot,passed,provider_success,,18.164246,
-bond_zh_us_rate,passed,provider_success,,10.191764,
-business_value_artist,failed,upstream_response,JSONDecodeError,1.535659,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-car_market_cate_cpca,failed,akshare_runtime,KeyError,1.466338,KeyError: '2026年'
-car_market_country_cpca,passed,provider_success,,0.874046,
-car_market_fuel_cpca,passed,provider_success,,1.433864,
-car_market_man_rank_cpca,passed,provider_success,,1.857846,
-car_market_segment_cpca,passed,provider_success,,1.833579,
-car_market_total_cpca,passed,provider_success,,1.264027,
-car_sale_rank_gasgoo,passed,provider_success,,2.855668,
-crypto_bitcoin_cme,passed,provider_success,,1.132263,
-crypto_bitcoin_hold_report,passed,provider_success,,0.958324,
-crypto_js_spot,passed,provider_success,,0.788669,
-currency_boc_safe,passed,provider_success,,18.165907,
-currency_boc_sina,passed,provider_success,,5.119421,
-currency_convert,failed,akshare_runtime,KeyError,0.534698,KeyError: 'timestamp'
-currency_currencies,passed_empty,provider_success,,0.948821,
-currency_history,failed,akshare_runtime,KeyError,0.502119,KeyError: 'date'
-currency_latest,failed,akshare_runtime,KeyError,0.536979,KeyError: 'date'
-currency_pair_map,failed,akshare_runtime,KeyError,0.428617,KeyError: '美元'
-currency_time_series,passed_empty,provider_success,,1.05202,
-drewry_wci_index,passed,provider_success,,2.154704,
-energy_carbon_bj,failed,akshare_runtime,AttributeError,1.99218,AttributeError: 'NoneType' object has no attribute 'find'
-energy_carbon_domestic,failed,upstream_response,JSONDecodeError,4.663635,JSONDecodeError: Can not decode value starting with character ')'
+bond_available_index_cbond,passed,provider_success,,0.269974,
+bond_buy_back_hist_em,passed,provider_success,,2.419119,
+bond_cash_summary_sse,passed,provider_success,,1.787787,
+bond_cb_adj_logs_jsl,passed,provider_success,,1.583776,
+bond_cb_index_jsl,passed,provider_success,,2.110154,
+bond_cb_jsl,passed,provider_success,,1.564722,
+bond_cb_profile_sina,passed,provider_success,,1.461101,
+bond_cb_redeem_jsl,passed,provider_success,,1.609936,
+bond_cb_summary_sina,passed,provider_success,,1.696491,
+bond_china_close_return,failed,akshare_runtime,KeyError,1.163639,KeyError: 'newDateValue'
+bond_china_close_return_map,passed,provider_success,,1.264604,
+bond_china_yield,passed,provider_success,,13.141328,
+bond_composite_index_cbond,passed,provider_success,,4.674222,
+bond_corporate_issue_cninfo,passed,provider_success,,2.601527,
+bond_cov_comparison,failed,upstream_transport,ConnectionError,8.20116,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+bond_cov_issue_cninfo,passed,provider_success,,1.136655,
+bond_cov_stock_issue_cninfo,passed,provider_success,,2.863499,
+bond_deal_summary_sse,passed,provider_success,,0.824317,
+bond_debt_nafmii,failed,upstream_response,JSONDecodeError,1.009894,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+bond_gb_us_sina,passed,provider_success,,1.354717,
+bond_gb_zh_sina,passed,provider_success,,1.810073,
+bond_index_general_cbond,passed,provider_success,,3.080724,
+bond_info_cm,failed,akshare_runtime,KeyError,1.752895,KeyError: 'pageTotal'
+bond_info_cm_query,failed,akshare_runtime,KeyError,1.126061,KeyError: 'bondRtngShrt'
+bond_info_detail_cm,failed,akshare_runtime,KeyError,1.439264,KeyError: 'pageTotal'
+bond_local_government_issue_cninfo,passed,provider_success,,1.713651,
+bond_new_composite_index_cbond,passed,provider_success,,4.80553,
+bond_sh_buy_back_em,passed,provider_success,,2.177831,
+bond_spot_deal,passed,provider_success,,1.71662,
+bond_spot_quote,passed,provider_success,,1.098041,
+bond_sz_buy_back_em,passed,provider_success,,2.425878,
+bond_treasure_issue_cninfo,passed,provider_success,,1.391212,
+bond_treasury_index_cbond,passed,provider_success,,2.348576,
+bond_zh_cov,passed,provider_success,,13.543064,
+bond_zh_cov_info,passed,provider_success,,1.221452,
+bond_zh_cov_info_ths,passed,provider_success,,2.666302,
+bond_zh_cov_value_analysis,failed,akshare_runtime,ValueError,2.897628,"ValueError: Length mismatch: Expected axis has 15 elements, new values have 13 elements"
+bond_zh_hs_cov_daily,passed,provider_success,,1.277266,
+bond_zh_hs_cov_min,failed,akshare_runtime,TypeError,1.581195,TypeError: 'NoneType' object is not subscriptable
+bond_zh_hs_cov_pre_min,failed,akshare_runtime,TypeError,1.840561,TypeError: 'NoneType' object is not subscriptable
+bond_zh_hs_cov_spot,passed,provider_success,,3.495638,
+bond_zh_hs_daily,passed,provider_success,,0.84127,
+bond_zh_hs_spot,passed,provider_success,,20.245681,
+bond_zh_us_rate,passed,provider_success,,10.126032,
+business_value_artist,failed,upstream_response,JSONDecodeError,2.908579,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+car_market_cate_cpca,failed,akshare_runtime,KeyError,1.438351,KeyError: '2026年'
+car_market_country_cpca,passed,provider_success,,1.735803,
+car_market_fuel_cpca,passed,provider_success,,1.726785,
+car_market_man_rank_cpca,passed,provider_success,,1.902332,
+car_market_segment_cpca,passed,provider_success,,0.951582,
+car_market_total_cpca,passed,provider_success,,1.205225,
+car_sale_rank_gasgoo,passed,provider_success,,2.618052,
+crypto_bitcoin_cme,passed,provider_success,,1.363819,
+crypto_bitcoin_hold_report,passed,provider_success,,0.981078,
+crypto_js_spot,passed,provider_success,,1.404371,
+currency_boc_safe,passed,provider_success,,14.208593,
+currency_boc_sina,passed,provider_success,,4.780545,
+currency_convert,failed,akshare_runtime,KeyError,1.016441,KeyError: 'timestamp'
+currency_currencies,passed_empty,provider_success,,0.903685,
+currency_history,failed,akshare_runtime,KeyError,0.995753,KeyError: 'date'
+currency_latest,failed,akshare_runtime,KeyError,1.054428,KeyError: 'date'
+currency_pair_map,failed,akshare_runtime,KeyError,0.353138,KeyError: '美元'
+currency_time_series,passed_empty,provider_success,,0.796503,
+drewry_wci_index,passed,provider_success,,1.74858,
+energy_carbon_bj,failed,akshare_runtime,AttributeError,3.503097,AttributeError: 'NoneType' object has no attribute 'find'
+energy_carbon_domestic,failed,upstream_response,JSONDecodeError,8.880579,JSONDecodeError: Can not decode value starting with character ')'
 energy_carbon_eu,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-energy_carbon_gz,failed,akshare_runtime,ValueError,2.177209,ValueError: No tables found
+energy_carbon_gz,failed,akshare_runtime,ValueError,2.054093,ValueError: No tables found
 energy_carbon_hb,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 energy_carbon_sz,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-energy_oil_detail,passed,provider_success,,0.653973,
-energy_oil_hist,passed,provider_success,,0.895982,
-forbes_rank,failed,akshare_runtime,FileNotFoundError,3.101793,"FileNotFoundError: [Errno 2] No such file or directory: <!DOCTYPE html> <html lang=""zh-CN"">     <head>         <meta charset=""utf-8"">         <meta http-equiv=""X-UA-Compatible"" content=""IE=edge"">         <meta name=""viewport"" content=""width=device-width, initial-scale=1"">         <meta http-equiv=""Content-Security-Policy"" content=""upgrade-insecure-requests"">         <meta name=""title"" content=""2021福布斯 - 中国创投人100 - 2021年榜单 - 人"">     <meta name=""description"" content=""2021福布斯"">              <title>2021福布斯 - 中国创投人100 - 2021年榜单 - 人 - 福布斯中国 | Forbes China</title>         <link rel=""stylesheet"" type=""text/css"" href=""/static/bootstrap/css/bootstrap.min.css"" />         <link rel=""stylesheet"" type=""text/css"" href=""/static/css/animate.min.css"" />         <link rel=""stylesheet"" type=""text/css"" href=""/static/css/share.css"" />         <link rel=""stylesheet"" type=""text/css"" href=""/static/css/style.css"" />         <link rel=""stylesheet"" type=""text/css"" href=""/static/css/nav.css"" />         <meta             content= ""https://www.forbeschina.com/static/images/app-logo.png""              property=""og:image"">         <script             type=""text/javascript""             src=""https://o.alicdn.com/captcha-frontend/aliyunCaptcha/AliyunCaptcha.js""         ></script>         <!--[if lt IE 9]>         <script type=""text/javascript"" src=""/static/bootstrap/js/html5shiv.min.js""></script>         <script type=""text/javascript"" src=""/static/bootstrap/js/respond.min.js""></script>         <![endif]-->                  <script>         window.AliyunCaptchaConfig = {             region: 'cn',             prefix: '1rarute',         };         </script>     </head>     <body>         <script>;(function(w,p){var p=w[p]=(w[p]||{});})(window,'Pg');</script> <div class=""testBar""> 	福布斯中国新版网站试运营中，如需浏览旧版福布斯中国，<a target=""_blank"" href=""http://china.forbeschina.com"">请点击</a> </div> <div class=""hd"">     <div class=""topBar"">         <div class=""container"">             <div class=""con"">                                                                     <a href=""https://www.forbeschina.com/login"">登录</a>                             <a href=""https://www.forbeschina.com/register"">注册</a> 							<a href=""http://columnist.forbeschina.com/"" target=""_blank"">投稿</a>                                                         <a href=""/apps"">APP下载</a> 				<a href=""/subscribe"">邮件订阅</a>                 <div class=""follow"">                     关注我们：                     <div class=""share"">                     	<a href=""javascript:;"" class=""dropdown""><img  id=""WXQR"" data-toggle=""dropdown"" aria-haspopup=""true"" aria-expanded=""false"" width=""24"" height=""24"" src=""/static/images/icon-1.png"">                         	<span class=""dropdown-menu"" aria-labelledby=""WXQR""><img width=""152"" src=""/static/images/wechat_qrcode.jpg""></span>                         </a>                                                                         <a target=""_blank""  href=""https://weibo.com/u/1765373140""><img width=""24""  height=""24"" src=""/static/images/icon-2.png""></a>                         <a target=""_blank""  href=""https://i.snssdk.com/rogue/ugc/profile/?version_code=7.1.6&version_name=70106&user_id=63109499187&media_id=1607034824064008&request_source=1&active_tab=dongtai&visit_user_id=63109499187&device_id=61070949238&app_name=news_article&tt_from=weixin&utm_source=weixin&utm_medium=toutiao_ios&utm_campaign=client_share&wxshare_count=1""><img width=""24""  height=""24"" src=""/static/images/icon-3.png""></a>                         <a target=""_blank"" href=""https://view.inews.qq.com/media/10292653?openid=o04IBAK1MYsvG-zI_6ZR0daKE_78&key=3da4a13190164767467dcee9be2c2420261d956ac60e07923f7d696d99d662c6a4cbc33881d7076797cd8808ea69f466603099c7a095e1ac162fa003bd6e307d837b4de1d435feec55b3502068cf80f9&version=62060739&devicetype=Windows+XP&wuid=oDdoCt5-2CTSpf_DTMsVR7d49Yb0&cv=0x62060739&dt=15&lang=zh_TW&pass_ticket=96yovRl6qXRK%2F6Ew7jfD%2FYupXftlWUOlGg5YsdYvzvY4KoQphxByOinz6dFTTisy""><img  width=""24"" height=""24"" src=""/static/images"
-forex_hist_em,failed,upstream_transport,ConnectionError,2.07282,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-forex_spot_em,failed,upstream_transport,HTTPError,8.155976,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?np=1&fltt=2&invt=2&fs=m%3A119%2Cm%3A120%2Cm%3A133&fields=f12%2Cf13%2Cf14%2Cf1%2Cf2%2Cf4%2Cf3%2Cf152%2Cf17%2Cf18%2Cf15%2Cf16&fid=f3&pn=1&pz=100&po=1&dect=1&wbp2u=%7C0%7C0%7C0%7Cweb
-fred_md,failed,upstream_transport,HTTPError,0.425476,HTTPError: HTTP Error 403: Forbidden
-fred_qd,failed,upstream_transport,HTTPError,0.405414,HTTPError: HTTP Error 403: Forbidden
-fund_announcement_dividend_em,passed,provider_success,,0.813846,
-fund_announcement_personnel_em,passed,provider_success,,0.564263,
-fund_announcement_report_em,passed,provider_success,,0.749944,
-fund_aum_em,passed,provider_success,,1.955179,
-fund_aum_hist_em,passed,provider_success,,1.565968,
-fund_aum_trend_em,passed,provider_success,,0.88119,
-fund_balance_position_lg,passed,provider_success,,1.979548,
-fund_cf_em,passed,provider_success,,3.289308,
-fund_etf_category_sina,passed,provider_success,,1.58112,
-fund_etf_category_ths,passed,provider_success,,2.750595,
-fund_etf_dividend_sina,passed,provider_success,,1.202872,
-fund_etf_fund_daily_em,passed,provider_success,,1.817842,
+energy_oil_detail,passed,provider_success,,0.716039,
+energy_oil_hist,passed,provider_success,,1.126607,
+forbes_rank,failed,akshare_runtime,FileNotFoundError,4.396529,"FileNotFoundError: [Errno 2] No such file or directory: <!DOCTYPE html> <html lang=""zh-CN"">     <head>         <meta charset=""utf-8"">         <meta http-equiv=""X-UA-Compatible"" content=""IE=edge"">         <meta name=""viewport"" content=""width=device-width, initial-scale=1"">         <meta http-equiv=""Content-Security-Policy"" content=""upgrade-insecure-requests"">         <meta name=""title"" content=""2021福布斯 - 中国创投人100 - 2021年榜单 - 人"">     <meta name=""description"" content=""2021福布斯"">              <title>2021福布斯 - 中国创投人100 - 2021年榜单 - 人 - 福布斯中国 | Forbes China</title>         <link rel=""stylesheet"" type=""text/css"" href=""/static/bootstrap/css/bootstrap.min.css"" />         <link rel=""stylesheet"" type=""text/css"" href=""/static/css/animate.min.css"" />         <link rel=""stylesheet"" type=""text/css"" href=""/static/css/share.css"" />         <link rel=""stylesheet"" type=""text/css"" href=""/static/css/style.css"" />         <link rel=""stylesheet"" type=""text/css"" href=""/static/css/nav.css"" />         <meta             content= ""https://www.forbeschina.com/static/images/app-logo.png""              property=""og:image"">         <script             type=""text/javascript""             src=""https://o.alicdn.com/captcha-frontend/aliyunCaptcha/AliyunCaptcha.js""         ></script>         <!--[if lt IE 9]>         <script type=""text/javascript"" src=""/static/bootstrap/js/html5shiv.min.js""></script>         <script type=""text/javascript"" src=""/static/bootstrap/js/respond.min.js""></script>         <![endif]-->                  <script>         window.AliyunCaptchaConfig = {             region: 'cn',             prefix: '1rarute',         };         </script>     </head>     <body>         <script>;(function(w,p){var p=w[p]=(w[p]||{});})(window,'Pg');</script> <div class=""testBar""> 	福布斯中国新版网站试运营中，如需浏览旧版福布斯中国，<a target=""_blank"" href=""http://china.forbeschina.com"">请点击</a> </div> <div class=""hd"">     <div class=""topBar"">         <div class=""container"">             <div class=""con"">                                                                     <a href=""https://www.forbeschina.com/login"">登录</a>                             <a href=""https://www.forbeschina.com/register"">注册</a> 							<a href=""http://columnist.forbeschina.com/"" target=""_blank"">投稿</a>                                                         <a href=""/apps"">APP下载</a> 				<a href=""/subscribe"">邮件订阅</a>                 <div class=""follow"">                     关注我们：                     <div class=""share"">                     	<a href=""javascript:;"" class=""dropdown""><img  id=""WXQR"" data-toggle=""dropdown"" aria-haspopup=""true"" aria-expanded=""false"" width=""24"" height=""24"" src=""/static/images/icon-1.png"">                         	<span class=""dropdown-menu"" aria-labelledby=""WXQR""><img width=""152"" src=""/static/images/wechat_qrcode.jpg""></span>                         </a>                                                                         <a target=""_blank""  href=""https://weibo.com/u/1765373140""><img width=""24""  height=""24"" src=""/static/images/icon-2.png""></a>                         <a target=""_blank""  href=""https://i.snssdk.com/rogue/ugc/profile/?version_code=7.1.6&version_name=70106&user_id=63109499187&media_id=1607034824064008&request_source=1&active_tab=dongtai&visit_user_id=63109499187&device_id=61070949238&app_name=news_article&tt_from=weixin&utm_source=weixin&utm_medium=toutiao_ios&utm_campaign=client_share&wxshare_count=1""><img width=""24""  height=""24"" src=""/static/images/icon-3.png""></a>                         <a target=""_blank"" href=""https://view.inews.qq.com/media/10292653?openid=o04IBAK1MYsvG-zI_6ZR0daKE_78&key=3da4a13190164767467dcee9be2c2420261d956ac60e07923f7d696d99d662c6a4cbc33881d7076797cd8808ea69f466603099c7a095e1ac162fa003bd6e307d837b4de1d435feec55b3502068cf80f9&version=62060739&devicetype=Windows+XP&wuid=oDdoCt5-2CTSpf_DTMsVR7d49Yb0&cv=0x62060739&dt=15&lang=zh_TW&pass_ticket=96yovRl6qXRK%2F6Ew7jfD%2FYupXftlWUOlGg5YsdYvzvY4KoQphxByOinz6dFTTisy""><img  width=""24"" height=""24"" src=""/static/images"
+forex_hist_em,failed,upstream_transport,ConnectionError,1.352519,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+forex_spot_em,failed,upstream_transport,HTTPError,8.899149,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?np=1&fltt=2&invt=2&fs=m%3A119%2Cm%3A120%2Cm%3A133&fields=f12%2Cf13%2Cf14%2Cf1%2Cf2%2Cf4%2Cf3%2Cf152%2Cf17%2Cf18%2Cf15%2Cf16&fid=f3&pn=1&pz=100&po=1&dect=1&wbp2u=%7C0%7C0%7C0%7Cweb
+fred_md,failed,upstream_transport,HTTPError,0.350914,HTTPError: HTTP Error 403: Forbidden
+fred_qd,failed,upstream_transport,HTTPError,0.221056,HTTPError: HTTP Error 403: Forbidden
+fund_announcement_dividend_em,passed,provider_success,,0.644693,
+fund_announcement_personnel_em,passed,provider_success,,0.754761,
+fund_announcement_report_em,passed,provider_success,,1.048958,
+fund_aum_em,passed,provider_success,,16.647504,
+fund_aum_hist_em,passed,provider_success,,1.126282,
+fund_aum_trend_em,passed,provider_success,,1.148033,
+fund_balance_position_lg,passed,provider_success,,3.14169,
+fund_cf_em,passed,provider_success,,1.154074,
+fund_etf_category_sina,passed,provider_success,,1.770769,
+fund_etf_category_ths,passed,provider_success,,2.659056,
+fund_etf_dividend_sina,passed,provider_success,,3.038243,
+fund_etf_fund_daily_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 fund_etf_fund_info_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-fund_etf_hist_em,failed,upstream_transport,ConnectionError,1.63529,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-fund_etf_hist_min_em,failed,upstream_transport,ConnectionError,0.813778,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-fund_etf_hist_sina,passed,provider_success,,1.047043,
-fund_etf_scale_sse,passed,provider_success,,2.473966,
-fund_etf_scale_szse,failed,upstream_transport,ConnectionError,3.254774,"ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
-fund_etf_spot_em,failed,upstream_transport,HTTPError,8.454393,HTTPError: 502 Server Error: Bad Gateway for url: https://push2delay.eastmoney.com/api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&wbp2u=%7C0%7C0%7C0%7Cweb&fid=f12&fs=b%3AMK0021%2Cb%3AMK0022%2Cb%3AMK0023%2Cb%3AMK0024%2Cb%3AMK0827&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf30%2Cf31%2Cf32%2Cf33%2Cf34%2Cf35%2Cf38%2Cf62%2Cf63%2Cf64%2Cf65%2Cf66%2Cf69%2Cf72%2Cf75%2Cf78%2Cf81%2Cf84%2Cf87%2Cf115%2Cf124%2Cf128%2Cf136%2Cf152%2Cf184%2Cf297%2Cf402%2Cf441
-fund_etf_spot_ths,passed,provider_success,,1.906726,
-fund_exchange_rank_em,passed,provider_success,,18.123296,
-fund_fee_em,passed_empty,provider_success,,1.496219,
+fund_etf_hist_em,passed,provider_success,,1.940294,
+fund_etf_hist_min_em,failed,upstream_transport,ConnectionError,2.188026,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+fund_etf_hist_sina,passed,provider_success,,1.691612,
+fund_etf_scale_sse,passed,provider_success,,1.50305,
+fund_etf_scale_szse,failed,upstream_transport,ConnectionError,3.314838,"ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
+fund_etf_spot_em,failed,upstream_transport,HTTPError,8.229116,HTTPError: 502 Server Error: Bad Gateway for url: https://push2delay.eastmoney.com/api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&wbp2u=%7C0%7C0%7C0%7Cweb&fid=f12&fs=b%3AMK0021%2Cb%3AMK0022%2Cb%3AMK0023%2Cb%3AMK0024%2Cb%3AMK0827&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf30%2Cf31%2Cf32%2Cf33%2Cf34%2Cf35%2Cf38%2Cf62%2Cf63%2Cf64%2Cf65%2Cf66%2Cf69%2Cf72%2Cf75%2Cf78%2Cf81%2Cf84%2Cf87%2Cf115%2Cf124%2Cf128%2Cf136%2Cf152%2Cf184%2Cf297%2Cf402%2Cf441
+fund_etf_spot_ths,passed,provider_success,,3.064162,
+fund_exchange_rank_em,passed,provider_success,,11.894003,
+fund_fee_em,passed_empty,provider_success,,1.738963,
 fund_fh_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 fund_fh_rank_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-fund_financial_fund_daily_em,passed_empty,provider_success,,0.990988,
+fund_financial_fund_daily_em,passed_empty,provider_success,,1.5713,
 fund_financial_fund_info_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-fund_graded_fund_daily_em,passed,provider_success,,8.754933,
+fund_graded_fund_daily_em,passed,provider_success,,14.744189,
 fund_graded_fund_info_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-fund_hk_fund_hist_em,passed,provider_success,,2.101002,
-fund_hk_rank_em,passed,provider_success,,1.562608,
-fund_hold_structure_em,passed,provider_success,,1.385504,
-fund_individual_achievement_xq,passed,provider_success,,0.729764,
-fund_individual_analysis_xq,passed,provider_success,,0.846344,
-fund_individual_basic_info_xq,passed,provider_success,,0.745927,
-fund_individual_detail_hold_xq,passed,provider_success,,0.7213,
-fund_individual_detail_info_xq,passed,provider_success,,0.917796,
-fund_individual_profit_probability_xq,passed,provider_success,,0.695693,
-fund_info_index_em,passed,provider_success,,2.892713,
-fund_info_ths,passed,provider_success,,1.28735,
-fund_lcx_rank_em,passed_empty,provider_success,,2.993521,
-fund_linghuo_position_lg,passed,provider_success,,1.748074,
-fund_lof_hist_em,failed,upstream_transport,ConnectionError,9.621166,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-fund_lof_hist_min_em,failed,upstream_transport,ConnectionError,10.988673,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-fund_lof_spot_em,failed,upstream_transport,ConnectionError,12.413004,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+fund_hk_fund_hist_em,passed,provider_success,,1.953542,
+fund_hk_rank_em,passed,provider_success,,2.03502,
+fund_hold_structure_em,passed,provider_success,,1.544048,
+fund_individual_achievement_xq,passed,provider_success,,1.011016,
+fund_individual_analysis_xq,passed,provider_success,,0.77085,
+fund_individual_basic_info_xq,passed,provider_success,,0.996889,
+fund_individual_detail_hold_xq,passed,provider_success,,0.734454,
+fund_individual_detail_info_xq,passed,provider_success,,1.086545,
+fund_individual_profit_probability_xq,passed,provider_success,,0.741141,
+fund_info_index_em,passed,provider_success,,3.453573,
+fund_info_ths,passed,provider_success,,1.924426,
+fund_lcx_rank_em,passed_empty,provider_success,,2.208565,
+fund_linghuo_position_lg,passed,provider_success,,1.785075,
+fund_lof_hist_em,failed,upstream_transport,ConnectionError,8.621791,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+fund_lof_hist_min_em,failed,upstream_transport,ConnectionError,7.151028,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+fund_lof_spot_em,failed,upstream_transport,ConnectionError,9.408972,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
 fund_manager_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-fund_money_fund_daily_em,passed,provider_success,,2.063849,
+fund_money_fund_daily_em,passed,provider_success,,0.745163,
 fund_money_fund_info_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-fund_money_rank_em,passed,provider_success,,3.182878,
-fund_name_em,passed,provider_success,,5.860144,
-fund_new_found_em,passed,provider_success,,9.495622,
-fund_new_found_ths,passed,provider_success,,28.272067,
-fund_open_fund_daily_em,passed,provider_success,,17.410482,
-fund_open_fund_info_em,passed,provider_success,,19.612308,
-fund_open_fund_rank_em,passed,provider_success,,6.66013,
-fund_overview_em,passed,provider_success,,1.631555,
-fund_portfolio_bond_hold_em,passed,provider_success,,1.287725,
-fund_portfolio_change_em,passed,provider_success,,1.302332,
-fund_portfolio_hold_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-fund_portfolio_industry_allocation_em,passed,provider_success,,2.88866,
-fund_purchase_em,passed,provider_success,,13.824565,
-fund_rating_all,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-fund_rating_ja,passed,provider_success,,3.845068,
-fund_rating_sh,passed,provider_success,,10.11414,
-fund_rating_zs,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-fund_report_asset_allocation_cninfo,passed,provider_success,,2.693832,
-fund_report_industry_allocation_cninfo,passed,provider_success,,1.245482,
-fund_report_stock_cninfo,passed,provider_success,,3.847196,
-fund_scale_change_em,passed,provider_success,,4.301763,
-fund_scale_close_sina,passed,provider_success,,2.111212,
-fund_scale_daily_szse,passed,provider_success,,2.453803,
-fund_scale_open_sina,passed,provider_success,,11.302167,
-fund_scale_structured_sina,passed,provider_success,,1.896749,
-fund_stock_position_lg,passed,provider_success,,1.954312,
-fund_value_estimation_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-futures_comex_inventory,passed,provider_success,,9.20607,
-futures_comm_info,failed,akshare_runtime,AttributeError,10.620906,AttributeError: 'NoneType' object has no attribute 'previous'
-futures_comm_js,passed,provider_success,,1.218468,
-futures_contract_detail,passed,provider_success,,1.197221,
-futures_contract_detail_em,failed,akshare_runtime,AttributeError,1.403074,AttributeError: 'NoneType' object has no attribute 'find'
-futures_contract_info_cffex,passed,provider_success,,0.921288,
-futures_contract_info_czce,passed,provider_success,,4.326262,
-futures_contract_info_dce,failed,upstream_response,JSONDecodeError,1.480781,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-futures_contract_info_gfex,passed,provider_success,,2.361342,
-futures_contract_info_ine,passed,provider_success,,1.344303,
-futures_contract_info_shfe,passed,provider_success,,2.040594,
-futures_dce_position_rank,failed,upstream_response,BadZipFile,0.590906,BadZipFile: File is not a zip file
-futures_dce_position_rank_other,failed,akshare_runtime,IndexError,0.621606,IndexError: list index out of range
-futures_delivery_czce,passed,provider_success,,2.963209,
-futures_delivery_dce,failed,akshare_runtime,ValueError,0.5929,ValueError: No tables found
-futures_delivery_match_czce,passed,provider_success,,2.706769,
-futures_delivery_match_dce,failed,akshare_runtime,ValueError,0.607817,ValueError: No tables found
-futures_delivery_shfe,failed,upstream_transport,ConnectionError,0.406882,"ConnectionError: HTTPSConnectionPool(host='tsite.shfe.com.cn', port=443): Max retries exceeded with url: /data/dailydata/202312monthvarietystatistics.dat (Caused by NameResolutionError(""HTTPSConnection(host='tsite.shfe.com.cn', port=443): Failed to resolve 'tsite.shfe.com.cn' ([Errno -2] Name or service not known)""))"
+fund_money_rank_em,passed,provider_success,,2.686266,
+fund_name_em,passed,provider_success,,4.151668,
+fund_new_found_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
+fund_new_found_ths,timeout,upstream_timeout,Timeout,,exceeded 30.0s
+fund_open_fund_daily_em,passed,provider_success,,28.120615,
+fund_open_fund_info_em,passed,provider_success,,1.343653,
+fund_open_fund_rank_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
+fund_overview_em,passed,provider_success,,3.081499,
+fund_portfolio_bond_hold_em,passed,provider_success,,1.622898,
+fund_portfolio_change_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
+fund_portfolio_hold_em,passed,provider_success,,2.042165,
+fund_portfolio_industry_allocation_em,passed,provider_success,,1.309909,
+fund_purchase_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
+fund_rating_all,passed,provider_success,,2.557087,
+fund_rating_ja,timeout,upstream_timeout,Timeout,,exceeded 30.0s
+fund_rating_sh,passed,provider_success,,3.230956,
+fund_rating_zs,passed,provider_success,,4.998985,
+fund_report_asset_allocation_cninfo,passed,provider_success,,1.963847,
+fund_report_industry_allocation_cninfo,passed,provider_success,,2.275885,
+fund_report_stock_cninfo,passed,provider_success,,4.069723,
+fund_scale_change_em,passed,provider_success,,2.784655,
+fund_scale_close_sina,passed,provider_success,,3.712564,
+fund_scale_daily_szse,passed,provider_success,,3.516008,
+fund_scale_open_sina,failed,akshare_runtime,KeyError,0.810334,"KeyError: ""['基金代码', '基金简称', '单位净值', '总募集规模', '最近总份额', '成立日期', '基金经理', '更新日期'] not in index"""
+fund_scale_structured_sina,passed,provider_success,,5.042277,
+fund_stock_position_lg,passed,provider_success,,1.886991,
+fund_value_estimation_em,passed,provider_success,,4.604634,
+futures_comex_inventory,passed,provider_success,,10.873053,
+futures_comm_info,failed,akshare_runtime,AttributeError,14.288461,AttributeError: 'NoneType' object has no attribute 'previous'
+futures_comm_js,passed,provider_success,,0.98612,
+futures_contract_detail,passed,provider_success,,1.518192,
+futures_contract_detail_em,failed,akshare_runtime,AttributeError,2.207888,AttributeError: 'NoneType' object has no attribute 'find'
+futures_contract_info_cffex,passed,provider_success,,0.862461,
+futures_contract_info_czce,passed,provider_success,,5.839083,
+futures_contract_info_dce,failed,upstream_response,JSONDecodeError,1.275298,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+futures_contract_info_gfex,passed,provider_success,,1.610819,
+futures_contract_info_ine,passed,provider_success,,1.575557,
+futures_contract_info_shfe,passed,provider_success,,1.758866,
+futures_dce_position_rank,failed,upstream_response,BadZipFile,1.917626,BadZipFile: File is not a zip file
+futures_dce_position_rank_other,failed,akshare_runtime,IndexError,1.923358,IndexError: list index out of range
+futures_delivery_czce,passed,provider_success,,4.793413,
+futures_delivery_dce,failed,akshare_runtime,ValueError,2.999418,ValueError: No tables found
+futures_delivery_match_czce,passed,provider_success,,5.907051,
+futures_delivery_match_dce,failed,akshare_runtime,ValueError,1.726841,ValueError: No tables found
+futures_delivery_shfe,failed,upstream_transport,ConnectionError,0.368141,"ConnectionError: HTTPSConnectionPool(host='tsite.shfe.com.cn', port=443): Max retries exceeded with url: /data/dailydata/202312monthvarietystatistics.dat (Caused by NameResolutionError(""HTTPSConnection(host='tsite.shfe.com.cn', port=443): Failed to resolve 'tsite.shfe.com.cn' ([Errno -2] Name or service not known)""))"
 futures_display_main_sina,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-futures_fees_info,passed,provider_success,,2.026348,
-futures_foreign_commodity_realtime,passed,provider_success,,1.76187,
-futures_foreign_commodity_subscribe_exchange_symbol,passed,provider_success,,0.392466,
-futures_foreign_detail,passed,provider_success,,0.984186,
-futures_foreign_hist,passed,provider_success,,1.37396,
-futures_gfex_position_rank,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-futures_gfex_warehouse_receipt,failed,akshare_runtime,KeyError,0.948237,"KeyError: ""['whType'] not in index"""
-futures_global_hist_em,failed,upstream_transport,ConnectionError,2.160114,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+futures_fees_info,passed,provider_success,,2.836189,
+futures_foreign_commodity_realtime,passed,provider_success,,2.152993,
+futures_foreign_commodity_subscribe_exchange_symbol,passed,provider_success,,0.350205,
+futures_foreign_detail,passed,provider_success,,0.574264,
+futures_foreign_hist,passed,provider_success,,1.434773,
+futures_gfex_position_rank,passed,provider_success,,18.287544,
+futures_gfex_warehouse_receipt,failed,akshare_runtime,KeyError,1.407172,"KeyError: ""['whType'] not in index"""
+futures_global_hist_em,failed,upstream_transport,ConnectionError,0.763892,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
 futures_global_spot_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-futures_hist_daily_cffex,passed,provider_success,,0.771562,
+futures_hist_daily_cffex,passed,provider_success,,1.03533,
 futures_hist_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 futures_hist_table_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-futures_hog_core,passed,provider_success,,1.546321,
-futures_hog_cost,passed,provider_success,,1.043671,
-futures_hog_supply,passed,provider_success,,0.946048,
-futures_hold_pos_sina,passed_empty,provider_success,,1.020705,
-futures_hq_subscribe_exchange_symbol,passed,provider_success,,0.163807,
-futures_index_ccidx,passed,provider_success,,3.063028,
-futures_inventory_99,failed,upstream_response,JSONDecodeError,3.750163,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-futures_inventory_em,passed,provider_success,,1.517511,
-futures_main_sina,passed,provider_success,,1.444806,
-futures_news_shmet,passed,provider_success,,1.75328,
-futures_rule,passed,provider_success,,2.153368,
-futures_settle,passed,provider_success,,0.55157,
-futures_settle_cffex,passed,provider_success,,0.531263,
-futures_settle_czce,passed,provider_success,,2.297813,
-futures_settle_gfex,failed,akshare_runtime,ValueError,5.685614,"ValueError: Length mismatch: Expected axis has 12 elements, new values have 14 elements"
-futures_settle_ine,passed,provider_success,,1.110528,
-futures_settle_shfe,passed,provider_success,,2.110373,
-futures_settlement_price_sgx,failed,upstream_transport,ConnectionError,1.10857,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-futures_shfe_warehouse_receipt,passed,provider_success,,1.788315,
-futures_spot_price,passed,provider_success,,3.311348,
-futures_spot_price_daily,passed,provider_success,,13.887299,
-futures_spot_price_previous,passed,provider_success,,6.852512,
-futures_spot_stock,passed,provider_success,,1.750266,
-futures_spot_sys,failed,akshare_runtime,AttributeError,7.392845,AttributeError: 'NoneType' object has no attribute 'find_all'
-futures_stock_shfe_js,passed_empty,provider_success,,1.155157,
-futures_symbol_mark,passed,provider_success,,1.928451,
-futures_to_spot_czce,passed,provider_success,,5.188956,
-futures_to_spot_dce,failed,akshare_runtime,ValueError,1.042901,ValueError: No tables found
-futures_to_spot_shfe,failed,upstream_transport,ConnectionError,0.509814,"ConnectionError: HTTPSConnectionPool(host='tsite.shfe.com.cn', port=443): Max retries exceeded with url: /data/instrument/ExchangeDelivery202312.dat (Caused by NameResolutionError(""HTTPSConnection(host='tsite.shfe.com.cn', port=443): Failed to resolve 'tsite.shfe.com.cn' ([Errno -2] Name or service not known)""))"
-futures_warehouse_receipt_czce,passed,provider_success,,5.231423,
-futures_warehouse_receipt_dce,failed,upstream_response,APIError,0.637102,APIError: API Error: 大连商品交易所网站启用了瑞数反爬虫验证，暂时无法通过程序获取仓单日报数据 (Status code: 412)
-futures_zh_daily_sina,passed,provider_success,,1.380627,
-futures_zh_minute_sina,passed,provider_success,,1.133087,
-futures_zh_realtime,passed,provider_success,,1.379975,
-futures_zh_spot,failed,akshare_runtime,ValueError,0.915509,"ValueError: Length mismatch: Expected axis has 1 elements, new values have 44 elements"
-fx_c_swap_cm,passed,provider_success,,1.367899,
-fx_pair_quote,passed,provider_success,,1.614884,
-fx_quote_baidu,passed_empty,provider_success,,1.340198,
-fx_spot_quote,passed,provider_success,,0.641811,
-fx_swap_quote,passed,provider_success,,0.560644,
-game_hot_rank_taptap,passed,provider_success,,13.75872,
-get_cffex_daily,passed,provider_success,,0.861028,
-get_cffex_rank_table,passed,provider_success,,3.863797,
-get_czce_daily,failed,upstream_response,BadZipFile,2.668651,BadZipFile: File is not a zip file
-get_dce_daily,failed,upstream_response,JSONDecodeError,1.108516,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+futures_hog_core,timeout,upstream_timeout,Timeout,,exceeded 30.0s
+futures_hog_cost,passed,provider_success,,1.351598,
+futures_hog_supply,passed,provider_success,,1.312392,
+futures_hold_pos_sina,passed_empty,provider_success,,0.849613,
+futures_hq_subscribe_exchange_symbol,passed,provider_success,,0.160086,
+futures_index_ccidx,passed,provider_success,,2.625223,
+futures_inventory_99,failed,upstream_response,JSONDecodeError,2.220474,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+futures_inventory_em,passed,provider_success,,1.392929,
+futures_main_sina,passed,provider_success,,1.70418,
+futures_news_shmet,passed,provider_success,,1.873834,
+futures_rule,passed,provider_success,,2.677373,
+futures_settle,passed,provider_success,,0.701629,
+futures_settle_cffex,passed,provider_success,,1.108472,
+futures_settle_czce,passed,provider_success,,3.767306,
+futures_settle_gfex,failed,akshare_runtime,ValueError,4.45841,"ValueError: Length mismatch: Expected axis has 12 elements, new values have 14 elements"
+futures_settle_ine,passed,provider_success,,1.337187,
+futures_settle_shfe,passed,provider_success,,4.220367,
+futures_settlement_price_sgx,failed,upstream_transport,ConnectionError,2.739449,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+futures_shfe_warehouse_receipt,passed,provider_success,,1.999248,
+futures_spot_price,passed,provider_success,,2.780788,
+futures_spot_price_daily,passed,provider_success,,15.032627,
+futures_spot_price_previous,passed,provider_success,,1.268523,
+futures_spot_stock,passed,provider_success,,1.67379,
+futures_spot_sys,failed,akshare_runtime,AttributeError,4.696581,AttributeError: 'NoneType' object has no attribute 'find_all'
+futures_stock_shfe_js,passed_empty,provider_success,,1.080808,
+futures_symbol_mark,passed,provider_success,,0.89325,
+futures_to_spot_czce,passed,provider_success,,4.131427,
+futures_to_spot_dce,failed,akshare_runtime,ValueError,0.540197,ValueError: No tables found
+futures_to_spot_shfe,failed,upstream_transport,ConnectionError,0.682999,"ConnectionError: HTTPSConnectionPool(host='tsite.shfe.com.cn', port=443): Max retries exceeded with url: /data/instrument/ExchangeDelivery202312.dat (Caused by NameResolutionError(""HTTPSConnection(host='tsite.shfe.com.cn', port=443): Failed to resolve 'tsite.shfe.com.cn' ([Errno -2] Name or service not known)""))"
+futures_warehouse_receipt_czce,passed,provider_success,,3.172209,
+futures_warehouse_receipt_dce,failed,upstream_response,APIError,3.473906,APIError: API Error: 大连商品交易所网站启用了瑞数反爬虫验证，暂时无法通过程序获取仓单日报数据 (Status code: 412)
+futures_zh_daily_sina,passed,provider_success,,1.268776,
+futures_zh_minute_sina,passed,provider_success,,1.20765,
+futures_zh_realtime,passed,provider_success,,1.459725,
+futures_zh_spot,failed,akshare_runtime,ValueError,1.350816,"ValueError: Length mismatch: Expected axis has 1 elements, new values have 44 elements"
+fx_c_swap_cm,passed,provider_success,,1.247031,
+fx_pair_quote,passed,provider_success,,0.626566,
+fx_quote_baidu,passed_empty,provider_success,,1.280561,
+fx_spot_quote,passed,provider_success,,0.793951,
+fx_swap_quote,passed,provider_success,,0.372374,
+game_hot_rank_taptap,passed,provider_success,,12.158149,
+get_cffex_daily,passed,provider_success,,0.524497,
+get_cffex_rank_table,passed,provider_success,,11.682708,
+get_czce_daily,failed,upstream_response,BadZipFile,1.977987,BadZipFile: File is not a zip file
+get_dce_daily,failed,upstream_response,JSONDecodeError,0.948071,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 get_dce_rank_table,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-get_futures_daily,passed,provider_success,,0.877424,
-get_gfex_daily,passed,provider_success,,1.029668,
-get_ine_daily,passed,provider_success,,1.121895,
-get_qhkc_fund_bs,failed,akshare_runtime,KeyError,1.171275,KeyError: 'data'
-get_qhkc_fund_money_change,failed,akshare_runtime,KeyError,1.034001,KeyError: 'data'
-get_qhkc_fund_position,failed,akshare_runtime,KeyError,0.969355,KeyError: 'data'
-get_qhkc_index,failed,akshare_runtime,KeyError,1.078391,KeyError: 'data'
-get_qhkc_index_profit_loss,failed,akshare_runtime,KeyError,1.155944,KeyError: 'data'
-get_qhkc_index_trend,failed,akshare_runtime,KeyError,1.011254,KeyError: 'data'
-get_rank_sum,failed,upstream_response,BadZipFile,1.482913,BadZipFile: File is not a zip file
-get_rank_sum_daily,failed,upstream_response,BadZipFile,2.087893,BadZipFile: File is not a zip file
-get_rank_table_czce,passed,provider_success,,3.815043,
-get_receipt,passed_empty,provider_success,,0.146589,
-get_roll_yield,failed,upstream_transport,ConnectionError,6.449118,"ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
-get_roll_yield_bar,failed,upstream_response,JSONDecodeError,0.995646,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-get_shfe_daily,passed,provider_success,,1.944372,
-get_shfe_rank_table,passed,provider_success,,2.389518,
-get_token,passed,provider_success,,0.145067,
+get_futures_daily,passed,provider_success,,1.444954,
+get_gfex_daily,passed,provider_success,,1.284456,
+get_ine_daily,passed,provider_success,,1.723986,
+get_qhkc_fund_bs,failed,akshare_runtime,KeyError,1.114111,KeyError: 'data'
+get_qhkc_fund_money_change,failed,akshare_runtime,KeyError,1.328656,KeyError: 'data'
+get_qhkc_fund_position,failed,akshare_runtime,KeyError,0.927244,KeyError: 'data'
+get_qhkc_index,failed,akshare_runtime,KeyError,1.510456,KeyError: 'data'
+get_qhkc_index_profit_loss,failed,akshare_runtime,KeyError,1.113394,KeyError: 'data'
+get_qhkc_index_trend,failed,akshare_runtime,KeyError,1.339759,KeyError: 'data'
+get_rank_sum,failed,upstream_response,BadZipFile,2.466968,BadZipFile: File is not a zip file
+get_rank_sum_daily,failed,upstream_response,BadZipFile,0.811699,BadZipFile: File is not a zip file
+get_rank_table_czce,passed,provider_success,,6.84228,
+get_receipt,passed_empty,provider_success,,0.261653,
+get_roll_yield,failed,upstream_response,JSONDecodeError,1.131095,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+get_roll_yield_bar,failed,upstream_response,JSONDecodeError,0.743227,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+get_shfe_daily,passed,provider_success,,2.605875,
+get_shfe_rank_table,passed,provider_success,,4.920199,
+get_token,passed,provider_success,,0.081985,
 get_us_stock_name,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-hf_sp_500,passed,provider_success,,1.524118,
-hurun_rank,passed,provider_success,,8.607029,
-index_ai_cx,failed,upstream_response,JSONDecodeError,1.433126,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_all_cni,passed,provider_success,,3.073965,
-index_analysis_daily_sw,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-index_analysis_monthly_sw,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-index_analysis_week_month_sw,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-index_analysis_weekly_sw,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-index_awpr_cx,failed,upstream_response,JSONDecodeError,1.414661,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_bei_cx,failed,upstream_response,JSONDecodeError,1.27834,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_bi_cx,failed,upstream_response,JSONDecodeError,1.06544,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_bloomberg_billionaires,failed,akshare_runtime,AttributeError,0.285451,AttributeError: 'NoneType' object has no attribute 'find_all'
-index_bloomberg_billionaires_hist,failed,akshare_runtime,IndexError,1.183837,IndexError: list index out of range
-index_cci_cx,failed,upstream_response,JSONDecodeError,1.491046,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_ci_cx,failed,upstream_response,JSONDecodeError,1.298316,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_code_id_map_em,failed,upstream_transport,ConnectionError,13.817801,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-index_component_sw,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-index_csindex_all,passed,provider_success,,13.828352,
-index_dei_cx,failed,upstream_response,JSONDecodeError,1.061582,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_detail_cni,passed,provider_success,,3.116049,
-index_detail_hist_adjust_cni,passed,provider_success,,4.28331,
-index_detail_hist_cni,passed,provider_success,,1.865436,
-index_eri,failed,upstream_transport,ConnectionError,0.667103,"ConnectionError: HTTPSConnectionPool(host='zs.zjpwq.net', port=443): Max retries exceeded with url: /pwq-index-webapi/indexData?cycle=MONTH&regionId=1&structId=1&pageSize=5000&indexId=1&orderBy=stage.publishTime (Caused by NameResolutionError(""HTTPSConnection(host='zs.zjpwq.net', port=443): Failed to resolve 'zs.zjpwq.net' ([Errno -2] Name or service not known)""))"
-index_fi_cx,failed,upstream_response,JSONDecodeError,1.023917,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_global_hist_em,failed,upstream_transport,ConnectionError,1.180541,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-index_global_hist_sina,failed,akshare_runtime,KeyError,0.14899,KeyError: 'OMX'
-index_global_name_table,passed,provider_success,,0.154392,
-index_global_spot_em,failed,upstream_response,JSONDecodeError,1.39897,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_hist_cni,passed,provider_success,,0.78283,
-index_hist_fund_sw,failed,upstream_transport,SSLError,0.618804,"SSLError: HTTPSConnectionPool(host='www.swsresearch.com', port=443): Max retries exceeded with url: /insWechatSw/fundIndex/getFundKChartData (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))"
-index_hist_sw,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-index_hog_spot_price,passed,provider_success,,1.958496,
-index_ii_cx,failed,upstream_response,JSONDecodeError,1.43437,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_inner_quote_sugar_msweet,failed,akshare_runtime,TypeError,2.597858,"TypeError: Invalid value '4045.2' for dtype 'str'. Value should be a string or missing value, got 'float' instead."
-index_kq_fashion,passed,provider_success,,1.82199,
+hf_sp_500,passed,provider_success,,1.851046,
+hurun_rank,passed,provider_success,,10.253413,
+index_ai_cx,failed,upstream_response,JSONDecodeError,1.349696,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_all_cni,passed,provider_success,,3.561335,
+index_analysis_daily_sw,passed,provider_success,,2.397484,
+index_analysis_monthly_sw,passed,provider_success,,2.085715,
+index_analysis_week_month_sw,passed,provider_success,,0.917637,
+index_analysis_weekly_sw,passed,provider_success,,1.924013,
+index_awpr_cx,failed,upstream_response,JSONDecodeError,1.221062,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_bei_cx,failed,upstream_response,JSONDecodeError,1.854004,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_bi_cx,failed,upstream_response,JSONDecodeError,1.126298,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_bloomberg_billionaires,failed,akshare_runtime,AttributeError,0.371762,AttributeError: 'NoneType' object has no attribute 'find_all'
+index_bloomberg_billionaires_hist,failed,akshare_runtime,IndexError,2.106803,IndexError: list index out of range
+index_cci_cx,failed,upstream_response,JSONDecodeError,1.568763,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_ci_cx,failed,upstream_response,JSONDecodeError,1.143313,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_code_id_map_em,failed,upstream_transport,ConnectionError,7.134098,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+index_component_sw,passed,provider_success,,1.543857,
+index_csindex_all,passed,provider_success,,8.950253,
+index_dei_cx,failed,upstream_response,JSONDecodeError,1.588656,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_detail_cni,passed,provider_success,,1.703999,
+index_detail_hist_adjust_cni,passed_empty,provider_success,,2.758688,
+index_detail_hist_cni,passed,provider_success,,3.361524,
+index_eri,failed,upstream_transport,ConnectionError,0.350094,"ConnectionError: HTTPSConnectionPool(host='zs.zjpwq.net', port=443): Max retries exceeded with url: /pwq-index-webapi/indexData?cycle=MONTH&regionId=1&structId=1&pageSize=5000&indexId=1&orderBy=stage.publishTime (Caused by NameResolutionError(""HTTPSConnection(host='zs.zjpwq.net', port=443): Failed to resolve 'zs.zjpwq.net' ([Errno -2] Name or service not known)""))"
+index_fi_cx,failed,upstream_response,JSONDecodeError,1.805562,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_global_hist_em,failed,upstream_transport,ConnectionError,1.495646,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+index_global_hist_sina,failed,akshare_runtime,KeyError,0.162139,KeyError: 'OMX'
+index_global_name_table,passed,provider_success,,0.084857,
+index_global_spot_em,failed,upstream_response,JSONDecodeError,1.496064,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_hist_cni,passed,provider_success,,0.949338,
+index_hist_fund_sw,failed,upstream_transport,SSLError,0.799232,"SSLError: HTTPSConnectionPool(host='www.swsresearch.com', port=443): Max retries exceeded with url: /insWechatSw/fundIndex/getFundKChartData (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))"
+index_hist_sw,passed,provider_success,,1.991912,
+index_hog_spot_price,passed,provider_success,,1.974248,
+index_ii_cx,failed,upstream_response,JSONDecodeError,1.230637,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_inner_quote_sugar_msweet,failed,akshare_runtime,TypeError,3.095436,"TypeError: Invalid value '4045.2' for dtype 'str'. Value should be a string or missing value, got 'float' instead."
+index_kq_fashion,passed,provider_success,,0.775192,
 index_kq_fz,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-index_li_cx,failed,upstream_response,JSONDecodeError,1.040149,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_min_sw,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-index_neaw_cx,failed,upstream_response,JSONDecodeError,1.404416,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_neei_cx,failed,upstream_response,JSONDecodeError,1.012206,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_nei_cx,failed,upstream_response,JSONDecodeError,1.254722,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_news_sentiment_scope,failed,upstream_transport,SSLError,1.857035,"SSLError: HTTPSConnectionPool(host='www.chinascope.com.cn', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))"
-index_option_1000index_min_qvix,passed,provider_success,,0.596054,
-index_option_1000index_qvix,passed,provider_success,,7.678518,
-index_option_100etf_min_qvix,passed,provider_success,,0.577902,
-index_option_100etf_qvix,passed,provider_success,,3.914063,
-index_option_300etf_min_qvix,passed,provider_success,,0.625667,
-index_option_300etf_qvix,passed,provider_success,,3.536843,
-index_option_300index_min_qvix,passed,provider_success,,0.714234,
-index_option_300index_qvix,passed,provider_success,,4.365221,
-index_option_500etf_min_qvix,passed,provider_success,,0.631713,
-index_option_500etf_qvix,passed,provider_success,,13.193916,
-index_option_50etf_min_qvix,passed,provider_success,,0.564324,
-index_option_50etf_qvix,passed,provider_success,,11.69127,
-index_option_50index_min_qvix,passed,provider_success,,0.555198,
-index_option_50index_qvix,passed,provider_success,,17.040332,
-index_option_cyb_min_qvix,passed,provider_success,,1.638,
-index_option_cyb_qvix,passed,provider_success,,15.022317,
-index_option_kcb_min_qvix,passed,provider_success,,0.570924,
-index_option_kcb_qvix,passed,provider_success,,5.891645,
-index_outer_quote_sugar_msweet,passed,provider_success,,1.655129,
-index_pmi_com_cx,failed,upstream_response,JSONDecodeError,1.020103,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_pmi_man_cx,failed,upstream_response,JSONDecodeError,1.291935,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_pmi_ser_cx,failed,upstream_response,JSONDecodeError,1.005953,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_price_cflp,passed,provider_success,,15.414769,
-index_qli_cx,failed,upstream_response,JSONDecodeError,1.383603,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_realtime_fund_sw,failed,upstream_transport,SSLError,1.891611,"SSLError: HTTPSConnectionPool(host='www.swsresearch.com', port=443): Max retries exceeded with url: /insWechatSw/fundIndex/pageList (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))"
-index_realtime_sw,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-index_si_cx,failed,upstream_response,JSONDecodeError,1.053383,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_stock_cons,passed,provider_success,,1.057422,
-index_stock_cons_csindex,passed,provider_success,,2.441973,
-index_stock_cons_sina,passed,provider_success,,3.778159,
-index_stock_cons_weight_csindex,passed,provider_success,,1.925589,
-index_stock_info,failed,akshare_runtime,ValueError,1.131779,ValueError: No tables found
-index_sugar_msweet,failed,akshare_runtime,TypeError,2.171986,"TypeError: Invalid value '12.88' for dtype 'str'. Value should be a string or missing value, got 'float' instead."
-index_ti_cx,failed,upstream_response,JSONDecodeError,1.074841,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-index_us_stock_sina,passed,provider_success,,1.351362,
-index_volume_cflp,passed,provider_success,,14.964176,
-index_yw,passed,provider_success,,1.262113,
-index_zh_a_hist,failed,upstream_transport,ConnectionError,8.44337,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-index_zh_a_hist_min_em,failed,upstream_transport,ConnectionError,10.321098,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+index_li_cx,failed,upstream_response,JSONDecodeError,1.244779,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_min_sw,passed,provider_success,,1.491957,
+index_neaw_cx,failed,upstream_response,JSONDecodeError,1.375212,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_neei_cx,failed,upstream_response,JSONDecodeError,1.370177,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_nei_cx,failed,upstream_response,JSONDecodeError,0.980998,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_news_sentiment_scope,failed,upstream_transport,SSLError,2.643939,"SSLError: HTTPSConnectionPool(host='www.chinascope.com.cn', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))"
+index_option_1000index_min_qvix,passed,provider_success,,0.610276,
+index_option_1000index_qvix,passed,provider_success,,21.343183,
+index_option_100etf_min_qvix,passed,provider_success,,0.67662,
+index_option_100etf_qvix,passed,provider_success,,12.772542,
+index_option_300etf_min_qvix,passed,provider_success,,0.637754,
+index_option_300etf_qvix,passed,provider_success,,12.883384,
+index_option_300index_min_qvix,passed,provider_success,,0.910983,
+index_option_300index_qvix,passed,provider_success,,12.91703,
+index_option_500etf_min_qvix,passed,provider_success,,0.636003,
+index_option_500etf_qvix,passed,provider_success,,14.891387,
+index_option_50etf_min_qvix,passed,provider_success,,1.050301,
+index_option_50etf_qvix,passed,provider_success,,13.995673,
+index_option_50index_min_qvix,passed,provider_success,,0.582122,
+index_option_50index_qvix,passed,provider_success,,22.161495,
+index_option_cyb_min_qvix,passed,provider_success,,0.614521,
+index_option_cyb_qvix,passed,provider_success,,22.44771,
+index_option_kcb_min_qvix,passed,provider_success,,0.722624,
+index_option_kcb_qvix,passed,provider_success,,18.674675,
+index_outer_quote_sugar_msweet,passed,provider_success,,1.551914,
+index_pmi_com_cx,failed,upstream_response,JSONDecodeError,1.678807,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_pmi_man_cx,failed,upstream_response,JSONDecodeError,1.335254,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_pmi_ser_cx,failed,upstream_response,JSONDecodeError,1.664313,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_price_cflp,timeout,upstream_timeout,Timeout,,exceeded 30.0s
+index_qli_cx,failed,upstream_response,JSONDecodeError,1.618451,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_realtime_fund_sw,failed,upstream_transport,SSLError,0.571004,"SSLError: HTTPSConnectionPool(host='www.swsresearch.com', port=443): Max retries exceeded with url: /insWechatSw/fundIndex/pageList (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))"
+index_realtime_sw,passed,provider_success,,6.728066,
+index_si_cx,failed,upstream_response,JSONDecodeError,1.302217,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_stock_cons,passed,provider_success,,1.071309,
+index_stock_cons_csindex,passed,provider_success,,1.516763,
+index_stock_cons_sina,passed,provider_success,,4.897212,
+index_stock_cons_weight_csindex,passed,provider_success,,1.474421,
+index_stock_info,failed,akshare_runtime,ValueError,1.10789,ValueError: No tables found
+index_sugar_msweet,failed,akshare_runtime,TypeError,2.840188,"TypeError: Invalid value '12.88' for dtype 'str'. Value should be a string or missing value, got 'float' instead."
+index_ti_cx,failed,upstream_response,JSONDecodeError,1.629069,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+index_us_stock_sina,passed,provider_success,,1.120919,
+index_volume_cflp,passed,provider_success,,3.973511,
+index_yw,passed,provider_success,,1.465361,
+index_zh_a_hist,failed,upstream_transport,ConnectionError,7.115916,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+index_zh_a_hist_min_em,failed,upstream_transport,ConnectionError,8.45104,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
 interface_info,fixture_required,fixture,,,missing required parameters: name
-list_categories,passed,provider_success,,0.161697,
-macro_australia_bank_rate,passed,provider_success,,2.148929,
-macro_australia_cpi_quarterly,passed,provider_success,,1.197668,
-macro_australia_cpi_yearly,passed,provider_success,,0.972336,
-macro_australia_ppi_quarterly,passed,provider_success,,4.550958,
-macro_australia_retail_rate_monthly,passed,provider_success,,1.413622,
-macro_australia_trade,passed,provider_success,,1.979686,
-macro_australia_unemployment_rate,passed,provider_success,,1.584686,
-macro_bank_australia_interest_rate,passed,provider_success,,18.237023,
-macro_bank_brazil_interest_rate,passed,provider_success,,5.854945,
-macro_bank_china_interest_rate,passed,provider_success,,7.865113,
-macro_bank_english_interest_rate,passed,provider_success,,21.052999,
-macro_bank_euro_interest_rate,passed,provider_success,,9.665921,
-macro_bank_india_interest_rate,passed,provider_success,,8.447877,
-macro_bank_japan_interest_rate,passed,provider_success,,7.791946,
-macro_bank_newzealand_interest_rate,passed,provider_success,,8.370768,
-macro_bank_russia_interest_rate,passed,provider_success,,8.227365,
-macro_bank_switzerland_interest_rate,passed,provider_success,,3.292192,
-macro_bank_usa_interest_rate,passed,provider_success,,10.505724,
-macro_canada_bank_rate,passed,provider_success,,1.850305,
-macro_canada_core_cpi_monthly,passed,provider_success,,1.058813,
-macro_canada_core_cpi_yearly,passed,provider_success,,1.363835,
-macro_canada_cpi_monthly,passed,provider_success,,2.07579,
-macro_canada_cpi_yearly,passed,provider_success,,1.426809,
-macro_canada_gdp_monthly,passed,provider_success,,1.638885,
-macro_canada_new_house_rate,passed,provider_success,,1.537121,
-macro_canada_retail_rate_monthly,passed,provider_success,,1.018268,
-macro_canada_trade,passed,provider_success,,1.640011,
-macro_canada_unemployment_rate,passed,provider_success,,1.053418,
-macro_china_agricultural_index,passed,provider_success,,18.254942,
-macro_china_agricultural_product,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-macro_china_au_report,passed,provider_success,,7.641668,
-macro_china_bank_financing,passed,provider_success,,1.053365,
-macro_china_bdti_index,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-macro_china_bond_public,failed,akshare_runtime,KeyError,1.248502,KeyError: 'data'
-macro_china_bsi_index,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-macro_china_central_bank_balance,passed,provider_success,,9.760659,
-macro_china_commodity_price_index,passed,provider_success,,14.185982,
-macro_china_construction_index,passed,provider_success,,19.827691,
-macro_china_construction_price_index,passed,provider_success,,17.976599,
-macro_china_consumer_goods_retail,passed,provider_success,,1.167171,
-macro_china_cpi,passed,provider_success,,1.232948,
-macro_china_cpi_monthly,passed,provider_success,,12.525563,
-macro_china_cpi_yearly,passed,provider_success,,16.089765,
-macro_china_cx_pmi_yearly,passed,provider_success,,7.794586,
-macro_china_cx_services_pmi_yearly,passed,provider_success,,7.050981,
-macro_china_czsr,passed,provider_success,,1.281403,
-macro_china_daily_energy,passed,provider_success,,2.30462,
-macro_china_energy_index,passed,provider_success,,15.90922,
-macro_china_enterprise_boom_index,passed,provider_success,,1.416981,
-macro_china_exports_yoy,passed,provider_success,,18.923301,
-macro_china_fdi,passed,provider_success,,1.042008,
-macro_china_foreign_exchange_gold,passed,provider_success,,11.314002,
-macro_china_freight_index,passed,provider_success,,1.265768,
-macro_china_fx_gold,passed,provider_success,,3.332744,
-macro_china_fx_reserves_yearly,passed,provider_success,,5.240304,
-macro_china_gdp,passed,provider_success,,1.10235,
-macro_china_gdp_yearly,passed,provider_success,,3.482383,
-macro_china_gdzctz,passed,provider_success,,1.044993,
-macro_china_gyzjz,passed,provider_success,,0.978619,
-macro_china_hgjck,passed,provider_success,,1.714678,
-macro_china_hk_building_amount,passed,provider_success,,1.372401,
-macro_china_hk_building_volume,passed,provider_success,,1.427569,
-macro_china_hk_cpi,passed,provider_success,,1.532967,
-macro_china_hk_cpi_ratio,passed,provider_success,,0.849118,
-macro_china_hk_gbp,passed,provider_success,,6.664513,
-macro_china_hk_gbp_ratio,passed,provider_success,,1.055035,
-macro_china_hk_market_info,passed,provider_success,,1.181224,
-macro_china_hk_ppi,passed,provider_success,,3.784116,
-macro_china_hk_rate_of_unemployment,passed,provider_success,,1.169661,
-macro_china_hk_trade_diff_ratio,passed,provider_success,,1.064195,
-macro_china_imports_yoy,passed,provider_success,,14.177543,
-macro_china_industrial_production_yoy,passed,provider_success,,14.0772,
+list_categories,passed,provider_success,,0.096944,
+macro_australia_bank_rate,passed,provider_success,,1.492318,
+macro_australia_cpi_quarterly,passed,provider_success,,1.213142,
+macro_australia_cpi_yearly,passed,provider_success,,1.15277,
+macro_australia_ppi_quarterly,passed,provider_success,,1.030197,
+macro_australia_retail_rate_monthly,passed,provider_success,,1.161298,
+macro_australia_trade,passed,provider_success,,1.409672,
+macro_australia_unemployment_rate,passed,provider_success,,1.46729,
+macro_bank_australia_interest_rate,passed,provider_success,,18.051079,
+macro_bank_brazil_interest_rate,passed,provider_success,,7.221661,
+macro_bank_china_interest_rate,passed,provider_success,,7.915211,
+macro_bank_english_interest_rate,passed,provider_success,,26.979251,
+macro_bank_euro_interest_rate,passed,provider_success,,10.608692,
+macro_bank_india_interest_rate,passed,provider_success,,9.97938,
+macro_bank_japan_interest_rate,passed,provider_success,,7.575392,
+macro_bank_newzealand_interest_rate,passed,provider_success,,10.827973,
+macro_bank_russia_interest_rate,passed,provider_success,,8.386955,
+macro_bank_switzerland_interest_rate,passed,provider_success,,3.915881,
+macro_bank_usa_interest_rate,passed,provider_success,,9.974675,
+macro_canada_bank_rate,passed,provider_success,,1.138157,
+macro_canada_core_cpi_monthly,passed,provider_success,,2.424989,
+macro_canada_core_cpi_yearly,passed,provider_success,,0.992602,
+macro_canada_cpi_monthly,passed,provider_success,,4.528997,
+macro_canada_cpi_yearly,passed,provider_success,,0.981258,
+macro_canada_gdp_monthly,passed,provider_success,,1.205004,
+macro_canada_new_house_rate,passed,provider_success,,0.930273,
+macro_canada_retail_rate_monthly,passed,provider_success,,0.887168,
+macro_canada_trade,passed,provider_success,,1.448912,
+macro_canada_unemployment_rate,passed,provider_success,,1.353336,
+macro_china_agricultural_index,passed,provider_success,,14.285617,
+macro_china_agricultural_product,passed,provider_success,,19.938284,
+macro_china_au_report,passed,provider_success,,7.067274,
+macro_china_bank_financing,passed,provider_success,,1.365639,
+macro_china_bdti_index,passed,provider_success,,18.442169,
+macro_china_bond_public,failed,akshare_runtime,KeyError,1.396934,KeyError: 'data'
+macro_china_bsi_index,passed,provider_success,,15.166971,
+macro_china_central_bank_balance,passed,provider_success,,8.482209,
+macro_china_commodity_price_index,passed,provider_success,,14.548627,
+macro_china_construction_index,passed,provider_success,,15.891252,
+macro_china_construction_price_index,passed,provider_success,,15.056677,
+macro_china_consumer_goods_retail,passed,provider_success,,1.016514,
+macro_china_cpi,passed,provider_success,,1.502587,
+macro_china_cpi_monthly,passed,provider_success,,11.883181,
+macro_china_cpi_yearly,passed,provider_success,,19.951292,
+macro_china_cx_pmi_yearly,passed,provider_success,,7.5053,
+macro_china_cx_services_pmi_yearly,passed,provider_success,,7.54938,
+macro_china_czsr,passed,provider_success,,0.751849,
+macro_china_daily_energy,passed,provider_success,,1.027042,
+macro_china_energy_index,passed,provider_success,,15.932087,
+macro_china_enterprise_boom_index,passed,provider_success,,1.000551,
+macro_china_exports_yoy,passed,provider_success,,18.130576,
+macro_china_fdi,passed,provider_success,,1.121336,
+macro_china_foreign_exchange_gold,passed,provider_success,,12.596526,
+macro_china_freight_index,passed,provider_success,,1.847545,
+macro_china_fx_gold,passed,provider_success,,1.24461,
+macro_china_fx_reserves_yearly,passed,provider_success,,6.527426,
+macro_china_gdp,passed,provider_success,,0.964714,
+macro_china_gdp_yearly,passed,provider_success,,3.926976,
+macro_china_gdzctz,passed,provider_success,,0.803602,
+macro_china_gyzjz,passed,provider_success,,0.630536,
+macro_china_hgjck,passed,provider_success,,1.513557,
+macro_china_hk_building_amount,passed,provider_success,,0.899817,
+macro_china_hk_building_volume,passed,provider_success,,1.21499,
+macro_china_hk_cpi,passed,provider_success,,0.809222,
+macro_china_hk_cpi_ratio,passed,provider_success,,0.882616,
+macro_china_hk_gbp,passed,provider_success,,0.910126,
+macro_china_hk_gbp_ratio,passed,provider_success,,1.086083,
+macro_china_hk_market_info,passed,provider_success,,1.267629,
+macro_china_hk_ppi,passed,provider_success,,1.134812,
+macro_china_hk_rate_of_unemployment,passed,provider_success,,1.100544,
+macro_china_hk_trade_diff_ratio,passed,provider_success,,1.171233,
+macro_china_imports_yoy,passed,provider_success,,16.758325,
+macro_china_industrial_production_yoy,passed,provider_success,,13.945683,
 macro_china_insurance,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-macro_china_insurance_income,passed,provider_success,,1.108401,
-macro_china_international_tourism_fx,passed,provider_success,,9.433061,
-macro_china_lpi_index,passed,provider_success,,2.217864,
-macro_china_lpr,passed,provider_success,,7.531587,
-macro_china_m2_yearly,passed,provider_success,,13.733725,
-macro_china_market_margin_sh,passed,provider_success,,1.982851,
-macro_china_market_margin_sz,passed,provider_success,,1.258622,
-macro_china_mobile_number,passed,provider_success,,1.060767,
-macro_china_money_supply,passed,provider_success,,1.191734,
-macro_china_national_tax_receipts,passed,provider_success,,1.50388,
-macro_china_nbs_nation,passed,provider_success,,5.199782,
-macro_china_nbs_region,passed,provider_success,,6.789375,
-macro_china_new_financial_credit,passed,provider_success,,2.448246,
-macro_china_new_house_price,passed,provider_success,,1.800926,
-macro_china_non_man_pmi,passed,provider_success,,8.408312,
-macro_china_passenger_load_factor,passed,provider_success,,5.756495,
-macro_china_pmi,passed,provider_success,,1.926934,
-macro_china_pmi_yearly,passed,provider_success,,9.010007,
-macro_china_postal_telecommunicational,passed,provider_success,,14.161984,
-macro_china_ppi,passed,provider_success,,2.128637,
-macro_china_ppi_yearly,passed,provider_success,,12.845403,
-macro_china_qyspjg,passed,provider_success,,2.204044,
-macro_china_real_estate,passed,provider_success,,5.758068,
-macro_china_reserve_requirement_ratio,passed,provider_success,,2.558325,
+macro_china_insurance_income,passed,provider_success,,1.26802,
+macro_china_international_tourism_fx,passed,provider_success,,11.887065,
+macro_china_lpi_index,passed,provider_success,,2.75566,
+macro_china_lpr,passed,provider_success,,5.068047,
+macro_china_m2_yearly,passed,provider_success,,12.929276,
+macro_china_market_margin_sh,passed,provider_success,,1.375803,
+macro_china_market_margin_sz,passed,provider_success,,1.187487,
+macro_china_mobile_number,passed,provider_success,,1.16488,
+macro_china_money_supply,passed,provider_success,,1.140169,
+macro_china_national_tax_receipts,passed,provider_success,,0.631365,
+macro_china_nbs_nation,passed,provider_success,,5.324036,
+macro_china_nbs_region,passed,provider_success,,5.246641,
+macro_china_new_financial_credit,passed,provider_success,,1.54772,
+macro_china_new_house_price,passed,provider_success,,1.115972,
+macro_china_non_man_pmi,passed,provider_success,,8.296024,
+macro_china_passenger_load_factor,passed,provider_success,,8.640868,
+macro_china_pmi,passed,provider_success,,0.951243,
+macro_china_pmi_yearly,passed,provider_success,,11.193411,
+macro_china_postal_telecommunicational,passed,provider_success,,9.604586,
+macro_china_ppi,passed,provider_success,,1.125386,
+macro_china_ppi_yearly,passed,provider_success,,12.518974,
+macro_china_qyspjg,passed,provider_success,,1.011337,
+macro_china_real_estate,passed,provider_success,,4.345668,
+macro_china_reserve_requirement_ratio,passed,provider_success,,1.824645,
 macro_china_retail_price_index,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-macro_china_rmb,failed,akshare_runtime,TypeError,1.333501,"TypeError: Invalid value '0' for dtype 'str'. Value should be a string or missing value, got 'int' instead."
-macro_china_shibor_all,passed,provider_success,,1.265719,
-macro_china_shrzgm,passed,provider_success,,1.60328,
-macro_china_society_electricity,passed,provider_success,,9.597053,
+macro_china_rmb,failed,akshare_runtime,TypeError,1.298141,"TypeError: Invalid value '0' for dtype 'str'. Value should be a string or missing value, got 'int' instead."
+macro_china_shibor_all,passed,provider_success,,1.198735,
+macro_china_shrzgm,passed,provider_success,,2.628648,
+macro_china_society_electricity,passed,provider_success,,5.533676,
 macro_china_society_traffic_volume,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-macro_china_stock_market_cap,passed,provider_success,,2.440829,
-macro_china_supply_of_money,passed,provider_success,,17.931587,
-macro_china_swap_rate,failed,akshare_runtime,ValueError,1.401026,"ValueError: Length mismatch: Expected axis has 0 elements, new values have 17 elements"
-macro_china_trade_balance,passed,provider_success,,19.581786,
-macro_china_urban_unemployment,passed,provider_success,,2.656064,
-macro_china_vegetable_basket,passed,provider_success,,25.749227,
-macro_china_wbck,passed,provider_success,,1.416367,
-macro_china_whxd,passed,provider_success,,0.986473,
-macro_china_xfzxx,passed,provider_success,,1.089789,
-macro_china_yw_electronic_index,passed,provider_success,,7.966826,
-macro_cnbs,passed,provider_success,,1.064716,
+macro_china_stock_market_cap,passed,provider_success,,1.386737,
+macro_china_supply_of_money,passed,provider_success,,17.732393,
+macro_china_swap_rate,failed,akshare_runtime,ValueError,0.831187,"ValueError: Length mismatch: Expected axis has 0 elements, new values have 17 elements"
+macro_china_trade_balance,passed,provider_success,,23.68273,
+macro_china_urban_unemployment,passed,provider_success,,2.445136,
+macro_china_vegetable_basket,passed,provider_success,,16.929075,
+macro_china_wbck,passed,provider_success,,0.960717,
+macro_china_whxd,passed,provider_success,,0.667924,
+macro_china_xfzxx,passed,provider_success,,0.959414,
+macro_china_yw_electronic_index,passed,provider_success,,6.740191,
+macro_cnbs,passed,provider_success,,1.028851,
 macro_cons_gold,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 macro_cons_opec_month,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 macro_cons_silver,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-macro_euro_cpi_mom,passed,provider_success,,16.655259,
-macro_euro_cpi_yoy,passed,provider_success,,21.118257,
-macro_euro_current_account_mom,passed,provider_success,,7.760746,
-macro_euro_employment_change_qoq,passed,provider_success,,3.89272,
-macro_euro_gdp_yoy,passed,provider_success,,16.720699,
-macro_euro_industrial_production_mom,passed,provider_success,,14.847599,
-macro_euro_lme_holding,passed,provider_success,,1.310413,
-macro_euro_lme_stock,passed,provider_success,,2.150832,
-macro_euro_manufacturing_pmi,passed,provider_success,,14.8971,
-macro_euro_ppi_mom,passed,provider_success,,18.054451,
-macro_euro_retail_sales_mom,passed,provider_success,,10.980566,
-macro_euro_sentix_investor_confidence,passed,provider_success,,9.569283,
-macro_euro_services_pmi,passed,provider_success,,14.846453,
-macro_euro_trade_balance,passed,provider_success,,11.514631,
-macro_euro_unemployment_rate_mom,passed,provider_success,,11.572583,
-macro_euro_zew_economic_sentiment,passed,provider_success,,7.965912,
-macro_fx_sentiment,failed,akshare_runtime,KeyError,0.813585,KeyError: 'data'
-macro_germany_cpi_monthly,passed,provider_success,,1.663598,
-macro_germany_cpi_yearly,passed,provider_success,,1.446049,
-macro_germany_gdp,passed,provider_success,,0.991221,
-macro_germany_ifo,passed,provider_success,,1.556322,
-macro_germany_retail_sale_monthly,passed,provider_success,,1.748377,
-macro_germany_retail_sale_yearly,passed,provider_success,,1.02911,
-macro_germany_trade_adjusted,passed,provider_success,,4.655008,
-macro_germany_zew,passed,provider_success,,4.215638,
+macro_euro_cpi_mom,passed,provider_success,,16.194999,
+macro_euro_cpi_yoy,passed,provider_success,,26.045121,
+macro_euro_current_account_mom,passed,provider_success,,7.87095,
+macro_euro_employment_change_qoq,passed,provider_success,,4.811479,
+macro_euro_gdp_yoy,passed,provider_success,,16.376254,
+macro_euro_industrial_production_mom,passed,provider_success,,18.96956,
+macro_euro_lme_holding,passed,provider_success,,1.158336,
+macro_euro_lme_stock,passed,provider_success,,2.258309,
+macro_euro_manufacturing_pmi,passed,provider_success,,14.420366,
+macro_euro_ppi_mom,passed,provider_success,,22.272453,
+macro_euro_retail_sales_mom,passed,provider_success,,10.983121,
+macro_euro_sentix_investor_confidence,passed,provider_success,,11.365024,
+macro_euro_services_pmi,passed,provider_success,,14.336827,
+macro_euro_trade_balance,passed,provider_success,,14.26464,
+macro_euro_unemployment_rate_mom,passed,provider_success,,11.553491,
+macro_euro_zew_economic_sentiment,passed,provider_success,,9.137093,
+macro_fx_sentiment,failed,akshare_runtime,KeyError,0.724081,KeyError: 'data'
+macro_germany_cpi_monthly,passed,provider_success,,1.280024,
+macro_germany_cpi_yearly,passed,provider_success,,0.982659,
+macro_germany_gdp,passed,provider_success,,0.767693,
+macro_germany_ifo,passed,provider_success,,1.845935,
+macro_germany_retail_sale_monthly,passed,provider_success,,1.42239,
+macro_germany_retail_sale_yearly,passed,provider_success,,0.950412,
+macro_germany_trade_adjusted,passed,provider_success,,1.367246,
+macro_germany_zew,passed,provider_success,,1.366895,
 macro_global_sox_index,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-macro_info_ws,passed,provider_success,,0.643566,
-macro_japan_bank_rate,passed,provider_success,,1.681967,
-macro_japan_core_cpi_yearly,passed,provider_success,,1.661147,
-macro_japan_cpi_yearly,passed,provider_success,,1.297564,
-macro_japan_head_indicator,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-macro_japan_unemployment_rate,passed,provider_success,,1.27803,
-macro_rmb_deposit,passed,provider_success,,2.416255,
-macro_rmb_loan,passed,provider_success,,1.025121,
-macro_shipping_bci,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-macro_shipping_bcti,passed,provider_success,,26.48235,
+macro_info_ws,passed,provider_success,,0.653387,
+macro_japan_bank_rate,passed,provider_success,,1.111238,
+macro_japan_core_cpi_yearly,passed,provider_success,,1.265848,
+macro_japan_cpi_yearly,passed,provider_success,,1.154445,
+macro_japan_head_indicator,passed,provider_success,,1.40269,
+macro_japan_unemployment_rate,passed,provider_success,,1.101748,
+macro_rmb_deposit,passed,provider_success,,1.962042,
+macro_rmb_loan,passed,provider_success,,2.748241,
+macro_shipping_bci,passed,provider_success,,22.375112,
+macro_shipping_bcti,passed,provider_success,,15.699061,
 macro_shipping_bdi,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-macro_shipping_bpi,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-macro_stock_finance,passed,provider_success,,1.238593,
-macro_swiss_cpi_yearly,passed,provider_success,,0.663497,
-macro_swiss_gbd_bank_rate,passed,provider_success,,1.650365,
-macro_swiss_gbd_yearly,passed,provider_success,,0.963241,
-macro_swiss_gdp_quarterly,passed,provider_success,,1.390486,
-macro_swiss_svme,passed,provider_success,,2.553354,
-macro_swiss_trade,passed,provider_success,,1.168025,
-macro_uk_bank_rate,passed,provider_success,,1.444096,
-macro_uk_core_cpi_monthly,passed,provider_success,,1.269429,
-macro_uk_core_cpi_yearly,passed,provider_success,,1.283208,
-macro_uk_cpi_monthly,passed,provider_success,,1.553648,
-macro_uk_cpi_yearly,passed,provider_success,,1.719832,
-macro_uk_gdp_quarterly,passed,provider_success,,1.362594,
-macro_uk_gdp_yearly,passed,provider_success,,0.608783,
-macro_uk_halifax_monthly,passed,provider_success,,1.454414,
-macro_uk_halifax_yearly,passed,provider_success,,2.060783,
-macro_uk_retail_monthly,passed,provider_success,,1.717512,
-macro_uk_retail_yearly,passed,provider_success,,1.789737,
-macro_uk_rightmove_monthly,passed,provider_success,,1.606995,
-macro_uk_rightmove_yearly,passed,provider_success,,1.319168,
-macro_uk_trade,passed,provider_success,,1.608024,
-macro_uk_unemployment_rate,passed,provider_success,,4.643761,
-macro_usa_adp_employment,passed,provider_success,,11.070068,
-macro_usa_api_crude_stock,passed,provider_success,,23.853884,
-macro_usa_building_permits,passed,provider_success,,9.086578,
-macro_usa_business_inventories,passed,provider_success,,14.053309,
-macro_usa_cb_consumer_confidence,passed,provider_success,,23.583221,
-macro_usa_cftc_c_holding,passed,provider_success,,2.788828,
-macro_usa_cftc_merchant_currency_holding,passed,provider_success,,2.260236,
-macro_usa_cftc_merchant_goods_holding,passed,provider_success,,2.825526,
-macro_usa_cftc_nc_holding,passed,provider_success,,2.112186,
-macro_usa_cme_merchant_goods_holding,passed,provider_success,,4.429524,
-macro_usa_core_cpi_monthly,passed,provider_success,,22.436285,
-macro_usa_core_pce_price,passed,provider_success,,22.56098,
-macro_usa_core_ppi,passed,provider_success,,7.75172,
-macro_usa_cpi_monthly,passed,provider_success,,22.500557,
-macro_usa_cpi_yoy,passed,provider_success,,4.645417,
-macro_usa_crude_inner,passed,provider_success,,0.813489,
-macro_usa_current_account,passed,provider_success,,3.356938,
-macro_usa_durable_goods_orders,passed,provider_success,,8.398616,
+macro_shipping_bpi,passed,provider_success,,22.378248,
+macro_stock_finance,passed,provider_success,,2.363696,
+macro_swiss_cpi_yearly,passed,provider_success,,0.833673,
+macro_swiss_gbd_bank_rate,passed,provider_success,,0.965542,
+macro_swiss_gbd_yearly,passed,provider_success,,1.708582,
+macro_swiss_gdp_quarterly,passed,provider_success,,0.948527,
+macro_swiss_svme,passed,provider_success,,1.085468,
+macro_swiss_trade,passed,provider_success,,0.790046,
+macro_uk_bank_rate,passed,provider_success,,0.917773,
+macro_uk_core_cpi_monthly,passed,provider_success,,1.215132,
+macro_uk_core_cpi_yearly,passed,provider_success,,1.084504,
+macro_uk_cpi_monthly,passed,provider_success,,1.847547,
+macro_uk_cpi_yearly,passed,provider_success,,0.900123,
+macro_uk_gdp_quarterly,passed,provider_success,,0.98983,
+macro_uk_gdp_yearly,passed,provider_success,,0.822641,
+macro_uk_halifax_monthly,passed,provider_success,,1.102785,
+macro_uk_halifax_yearly,passed,provider_success,,1.486706,
+macro_uk_retail_monthly,passed,provider_success,,1.937489,
+macro_uk_retail_yearly,passed,provider_success,,1.454478,
+macro_uk_rightmove_monthly,passed,provider_success,,0.95385,
+macro_uk_rightmove_yearly,passed,provider_success,,1.166164,
+macro_uk_trade,passed,provider_success,,1.095173,
+macro_uk_unemployment_rate,passed,provider_success,,1.216421,
+macro_usa_adp_employment,passed,provider_success,,9.87975,
+macro_usa_api_crude_stock,timeout,upstream_timeout,Timeout,,exceeded 30.0s
+macro_usa_building_permits,passed,provider_success,,8.960738,
+macro_usa_business_inventories,passed,provider_success,,16.552309,
+macro_usa_cb_consumer_confidence,passed,provider_success,,21.401633,
+macro_usa_cftc_c_holding,passed,provider_success,,3.325077,
+macro_usa_cftc_merchant_currency_holding,passed,provider_success,,2.052629,
+macro_usa_cftc_merchant_goods_holding,passed,provider_success,,3.126762,
+macro_usa_cftc_nc_holding,passed,provider_success,,2.367265,
+macro_usa_cme_merchant_goods_holding,passed,provider_success,,3.453598,
+macro_usa_core_cpi_monthly,passed,provider_success,,22.10762,
+macro_usa_core_pce_price,passed,provider_success,,25.903147,
+macro_usa_core_ppi,passed,provider_success,,7.503686,
+macro_usa_cpi_monthly,passed,provider_success,,27.605025,
+macro_usa_cpi_yoy,passed,provider_success,,1.539881,
+macro_usa_crude_inner,passed,provider_success,,0.841028,
+macro_usa_current_account,passed,provider_success,,3.241123,
+macro_usa_durable_goods_orders,passed,provider_success,,10.74076,
 macro_usa_eia_crude_rate,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-macro_usa_exist_home_sales,passed,provider_success,,22.339083,
-macro_usa_export_price,passed,provider_success,,15.667298,
-macro_usa_factory_orders,passed,provider_success,,14.184282,
-macro_usa_gdp_monthly,passed,provider_success,,7.695576,
-macro_usa_house_price_index,passed,provider_success,,14.374643,
-macro_usa_house_starts,passed,provider_success,,22.271225,
-macro_usa_import_price,passed,provider_success,,15.427087,
-macro_usa_industrial_production,passed,provider_success,,23.483478,
+macro_usa_exist_home_sales,passed,provider_success,,26.237471,
+macro_usa_export_price,passed,provider_success,,15.256047,
+macro_usa_factory_orders,passed,provider_success,,17.478561,
+macro_usa_gdp_monthly,passed,provider_success,,7.614535,
+macro_usa_house_price_index,passed,provider_success,,16.286487,
+macro_usa_house_starts,passed,provider_success,,22.908249,
+macro_usa_import_price,passed,provider_success,,18.887296,
+macro_usa_industrial_production,passed,provider_success,,21.91119,
 macro_usa_initial_jobless,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-macro_usa_ism_non_pmi,passed,provider_success,,12.132632,
-macro_usa_ism_pmi,passed,provider_success,,22.364564,
-macro_usa_job_cuts,passed,provider_success,,13.462598,
-macro_usa_lmci,passed,provider_success,,2.117358,
-macro_usa_michigan_consumer_sentiment,passed,provider_success,,27.223382,
-macro_usa_nahb_house_market_index,passed,provider_success,,16.662261,
-macro_usa_new_home_sales,passed,provider_success,,22.628287,
-macro_usa_nfib_small_business,passed,provider_success,,18.264466,
-macro_usa_non_farm,passed,provider_success,,22.262343,
-macro_usa_pending_home_sales,passed,provider_success,,10.385859,
-macro_usa_personal_spending,passed,provider_success,,23.552415,
-macro_usa_phs,passed,provider_success,,1.085874,
-macro_usa_pmi,passed,provider_success,,10.959656,
-macro_usa_ppi,passed,provider_success,,7.644023,
-macro_usa_real_consumer_spending,passed,provider_success,,5.966158,
-macro_usa_retail_sales,passed,provider_success,,14.344814,
-macro_usa_rig_count,passed,provider_success,,1.14279,
-macro_usa_services_pmi,passed,provider_success,,11.126067,
-macro_usa_spcs20,passed,provider_success,,10.269537,
-macro_usa_trade_balance,passed,provider_success,,22.69136,
-macro_usa_unemployment_rate,passed,provider_success,,24.147622,
-match_main_contract,passed,provider_success,,7.074672,
-migration_area_baidu,failed,akshare_runtime,KeyError,1.906906,KeyError: 'value'
-migration_scale_baidu,passed,provider_success,,1.469072,
-movie_boxoffice_cinema_daily,failed,upstream_response,APIError,1.229347,APIError: API Error: 没有权限 (Status code: -1)
-movie_boxoffice_cinema_weekly,failed,upstream_response,APIError,0.151921,"APIError: API Error: movie_boxoffice_cinema_weekly 上游艺恩公开周榜接口当前需要权限或直接返回系统错误, 暂无法匿名获取 (Status code: -1)"
-movie_boxoffice_daily,failed,upstream_response,APIError,1.466545,APIError: API Error: 没有权限 (Status code: -1)
-movie_boxoffice_monthly,passed,provider_success,,2.909406,
-movie_boxoffice_realtime,passed,provider_success,,11.720353,
-movie_boxoffice_weekly,failed,upstream_response,APIError,0.155921,"APIError: API Error: movie_boxoffice_weekly 上游艺恩公开周榜接口当前需要权限或直接返回系统错误, 暂无法匿名获取 (Status code: -1)"
-movie_boxoffice_yearly,passed,provider_success,,5.012009,
-movie_boxoffice_yearly_first_week,passed,provider_success,,7.237776,
-news_cctv,passed,provider_success,,2.714095,
-news_economic_baidu,passed,provider_success,,2.554955,
-news_report_time_baidu,passed,provider_success,,2.292607,
-news_trade_notify_dividend_baidu,passed,provider_success,,3.04383,
-news_trade_notify_suspend_baidu,passed,provider_success,,2.546984,
-nlp_answer,passed,provider_success,,6.731432,
-nlp_ownthink,failed,upstream_response,JSONDecodeError,1.831814,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-online_value_artist,failed,upstream_response,JSONDecodeError,1.406099,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-option_cffex_hs300_daily_sina,passed,provider_success,,0.998938,
-option_cffex_hs300_list_sina,passed,provider_success,,0.900942,
-option_cffex_hs300_spot_sina,passed,provider_success,,0.734102,
-option_cffex_sz50_daily_sina,passed,provider_success,,0.923377,
-option_cffex_sz50_list_sina,passed,provider_success,,0.791509,
-option_cffex_sz50_spot_sina,passed,provider_success,,0.713399,
-option_cffex_zz1000_daily_sina,passed,provider_success,,0.718236,
-option_cffex_zz1000_list_sina,passed,provider_success,,1.944084,
-option_cffex_zz1000_spot_sina,passed,provider_success,,0.944316,
-option_comm_info,failed,akshare_runtime,AttributeError,0.967986,AttributeError: 'NoneType' object has no attribute 'find_all'
-option_comm_symbol,failed,akshare_runtime,AttributeError,0.895194,AttributeError: 'NoneType' object has no attribute 'find_all'
-option_commodity_contract_sina,passed,provider_success,,2.867189,
-option_commodity_contract_table_sina,passed,provider_success,,3.013116,
-option_commodity_hist_sina,passed,provider_success,,0.892163,
-option_contract_info_ctp,passed,provider_success,,7.85993,
-option_current_day_sse,passed,provider_success,,2.299752,
-option_current_day_szse,passed,provider_success,,1.580054,
-option_current_em,failed,upstream_transport,ConnectionError,12.365451,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-option_daily_stats_sse,passed,provider_success,,0.582104,
-option_daily_stats_szse,passed,provider_success,,2.284457,
-option_finance_board,passed_empty,provider_success,,9.321976,
-option_finance_minute_sina,passed,provider_success,,0.713632,
-option_finance_sse_underlying,failed,akshare_runtime,TypeError,0.944489,TypeError: Invalid value '2026-10-22 16:29:06' for dtype 'float64'
-option_hist_czce,passed,provider_success,,4.840132,
-option_hist_dce,failed,upstream_response,JSONDecodeError,2.030949,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-option_hist_gfex,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-option_hist_shfe,passed,provider_success,,4.406124,
-option_hist_yearly_czce,passed,provider_success,,7.522182,
-option_lhb_em,passed,provider_success,,1.12144,
-option_margin,passed,provider_success,,2.561345,
-option_margin_symbol,passed,provider_success,,1.391109,
-option_minute_em,failed,upstream_transport,ConnectionError,13.862383,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-option_premium_analysis_em,failed,upstream_transport,HTTPError,9.313592,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?fid=f250&po=1&pz=100&pn=1&np=1&fltt=2&invt=2&ut=b2884a393a59ad64002292a3e90d46a5&fields=f1%2Cf2%2Cf3%2Cf12%2Cf13%2Cf14%2Cf161%2Cf250%2Cf330%2Cf331%2Cf332%2Cf333%2Cf334%2Cf335%2Cf337%2Cf301%2Cf152&fs=m%3A10
-option_risk_analysis_em,failed,upstream_transport,HTTPError,8.817319,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?fid=f12&po=1&pz=100&pn=1&np=1&fltt=2&invt=2&ut=b2884a393a59ad64002292a3e90d46a5&fields=f1%2Cf2%2Cf3%2Cf12%2Cf13%2Cf14%2Cf302%2Cf303%2Cf325%2Cf326%2Cf327%2Cf329%2Cf328%2Cf301%2Cf152%2Cf154&fs=m%3A10
-option_risk_indicator_sse,passed,provider_success,,1.229278,
-option_sse_codes_sina,failed,akshare_runtime,ValueError,0.782277,"ValueError: Length mismatch: Expected axis has 1 elements, new values have 2 elements"
-option_sse_daily_sina,passed,provider_success,,0.876527,
-option_sse_expire_day_sina,passed,provider_success,,3.293281,
-option_sse_greeks_sina,passed,provider_success,,0.627258,
-option_sse_list_sina,passed,provider_success,,0.679293,
-option_sse_minute_sina,passed_empty,provider_success,,1.817313,
-option_sse_spot_price_sina,passed,provider_success,,0.629006,
-option_sse_underlying_spot_price_sina,passed,provider_success,,0.725768,
-option_value_analysis_em,failed,upstream_transport,HTTPError,10.590756,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?fid=f301&po=1&pz=100&pn=1&np=1&fltt=2&invt=2&ut=b2884a393a59ad64002292a3e90d46a5&fields=f1%2Cf2%2Cf3%2Cf12%2Cf13%2Cf14%2Cf298%2Cf299%2Cf249%2Cf300%2Cf330%2Cf331%2Cf332%2Cf333%2Cf334%2Cf335%2Cf336%2Cf301%2Cf152&fs=m%3A10
-option_vol_gfex,passed,provider_success,,4.331692,
-option_vol_shfe,passed_empty,provider_success,,5.576065,
-pro_api,failed,akshare_runtime,Exception,0.143296,Exception: api init error.
-qdii_a_index_jsl,passed,provider_success,,1.374235,
-qdii_e_comm_jsl,passed,provider_success,,1.155347,
-qdii_e_index_jsl,passed,provider_success,,1.817365,
-qhkc_tool_foreign,failed,akshare_runtime,KeyError,0.995235,KeyError: 'data'
-qhkc_tool_gdp,passed_empty,provider_success,,0.99347,
-rate_interbank,passed,provider_success,,16.915615,
-reits_hist_em,failed,upstream_transport,ConnectionError,1.257982,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-reits_hist_min_em,failed,upstream_transport,ConnectionError,1.218016,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-reits_realtime_em,failed,upstream_transport,ConnectionError,1.169008,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-repo_rate_hist,passed,provider_success,,0.607353,
-repo_rate_query,passed,provider_success,,1.102012,
-rv_from_futures_zh_minute_sina,passed,provider_success,,2.385007,
-rv_from_stock_zh_a_hist_min_em,failed,upstream_transport,ConnectionError,1.864084,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+macro_usa_ism_non_pmi,passed,provider_success,,11.579279,
+macro_usa_ism_pmi,passed,provider_success,,27.565037,
+macro_usa_job_cuts,passed,provider_success,,13.230855,
+macro_usa_lmci,passed,provider_success,,2.339492,
+macro_usa_michigan_consumer_sentiment,passed,provider_success,,26.11257,
+macro_usa_nahb_house_market_index,passed,provider_success,,20.683414,
+macro_usa_new_home_sales,passed,provider_success,,22.05753,
+macro_usa_nfib_small_business,passed,provider_success,,21.083106,
+macro_usa_non_farm,passed,provider_success,,21.720758,
+macro_usa_pending_home_sales,passed,provider_success,,12.744577,
+macro_usa_personal_spending,passed,provider_success,,22.173733,
+macro_usa_phs,passed,provider_success,,0.950001,
+macro_usa_pmi,passed,provider_success,,10.893909,
+macro_usa_ppi,passed,provider_success,,10.603834,
+macro_usa_real_consumer_spending,passed,provider_success,,5.80834,
+macro_usa_retail_sales,passed,provider_success,,16.457739,
+macro_usa_rig_count,passed,provider_success,,0.776652,
+macro_usa_services_pmi,passed,provider_success,,13.673486,
+macro_usa_spcs20,passed,provider_success,,10.078511,
+macro_usa_trade_balance,passed,provider_success,,26.350007,
+macro_usa_unemployment_rate,passed,provider_success,,21.968622,
+match_main_contract,passed,provider_success,,4.279282,
+migration_area_baidu,failed,akshare_runtime,KeyError,3.80239,KeyError: 'value'
+migration_scale_baidu,passed,provider_success,,2.670808,
+movie_boxoffice_cinema_daily,failed,upstream_response,APIError,1.48327,APIError: API Error: 没有权限 (Status code: -1)
+movie_boxoffice_cinema_weekly,failed,upstream_response,APIError,0.152833,"APIError: API Error: movie_boxoffice_cinema_weekly 上游艺恩公开周榜接口当前需要权限或直接返回系统错误, 暂无法匿名获取 (Status code: -1)"
+movie_boxoffice_daily,failed,upstream_response,APIError,1.986379,APIError: API Error: 没有权限 (Status code: -1)
+movie_boxoffice_monthly,passed,provider_success,,3.464088,
+movie_boxoffice_realtime,passed,provider_success,,9.773935,
+movie_boxoffice_weekly,failed,upstream_response,APIError,0.14797,"APIError: API Error: movie_boxoffice_weekly 上游艺恩公开周榜接口当前需要权限或直接返回系统错误, 暂无法匿名获取 (Status code: -1)"
+movie_boxoffice_yearly,passed,provider_success,,5.424855,
+movie_boxoffice_yearly_first_week,passed,provider_success,,18.335318,
+news_cctv,passed,provider_success,,28.715157,
+news_economic_baidu,passed,provider_success,,7.244067,
+news_report_time_baidu,passed,provider_success,,2.936096,
+news_trade_notify_dividend_baidu,failed,akshare_runtime,[REDACTED],11.237065,[REDACTED]
+news_trade_notify_suspend_baidu,passed,provider_success,,3.545154,
+nlp_answer,passed,provider_success,,10.0818,
+nlp_ownthink,failed,upstream_response,JSONDecodeError,1.782992,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+online_value_artist,failed,upstream_response,JSONDecodeError,1.79087,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+option_cffex_hs300_daily_sina,passed,provider_success,,0.790637,
+option_cffex_hs300_list_sina,passed,provider_success,,1.232833,
+option_cffex_hs300_spot_sina,passed,provider_success,,0.934663,
+option_cffex_sz50_daily_sina,passed,provider_success,,1.130249,
+option_cffex_sz50_list_sina,passed,provider_success,,0.913591,
+option_cffex_sz50_spot_sina,passed,provider_success,,0.854024,
+option_cffex_zz1000_daily_sina,passed,provider_success,,0.811914,
+option_cffex_zz1000_list_sina,passed,provider_success,,1.169517,
+option_cffex_zz1000_spot_sina,passed,provider_success,,0.740386,
+option_comm_info,failed,akshare_runtime,AttributeError,1.169496,AttributeError: 'NoneType' object has no attribute 'find_all'
+option_comm_symbol,failed,akshare_runtime,AttributeError,1.135812,AttributeError: 'NoneType' object has no attribute 'find_all'
+option_commodity_contract_sina,passed,provider_success,,1.930234,
+option_commodity_contract_table_sina,passed,provider_success,,2.449705,
+option_commodity_hist_sina,passed,provider_success,,0.953055,
+option_contract_info_ctp,passed,provider_success,,7.118471,
+option_current_day_sse,passed,provider_success,,2.717426,
+option_current_day_szse,failed,upstream_transport,ConnectionError,1.886475,"ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
+option_current_em,failed,upstream_transport,ConnectionError,13.264873,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+option_daily_stats_sse,passed,provider_success,,2.962034,
+option_daily_stats_szse,passed,provider_success,,2.816342,
+option_finance_board,passed_empty,provider_success,,9.052296,
+option_finance_minute_sina,passed,provider_success,,0.889082,
+option_finance_sse_underlying,failed,akshare_runtime,TypeError,1.747815,TypeError: Invalid value '2026-10-22 16:29:06' for dtype 'float64'
+option_hist_czce,passed,provider_success,,3.693755,
+option_hist_dce,failed,upstream_response,JSONDecodeError,0.990373,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+option_hist_gfex,failed,akshare_runtime,KeyError,21.554448,"KeyError: ""['隐含波动率'] not in index"""
+option_hist_shfe,passed,provider_success,,4.701841,
+option_hist_yearly_czce,passed,provider_success,,8.521717,
+option_lhb_em,passed,provider_success,,0.947336,
+option_margin,passed,provider_success,,3.035026,
+option_margin_symbol,passed,provider_success,,1.316117,
+option_minute_em,failed,upstream_transport,ConnectionError,8.175784,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+option_premium_analysis_em,failed,upstream_transport,HTTPError,8.053952,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?fid=f250&po=1&pz=100&pn=1&np=1&fltt=2&invt=2&ut=b2884a393a59ad64002292a3e90d46a5&fields=f1%2Cf2%2Cf3%2Cf12%2Cf13%2Cf14%2Cf161%2Cf250%2Cf330%2Cf331%2Cf332%2Cf333%2Cf334%2Cf335%2Cf337%2Cf301%2Cf152&fs=m%3A10
+option_risk_analysis_em,failed,upstream_transport,HTTPError,10.920712,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?fid=f12&po=1&pz=100&pn=1&np=1&fltt=2&invt=2&ut=b2884a393a59ad64002292a3e90d46a5&fields=f1%2Cf2%2Cf3%2Cf12%2Cf13%2Cf14%2Cf302%2Cf303%2Cf325%2Cf326%2Cf327%2Cf329%2Cf328%2Cf301%2Cf152%2Cf154&fs=m%3A10
+option_risk_indicator_sse,passed,provider_success,,1.702777,
+option_sse_codes_sina,failed,akshare_runtime,ValueError,1.248916,"ValueError: Length mismatch: Expected axis has 1 elements, new values have 2 elements"
+option_sse_daily_sina,passed,provider_success,,0.84757,
+option_sse_expire_day_sina,passed,provider_success,,3.018903,
+option_sse_greeks_sina,passed,provider_success,,0.760369,
+option_sse_list_sina,passed,provider_success,,0.788032,
+option_sse_minute_sina,passed_empty,provider_success,,0.614942,
+option_sse_spot_price_sina,passed,provider_success,,1.299469,
+option_sse_underlying_spot_price_sina,passed,provider_success,,0.565235,
+option_value_analysis_em,failed,upstream_transport,HTTPError,8.68588,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?fid=f301&po=1&pz=100&pn=1&np=1&fltt=2&invt=2&ut=b2884a393a59ad64002292a3e90d46a5&fields=f1%2Cf2%2Cf3%2Cf12%2Cf13%2Cf14%2Cf298%2Cf299%2Cf249%2Cf300%2Cf330%2Cf331%2Cf332%2Cf333%2Cf334%2Cf335%2Cf336%2Cf301%2Cf152&fs=m%3A10
+option_vol_gfex,passed,provider_success,,1.139856,
+option_vol_shfe,passed,provider_success,,11.255003,
+pro_api,failed,akshare_runtime,Exception,0.138522,Exception: api init error.
+qdii_a_index_jsl,passed,provider_success,,1.638629,
+qdii_e_comm_jsl,passed,provider_success,,1.08577,
+qdii_e_index_jsl,passed,provider_success,,1.266658,
+qhkc_tool_foreign,failed,akshare_runtime,KeyError,1.018142,KeyError: 'data'
+qhkc_tool_gdp,passed_empty,provider_success,,1.367187,
+rate_interbank,passed,provider_success,,19.844061,
+reits_hist_em,failed,upstream_transport,ConnectionError,1.284814,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+reits_hist_min_em,passed,provider_success,,3.96423,
+reits_realtime_em,failed,upstream_transport,ConnectionError,1.28639,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+repo_rate_hist,passed,provider_success,,0.84228,
+repo_rate_query,passed,provider_success,,1.475031,
+rv_from_futures_zh_minute_sina,passed,provider_success,,2.345462,
+rv_from_stock_zh_a_hist_min_em,failed,upstream_transport,ConnectionError,1.238641,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
 search,fixture_required,fixture,,,missing required parameters: query
-set_token,passed,provider_success,,0.149737,
-spot_corn_price_soozhu,passed,provider_success,,3.907893,
-spot_golden_benchmark_sge,passed,provider_success,,1.375413,
-spot_goods,passed,provider_success,,1.369231,
-spot_hist_sge,passed,provider_success,,1.088614,
-spot_hog_crossbred_soozhu,passed,provider_success,,1.449716,
-spot_hog_lean_price_soozhu,passed,provider_success,,2.770721,
-spot_hog_soozhu,passed,provider_success,,2.22932,
-spot_hog_three_way_soozhu,passed,provider_success,,2.626708,
-spot_hog_year_trend_soozhu,passed,provider_success,,3.965899,
-spot_mixed_feed_soozhu,passed,provider_success,,3.306615,
-spot_price_qh,passed,provider_success,,5.266998,
-spot_price_table_qh,passed,provider_success,,0.808037,
-spot_quotations_sge,passed,provider_success,,0.911208,
-spot_silver_benchmark_sge,passed,provider_success,,1.100654,
-spot_soybean_price_soozhu,passed,provider_success,,2.425035,
-spot_symbol_table_sge,passed,provider_success,,0.160566,
-stock_a_all_pb,passed,provider_success,,2.145282,
-stock_a_below_net_asset_statistics,passed,provider_success,,1.375293,
-stock_a_code_to_symbol,passed,provider_success,,0.16158,
-stock_a_congestion_lg,passed,provider_success,,2.826838,
-stock_a_gxl_lg,passed,provider_success,,2.577507,
-stock_a_high_low_statistics,passed,provider_success,,1.071119,
-stock_a_ttm_lyr,passed,provider_success,,1.900503,
-stock_account_statistics_em,passed,provider_success,,0.933393,
-stock_add_stock,passed,provider_success,,1.118527,
-stock_allotment_cninfo,passed,provider_success,,2.454919,
-stock_analyst_detail_em,passed,provider_success,,0.566033,
-stock_analyst_rank_em,passed,provider_success,,3.807761,
-stock_balance_sheet_by_report_delisted_em,passed,provider_success,,1.103444,
-stock_balance_sheet_by_report_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_balance_sheet_by_yearly_em,passed,provider_success,,7.839046,
-stock_bid_ask_em,failed,upstream_response,JSONDecodeError,1.283333,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-stock_bj_a_spot_em,failed,upstream_transport,ConnectionError,11.760689,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_board_change_em,passed,provider_success,,1.519465,
-stock_board_concept_cons_em,failed,upstream_transport,HTTPError,23.753774,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A90+t%3A3+f%3A%2150&fields=f2%2Cf3%2Cf4%2Cf8%2Cf12%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf24%2Cf25%2Cf22%2Cf33%2Cf11%2Cf62%2Cf128%2Cf124%2Cf107%2Cf104%2Cf105%2Cf136
-stock_board_concept_hist_em,failed,upstream_transport,HTTPError,24.667555,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A90+t%3A3+f%3A%2150&fields=f2%2Cf3%2Cf4%2Cf8%2Cf12%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf24%2Cf25%2Cf22%2Cf33%2Cf11%2Cf62%2Cf128%2Cf124%2Cf107%2Cf104%2Cf105%2Cf136
-stock_board_concept_hist_min_em,failed,upstream_transport,HTTPError,24.207751,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A90+t%3A3+f%3A%2150&fields=f2%2Cf3%2Cf4%2Cf8%2Cf12%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf24%2Cf25%2Cf22%2Cf33%2Cf11%2Cf62%2Cf128%2Cf124%2Cf107%2Cf104%2Cf105%2Cf136
+set_token,passed,provider_success,,0.214017,
+spot_corn_price_soozhu,passed,provider_success,,1.951291,
+spot_golden_benchmark_sge,passed,provider_success,,2.21221,
+spot_goods,passed,provider_success,,1.647396,
+spot_hist_sge,passed,provider_success,,1.885641,
+spot_hog_crossbred_soozhu,passed,provider_success,,4.236222,
+spot_hog_lean_price_soozhu,passed,provider_success,,2.376189,
+spot_hog_soozhu,passed,provider_success,,3.70944,
+spot_hog_three_way_soozhu,passed,provider_success,,2.068355,
+spot_hog_year_trend_soozhu,passed,provider_success,,1.85985,
+spot_mixed_feed_soozhu,passed,provider_success,,2.44771,
+spot_price_qh,passed,provider_success,,3.443612,
+spot_price_table_qh,passed,provider_success,,1.91899,
+spot_quotations_sge,passed,provider_success,,1.27079,
+spot_silver_benchmark_sge,passed,provider_success,,1.495357,
+spot_soybean_price_soozhu,passed,provider_success,,4.399949,
+spot_symbol_table_sge,passed,provider_success,,0.158244,
+stock_a_all_pb,passed,provider_success,,2.574554,
+stock_a_below_net_asset_statistics,passed,provider_success,,1.725581,
+stock_a_code_to_symbol,passed,provider_success,,0.107121,
+stock_a_congestion_lg,passed,provider_success,,2.7039,
+stock_a_gxl_lg,passed,provider_success,,2.439788,
+stock_a_high_low_statistics,passed,provider_success,,1.413637,
+stock_a_ttm_lyr,passed,provider_success,,1.852937,
+stock_account_statistics_em,passed,provider_success,,0.71402,
+stock_add_stock,passed,provider_success,,0.884589,
+stock_allotment_cninfo,passed,provider_success,,2.586179,
+stock_analyst_detail_em,passed,provider_success,,0.81731,
+stock_analyst_rank_em,passed,provider_success,,3.450839,
+stock_balance_sheet_by_report_delisted_em,passed,provider_success,,1.466781,
+stock_balance_sheet_by_report_em,passed,provider_success,,18.36398,
+stock_balance_sheet_by_yearly_em,passed,provider_success,,10.06935,
+stock_bid_ask_em,failed,upstream_response,JSONDecodeError,1.478401,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+stock_bj_a_spot_em,failed,upstream_transport,ConnectionError,9.277714,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_board_change_em,passed,provider_success,,2.055875,
+stock_board_concept_cons_em,failed,upstream_transport,HTTPError,22.546027,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A90+t%3A3+f%3A%2150&fields=f2%2Cf3%2Cf4%2Cf8%2Cf12%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf24%2Cf25%2Cf22%2Cf33%2Cf11%2Cf62%2Cf128%2Cf124%2Cf107%2Cf104%2Cf105%2Cf136
+stock_board_concept_hist_em,failed,upstream_transport,HTTPError,24.617018,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A90+t%3A3+f%3A%2150&fields=f2%2Cf3%2Cf4%2Cf8%2Cf12%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf24%2Cf25%2Cf22%2Cf33%2Cf11%2Cf62%2Cf128%2Cf124%2Cf107%2Cf104%2Cf105%2Cf136
+stock_board_concept_hist_min_em,failed,upstream_transport,HTTPError,23.383379,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A90+t%3A3+f%3A%2150&fields=f2%2Cf3%2Cf4%2Cf8%2Cf12%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf24%2Cf25%2Cf22%2Cf33%2Cf11%2Cf62%2Cf128%2Cf124%2Cf107%2Cf104%2Cf105%2Cf136
 stock_board_concept_index_ths,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_board_concept_info_ths,passed,provider_success,,26.910288,
-stock_board_concept_name_em,failed,upstream_transport,HTTPError,25.348292,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A90+t%3A3+f%3A%2150&fields=f2%2Cf3%2Cf4%2Cf8%2Cf12%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf24%2Cf25%2Cf22%2Cf33%2Cf11%2Cf62%2Cf128%2Cf124%2Cf107%2Cf104%2Cf105%2Cf136
-stock_board_concept_name_ths,passed,provider_success,,21.955079,
-stock_board_concept_spot_em,failed,upstream_transport,HTTPError,27.079848,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A90+t%3A3+f%3A%2150&fields=f2%2Cf3%2Cf4%2Cf8%2Cf12%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf24%2Cf25%2Cf22%2Cf33%2Cf11%2Cf62%2Cf128%2Cf124%2Cf107%2Cf104%2Cf105%2Cf136
-stock_board_concept_summary_ths,passed,provider_success,,4.266631,
-stock_board_industry_cons_em,failed,upstream_transport,ConnectionError,6.967884,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_board_industry_hist_em,failed,upstream_transport,ConnectionError,9.457528,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_board_industry_hist_min_em,failed,upstream_transport,ConnectionError,10.421602,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_board_industry_index_ths,passed,provider_success,,8.736024,
-stock_board_industry_info_ths,passed,provider_success,,1.309231,
-stock_board_industry_name_em,failed,upstream_transport,ConnectionError,7.827822,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_board_industry_name_ths,passed,provider_success,,0.828016,
-stock_board_industry_spot_em,failed,upstream_transport,ConnectionError,9.015237,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_board_industry_summary_ths,passed,provider_success,,1.539587,
-stock_buffett_index_lg,passed,provider_success,,2.154401,
-stock_cash_flow_sheet_by_quarterly_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_cash_flow_sheet_by_report_delisted_em,passed,provider_success,,1.232919,
-stock_cash_flow_sheet_by_report_em,passed,provider_success,,6.579241,
-stock_cash_flow_sheet_by_yearly_em,passed,provider_success,,9.867976,
-stock_cg_equity_mortgage_cninfo,passed,provider_success,,2.656985,
-stock_cg_guarantee_cninfo,passed,provider_success,,3.588211,
-stock_cg_lawsuit_cninfo,passed,provider_success,,2.728392,
-stock_changes_em,passed,provider_success,,1.45749,
-stock_circulate_stock_holder,passed,provider_success,,1.605989,
+stock_board_concept_info_ths,passed,provider_success,,25.111477,
+stock_board_concept_name_em,failed,upstream_transport,HTTPError,24.1598,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A90+t%3A3+f%3A%2150&fields=f2%2Cf3%2Cf4%2Cf8%2Cf12%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf24%2Cf25%2Cf22%2Cf33%2Cf11%2Cf62%2Cf128%2Cf124%2Cf107%2Cf104%2Cf105%2Cf136
+stock_board_concept_name_ths,passed,provider_success,,26.040386,
+stock_board_concept_spot_em,failed,upstream_transport,HTTPError,24.316273,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A90+t%3A3+f%3A%2150&fields=f2%2Cf3%2Cf4%2Cf8%2Cf12%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf24%2Cf25%2Cf22%2Cf33%2Cf11%2Cf62%2Cf128%2Cf124%2Cf107%2Cf104%2Cf105%2Cf136
+stock_board_concept_summary_ths,passed,provider_success,,4.52334,
+stock_board_industry_cons_em,failed,upstream_transport,ConnectionError,9.366213,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_board_industry_hist_em,failed,upstream_transport,ConnectionError,6.982072,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_board_industry_hist_min_em,failed,upstream_transport,ConnectionError,8.480905,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_board_industry_index_ths,passed,provider_success,,10.577732,
+stock_board_industry_info_ths,passed,provider_success,,3.554251,
+stock_board_industry_name_em,failed,upstream_transport,ConnectionError,6.957083,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_board_industry_name_ths,passed,provider_success,,1.129139,
+stock_board_industry_spot_em,failed,upstream_transport,ConnectionError,7.175465,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_board_industry_summary_ths,passed,provider_success,,3.519626,
+stock_buffett_index_lg,passed,provider_success,,2.060062,
+stock_cash_flow_sheet_by_quarterly_em,passed,provider_success,,18.934197,
+stock_cash_flow_sheet_by_report_delisted_em,passed,provider_success,,1.175102,
+stock_cash_flow_sheet_by_report_em,passed,provider_success,,19.726941,
+stock_cash_flow_sheet_by_yearly_em,passed,provider_success,,18.301131,
+stock_cg_equity_mortgage_cninfo,passed,provider_success,,2.82352,
+stock_cg_guarantee_cninfo,passed,provider_success,,2.26755,
+stock_cg_lawsuit_cninfo,passed,provider_success,,3.679929,
+stock_changes_em,passed,provider_success,,1.249142,
+stock_circulate_stock_holder,passed,provider_success,,1.863382,
 stock_classify_sina,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_comment_detail_scrd_desire_em,passed,provider_success,,0.845043,
-stock_comment_detail_scrd_focus_em,passed,provider_success,,0.918836,
-stock_comment_detail_zhpj_lspf_em,passed,provider_success,,0.831697,
-stock_comment_detail_zlkp_jgcyd_em,passed,provider_success,,1.261698,
-stock_comment_em,passed,provider_success,,24.726016,
-stock_concept_cons_futu,passed,provider_success,,3.312694,
-stock_concept_fund_flow_hist,failed,upstream_transport,HTTPError,7.510265,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=100&po=1&np=1&fields=f3%2Cf12%2Cf13%2Cf14%2Cf62&fid=f62&fs=m%3A90%2Bt%3A3&ut=b2884a393a59ad64002292a3e90d46a5&_=1792678285277
-stock_cy_a_spot_em,failed,upstream_transport,ConnectionError,11.509815,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_cyq_em,failed,upstream_transport,ConnectionError,1.058111,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_dividend_cninfo,passed,provider_success,,2.814874,
-stock_dxsyl_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_dzjy_hygtj,passed,provider_success,,8.851101,
-stock_dzjy_hyyybtj,passed,provider_success,,2.439858,
-stock_dzjy_mrmx,passed,provider_success,,1.077954,
-stock_dzjy_mrtj,passed,provider_success,,1.217875,
-stock_dzjy_sctj,passed,provider_success,,16.184529,
-stock_dzjy_yybph,passed,provider_success,,8.569148,
-stock_ebs_lg,passed,provider_success,,2.646625,
+stock_comment_detail_scrd_desire_em,passed,provider_success,,0.471376,
+stock_comment_detail_scrd_focus_em,passed,provider_success,,1.143587,
+stock_comment_detail_zhpj_lspf_em,passed,provider_success,,1.041709,
+stock_comment_detail_zlkp_jgcyd_em,passed,provider_success,,0.742818,
+stock_comment_em,passed,provider_success,,20.96646,
+stock_concept_cons_futu,passed,provider_success,,1.840353,
+stock_concept_fund_flow_hist,failed,upstream_transport,HTTPError,8.27223,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=100&po=1&np=1&fields=f3%2Cf12%2Cf13%2Cf14%2Cf62&fid=f62&fs=m%3A90%2Bt%3A3&ut=b2884a393a59ad64002292a3e90d46a5&_=1792686397429
+stock_cy_a_spot_em,failed,upstream_transport,ConnectionError,8.280722,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_cyq_em,failed,upstream_transport,ConnectionError,1.155988,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_dividend_cninfo,passed,provider_success,,2.033964,
+stock_dxsyl_em,passed,provider_success,,28.858601,
+stock_dzjy_hygtj,passed,provider_success,,3.789513,
+stock_dzjy_hyyybtj,passed,provider_success,,1.8606,
+stock_dzjy_mrmx,passed,provider_success,,0.591529,
+stock_dzjy_mrtj,passed,provider_success,,0.899388,
+stock_dzjy_sctj,passed,provider_success,,14.730092,
+stock_dzjy_yybph,passed,provider_success,,4.679508,
+stock_ebs_lg,passed,provider_success,,2.531696,
 stock_esg_hz_sina,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 stock_esg_msci_sina,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 stock_esg_rate_sina,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_esg_rft_sina,passed,provider_success,,1.041079,
+stock_esg_rft_sina,passed,provider_success,,1.520068,
 stock_esg_zd_sina,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_fhps_detail_em,passed,provider_success,,1.66287,
-stock_fhps_detail_ths,passed,provider_success,,3.036287,
-stock_fhps_em,passed,provider_success,,22.575802,
-stock_financial_abstract,passed,provider_success,,2.38303,
-stock_financial_abstract_new_ths,passed,provider_success,,1.329204,
-stock_financial_abstract_ths,passed,provider_success,,2.060091,
-stock_financial_analysis_indicator,passed,provider_success,,7.118684,
-stock_financial_analysis_indicator_em,passed,provider_success,,1.113351,
-stock_financial_benefit_new_ths,passed,provider_success,,1.603805,
-stock_financial_benefit_ths,passed,provider_success,,2.432034,
-stock_financial_cash_new_ths,passed,provider_success,,1.494978,
-stock_financial_cash_ths,passed,provider_success,,2.306067,
-stock_financial_debt_new_ths,passed,provider_success,,1.362518,
-stock_financial_debt_ths,passed,provider_success,,2.318995,
-stock_financial_hk_analysis_indicator_em,passed,provider_success,,0.933594,
-stock_financial_hk_report_em,passed,provider_success,,1.130061,
-stock_financial_report_sina,passed,provider_success,,2.717268,
-stock_financial_us_analysis_indicator_em,passed,provider_success,,0.844725,
-stock_financial_us_report_em,passed,provider_success,,2.045419,
+stock_fhps_detail_em,passed,provider_success,,1.308179,
+stock_fhps_detail_ths,passed,provider_success,,2.89952,
+stock_fhps_em,passed,provider_success,,17.971829,
+stock_financial_abstract,passed,provider_success,,2.872277,
+stock_financial_abstract_new_ths,passed,provider_success,,1.342288,
+stock_financial_abstract_ths,passed,provider_success,,3.495945,
+stock_financial_analysis_indicator,passed,provider_success,,6.528505,
+stock_financial_analysis_indicator_em,passed,provider_success,,0.553622,
+stock_financial_benefit_new_ths,passed,provider_success,,1.287809,
+stock_financial_benefit_ths,passed,provider_success,,2.134492,
+stock_financial_cash_new_ths,passed,provider_success,,2.195319,
+stock_financial_cash_ths,passed,provider_success,,2.700899,
+stock_financial_debt_new_ths,passed,provider_success,,1.322795,
+stock_financial_debt_ths,passed,provider_success,,3.512944,
+stock_financial_hk_analysis_indicator_em,passed,provider_success,,0.862716,
+stock_financial_hk_report_em,passed,provider_success,,0.751319,
+stock_financial_report_sina,passed,provider_success,,2.397499,
+stock_financial_us_analysis_indicator_em,passed,provider_success,,1.313657,
+stock_financial_us_report_em,passed,provider_success,,1.539544,
 stock_fund_flow_big_deal,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_fund_flow_concept,passed,provider_success,,5.534672,
+stock_fund_flow_concept,passed,provider_success,,4.222799,
 stock_fund_flow_individual,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_fund_flow_industry,passed,provider_success,,1.782199,
-stock_fund_stock_holder,passed,provider_success,,1.568837,
-stock_gddh_em,passed,provider_success,,11.630597,
+stock_fund_flow_industry,passed,provider_success,,3.263494,
+stock_fund_stock_holder,passed,provider_success,,1.343775,
+stock_gddh_em,passed,provider_success,,16.570079,
 stock_gdfx_free_holding_analyse_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 stock_gdfx_free_holding_change_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 stock_gdfx_free_holding_detail_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 stock_gdfx_free_holding_statistics_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 stock_gdfx_free_holding_teamwork_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_gdfx_free_top_10_em,passed,provider_success,,1.48223,
+stock_gdfx_free_top_10_em,passed,provider_success,,1.351564,
 stock_gdfx_holding_analyse_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 stock_gdfx_holding_change_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 stock_gdfx_holding_detail_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 stock_gdfx_holding_statistics_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 stock_gdfx_holding_teamwork_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_gdfx_top_10_em,passed,provider_success,,0.389666,
+stock_gdfx_top_10_em,passed,provider_success,,0.279209,
 stock_ggcg_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_gpzy_distribute_statistics_bank_em,failed,akshare_runtime,TypeError,0.856532,TypeError: 'NoneType' object is not subscriptable
-stock_gpzy_distribute_statistics_company_em,failed,akshare_runtime,TypeError,0.610657,TypeError: 'NoneType' object is not subscriptable
-stock_gpzy_individual_pledge_ratio_detail_em,passed,provider_success,,2.751803,
-stock_gpzy_industry_data_em,passed,provider_success,,1.292527,
+stock_gpzy_distribute_statistics_bank_em,failed,akshare_runtime,TypeError,0.586394,TypeError: 'NoneType' object is not subscriptable
+stock_gpzy_distribute_statistics_company_em,failed,akshare_runtime,TypeError,0.882487,TypeError: 'NoneType' object is not subscriptable
+stock_gpzy_individual_pledge_ratio_detail_em,passed,provider_success,,2.536365,
+stock_gpzy_industry_data_em,passed,provider_success,,0.634756,
 stock_gpzy_pledge_ratio_detail_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_gpzy_pledge_ratio_em,passed,provider_success,,10.586919,
-stock_gpzy_profile_em,passed,provider_success,,4.347784,
-stock_gsrl_gsdt_em,passed,provider_success,,1.605328,
-stock_history_dividend,passed,provider_success,,2.297725,
-stock_history_dividend_detail,passed,provider_success,,0.848808,
-stock_hk_company_profile_em,passed,provider_success,,0.59812,
-stock_hk_daily,passed,provider_success,,1.484316,
-stock_hk_dividend_payout_em,passed,provider_success,,0.562822,
-stock_hk_famous_spot_em,failed,upstream_transport,ConnectionError,2.915625,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_hk_fhpx_detail_ths,passed,provider_success,,1.234331,
-stock_hk_financial_indicator_em,passed,provider_success,,2.387478,
-stock_hk_ggt_components_em,failed,upstream_transport,ConnectionError,7.068944,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_hk_growth_comparison_em,passed,provider_success,,0.564162,
-stock_hk_gxl_lg,passed,provider_success,,1.89155,
-stock_hk_hist,failed,upstream_transport,ConnectionError,1.969883,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_hk_hist_min_em,failed,upstream_transport,ConnectionError,0.957883,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_hk_hot_rank_detail_em,passed,provider_success,,1.063425,
-stock_hk_hot_rank_detail_realtime_em,passed,provider_success,,0.783987,
-stock_hk_hot_rank_em,passed,provider_success,,3.167667,
-stock_hk_hot_rank_latest_em,passed,provider_success,,0.827912,
-stock_hk_index_daily_em,failed,upstream_transport,ConnectionError,8.399486,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_hk_index_daily_sina,passed,provider_success,,0.867076,
-stock_hk_index_spot_em,failed,upstream_transport,ConnectionError,9.134958,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_hk_index_spot_sina,passed,provider_success,,0.843804,
-stock_hk_indicator_eniu,passed,provider_success,,6.646806,
-stock_hk_main_board_spot_em,failed,upstream_transport,ConnectionError,8.647269,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_hk_profit_forecast_et,passed,provider_success,,1.029644,
-stock_hk_scale_comparison_em,passed,provider_success,,0.573589,
-stock_hk_security_profile_em,passed,provider_success,,0.573771,
+stock_gpzy_pledge_ratio_em,passed,provider_success,,8.188727,
+stock_gpzy_profile_em,passed,provider_success,,3.866143,
+stock_gsrl_gsdt_em,passed,provider_success,,1.102815,
+stock_history_dividend,passed,provider_success,,1.743146,
+stock_history_dividend_detail,passed,provider_success,,1.013993,
+stock_hk_company_profile_em,passed,provider_success,,0.75482,
+stock_hk_daily,passed,provider_success,,1.185988,
+stock_hk_dividend_payout_em,passed,provider_success,,0.439973,
+stock_hk_famous_spot_em,failed,upstream_transport,ConnectionError,1.215142,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_hk_fhpx_detail_ths,passed,provider_success,,0.956255,
+stock_hk_financial_indicator_em,passed,provider_success,,0.696447,
+stock_hk_ggt_components_em,failed,upstream_transport,ConnectionError,7.225593,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_hk_growth_comparison_em,passed,provider_success,,0.444681,
+stock_hk_gxl_lg,passed,provider_success,,1.852602,
+stock_hk_hist,failed,upstream_transport,ConnectionError,1.342284,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_hk_hist_min_em,failed,upstream_transport,ConnectionError,0.839793,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_hk_hot_rank_detail_em,passed,provider_success,,1.108295,
+stock_hk_hot_rank_detail_realtime_em,passed,provider_success,,0.797559,
+stock_hk_hot_rank_em,passed,provider_success,,3.223412,
+stock_hk_hot_rank_latest_em,passed,provider_success,,0.796725,
+stock_hk_index_daily_em,failed,upstream_transport,ConnectionError,7.481755,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_hk_index_daily_sina,passed,provider_success,,2.000557,
+stock_hk_index_spot_em,failed,upstream_transport,ConnectionError,7.809645,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_hk_index_spot_sina,passed,provider_success,,0.590589,
+stock_hk_indicator_eniu,passed,provider_success,,12.674249,
+stock_hk_main_board_spot_em,failed,upstream_transport,ConnectionError,8.4106,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_hk_profit_forecast_et,passed,provider_success,,1.473031,
+stock_hk_scale_comparison_em,passed,provider_success,,0.427877,
+stock_hk_security_profile_em,passed,provider_success,,0.570155,
 stock_hk_spot,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_hk_spot_em,failed,upstream_transport,ConnectionError,7.993244,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_hk_valuation_baidu,passed,provider_success,,0.914826,
-stock_hk_valuation_comparison_em,passed,provider_success,,0.489857,
-stock_hold_change_cninfo,passed,provider_success,,3.587435,
-stock_hold_control_cninfo,passed,provider_success,,2.91269,
-stock_hold_management_detail_cninfo,passed,provider_success,,5.014822,
+stock_hk_spot_em,failed,upstream_transport,ConnectionError,6.785446,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_hk_valuation_baidu,passed,provider_success,,0.789001,
+stock_hk_valuation_comparison_em,passed,provider_success,,0.4848,
+stock_hold_change_cninfo,passed,provider_success,,3.442757,
+stock_hold_control_cninfo,passed,provider_success,,6.26349,
+stock_hold_management_detail_cninfo,passed,provider_success,,5.286734,
 stock_hold_management_detail_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_hold_management_person_em,passed,provider_success,,0.77194,
-stock_hold_num_cninfo,passed,provider_success,,8.164724,
-stock_hot_deal_xq,failed,akshare_runtime,NetworkError,1.144327,NetworkError: Failed to request Xueqiu hot rank endpoint: Expecting value: line 1 column 1 (char 0)
-stock_hot_follow_xq,failed,akshare_runtime,NetworkError,0.979258,NetworkError: Failed to request Xueqiu hot rank endpoint: Expecting value: line 1 column 1 (char 0)
-stock_hot_keyword_em,passed,provider_success,,0.768877,
-stock_hot_rank_detail_em,passed,provider_success,,1.49371,
-stock_hot_rank_detail_realtime_em,passed,provider_success,,1.456989,
-stock_hot_rank_em,failed,upstream_response,JSONDecodeError,2.077026,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-stock_hot_rank_latest_em,passed,provider_success,,2.508112,
-stock_hot_rank_relate_em,passed,provider_success,,0.994138,
-stock_hot_search_baidu,passed,provider_success,,1.084831,
-stock_hot_tweet_xq,failed,akshare_runtime,NetworkError,1.042688,NetworkError: Failed to request Xueqiu hot rank endpoint: Expecting value: line 1 column 1 (char 0)
-stock_hot_up_em,failed,upstream_response,JSONDecodeError,1.86222,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-stock_hsgt_board_rank_em,failed,akshare_runtime,TypeError,11.875407,TypeError: 'NoneType' object is not subscriptable
-stock_hsgt_fund_flow_summary_em,passed,provider_success,,1.011494,
-stock_hsgt_fund_min_em,passed,provider_success,,2.149303,
-stock_hsgt_hist_em,passed,provider_success,,8.597571,
-stock_hsgt_hold_stock_em,failed,akshare_runtime,TypeError,1.748511,TypeError: 'NoneType' object is not subscriptable
-stock_hsgt_individual_detail_em,failed,akshare_runtime,TypeError,1.391232,TypeError: 'NoneType' object is not subscriptable
-stock_hsgt_individual_em,passed,provider_success,,7.121809,
-stock_hsgt_institution_statistics_em,failed,akshare_runtime,TypeError,0.714696,TypeError: 'NoneType' object is not subscriptable
-stock_hsgt_sh_hk_spot_em,failed,upstream_transport,HTTPError,9.268346,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?np=1&fltt=1&invt=2&fs=b%3ADLMK0144&fields=f12%2Cf13%2Cf14%2Cf19%2Cf1%2Cf2%2Cf4%2Cf3%2Cf152%2Cf17%2Cf18%2Cf15%2Cf16%2Cf5%2Cf6&fid=f12&pn=1&pz=100&po=1&dect=1&wbp2u=%7C0%7C0%7C0%7Cweb
-stock_hsgt_stock_statistics_em,failed,akshare_runtime,TypeError,0.812974,TypeError: 'NoneType' object is not subscriptable
-stock_index_pb_lg,passed,provider_success,,1.895721,
-stock_index_pe_lg,passed,provider_success,,2.091333,
-stock_individual_basic_info_hk_xq,failed,akshare_runtime,[REDACTED],2.100248,[REDACTED]
-stock_individual_basic_info_us_xq,failed,akshare_runtime,[REDACTED],2.040475,[REDACTED]
-stock_individual_basic_info_xq,failed,akshare_runtime,[REDACTED],2.063638,[REDACTED]
-stock_individual_fund_flow,failed,upstream_transport,ConnectionError,0.735323,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_individual_fund_flow_rank,failed,upstream_response,JSONDecodeError,1.107967,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-stock_individual_info_em,failed,upstream_response,JSONDecodeError,1.09309,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+stock_hold_management_person_em,passed,provider_success,,0.952663,
+stock_hold_num_cninfo,passed,provider_success,,4.499351,
+stock_hot_deal_xq,failed,akshare_runtime,NetworkError,0.985566,NetworkError: Failed to request Xueqiu hot rank endpoint: Expecting value: line 1 column 1 (char 0)
+stock_hot_follow_xq,failed,akshare_runtime,NetworkError,1.274083,NetworkError: Failed to request Xueqiu hot rank endpoint: Expecting value: line 1 column 1 (char 0)
+stock_hot_keyword_em,passed,provider_success,,0.687131,
+stock_hot_rank_detail_em,passed,provider_success,,3.046991,
+stock_hot_rank_detail_realtime_em,passed,provider_success,,0.812747,
+stock_hot_rank_em,failed,upstream_response,JSONDecodeError,2.189637,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+stock_hot_rank_latest_em,passed,provider_success,,1.419824,
+stock_hot_rank_relate_em,passed,provider_success,,1.049151,
+stock_hot_search_baidu,passed,provider_success,,1.038238,
+stock_hot_tweet_xq,failed,akshare_runtime,NetworkError,1.023731,NetworkError: Failed to request Xueqiu hot rank endpoint: Expecting value: line 1 column 1 (char 0)
+stock_hot_up_em,passed,provider_success,,2.476017,
+stock_hsgt_board_rank_em,failed,akshare_runtime,TypeError,3.37598,TypeError: 'NoneType' object is not subscriptable
+stock_hsgt_fund_flow_summary_em,passed,provider_success,,0.730957,
+stock_hsgt_fund_min_em,passed,provider_success,,2.748562,
+stock_hsgt_hist_em,passed,provider_success,,8.787665,
+stock_hsgt_hold_stock_em,failed,akshare_runtime,TypeError,1.496129,TypeError: 'NoneType' object is not subscriptable
+stock_hsgt_individual_detail_em,failed,akshare_runtime,TypeError,1.115719,TypeError: 'NoneType' object is not subscriptable
+stock_hsgt_individual_em,passed,provider_success,,7.609483,
+stock_hsgt_institution_statistics_em,failed,akshare_runtime,TypeError,0.555893,TypeError: 'NoneType' object is not subscriptable
+stock_hsgt_sh_hk_spot_em,failed,upstream_transport,HTTPError,9.375399,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?np=1&fltt=1&invt=2&fs=b%3ADLMK0144&fields=f12%2Cf13%2Cf14%2Cf19%2Cf1%2Cf2%2Cf4%2Cf3%2Cf152%2Cf17%2Cf18%2Cf15%2Cf16%2Cf5%2Cf6&fid=f12&pn=1&pz=100&po=1&dect=1&wbp2u=%7C0%7C0%7C0%7Cweb
+stock_hsgt_stock_statistics_em,failed,akshare_runtime,TypeError,1.207847,TypeError: 'NoneType' object is not subscriptable
+stock_index_pb_lg,passed,provider_success,,2.148034,
+stock_index_pe_lg,passed,provider_success,,1.92308,
+stock_individual_basic_info_hk_xq,failed,akshare_runtime,[REDACTED],2.950944,[REDACTED]
+stock_individual_basic_info_us_xq,failed,akshare_runtime,[REDACTED],2.141414,[REDACTED]
+stock_individual_basic_info_xq,failed,akshare_runtime,[REDACTED],2.495515,[REDACTED]
+stock_individual_fund_flow,failed,upstream_transport,ConnectionError,1.007972,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_individual_fund_flow_rank,failed,upstream_response,JSONDecodeError,1.255047,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+stock_individual_info_em,failed,upstream_response,JSONDecodeError,1.080222,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 stock_individual_notice_report,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_individual_spot_xq,failed,akshare_runtime,[REDACTED],2.13396,[REDACTED]
-stock_industry_category_cninfo,passed,provider_success,,4.903178,
-stock_industry_change_cninfo,passed,provider_success,,2.042884,
-stock_industry_clf_hist_sw,failed,upstream_transport,SSLError,1.237431,"SSLError: HTTPSConnectionPool(host='www.swsresearch.com', port=443): Max retries exceeded with url: /swindex/pdf/SwClass2021/StockClassifyUse_stock.xls (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))"
-stock_industry_pe_ratio_cninfo,failed,akshare_runtime,ValueError,1.907503,"ValueError: Length mismatch: Expected axis has 0 elements, new values have 12 elements"
-stock_info_a_code_name,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_info_bj_name_code,passed,provider_success,,28.603955,
-stock_info_change_name,passed,provider_success,,1.32008,
-stock_info_cjzc_em,passed,provider_success,,2.939144,
-stock_info_global_cls,passed,provider_success,,1.020119,
-stock_info_global_em,passed,provider_success,,3.392455,
-stock_info_global_futu,passed,provider_success,,1.163878,
-stock_info_global_sina,passed,provider_success,,1.442872,
-stock_info_global_ths,passed,provider_success,,2.037345,
-stock_info_sh_delist,passed,provider_success,,1.675205,
-stock_info_sh_name_code,passed,provider_success,,4.61658,
-stock_info_sz_change_name,passed,provider_success,,0.965872,
-stock_info_sz_delist,passed,provider_success,,0.771641,
-stock_info_sz_name_code,passed,provider_success,,2.852189,
-stock_inner_trade_xq,failed,akshare_runtime,NetworkError,1.050979,NetworkError: Failed to request Xueqiu inner trade endpoint: Expecting value: line 1 column 1 (char 0)
-stock_institute_hold,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_institute_hold_detail,passed_empty,provider_success,,1.116414,
-stock_institute_recommend,passed_empty,provider_success,,1.556307,
-stock_institute_recommend_detail,passed,provider_success,,1.174368,
-stock_intraday_em,failed,upstream_transport,ConnectionError,1.054382,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_intraday_sina,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_ipo_benefit_ths,failed,akshare_runtime,AttributeError,1.478145,AttributeError: 'NoneType' object has no attribute 'text'
-stock_ipo_declare_em,passed,provider_success,,21.977727,
-stock_ipo_hk_ths,passed,provider_success,,1.325746,
-stock_ipo_info,passed,provider_success,,0.724699,
-stock_ipo_review_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_ipo_summary_cninfo,passed,provider_success,,2.662034,
-stock_ipo_ths,passed,provider_success,,1.84568,
-stock_ipo_tutor_em,passed,provider_success,,22.15731,
-stock_irm_ans_cninfo,passed,provider_success,,2.880536,
-stock_irm_cninfo,passed,provider_success,,9.037766,
+stock_individual_spot_xq,failed,akshare_runtime,[REDACTED],2.193166,[REDACTED]
+stock_industry_category_cninfo,passed,provider_success,,5.017393,
+stock_industry_change_cninfo,passed,provider_success,,2.014875,
+stock_industry_clf_hist_sw,failed,upstream_transport,SSLError,0.925079,"SSLError: HTTPSConnectionPool(host='www.swsresearch.com', port=443): Max retries exceeded with url: /swindex/pdf/SwClass2021/StockClassifyUse_stock.xls (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))"
+stock_industry_pe_ratio_cninfo,failed,akshare_runtime,ValueError,1.808681,"ValueError: Length mismatch: Expected axis has 0 elements, new values have 12 elements"
+stock_info_a_code_name,failed,upstream_transport,ConnectionError,5.753444,"ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
+stock_info_bj_name_code,passed,provider_success,,20.238117,
+stock_info_change_name,passed,provider_success,,1.12061,
+stock_info_cjzc_em,passed,provider_success,,2.820828,
+stock_info_global_cls,passed,provider_success,,1.406501,
+stock_info_global_em,passed,provider_success,,2.866684,
+stock_info_global_futu,passed,provider_success,,1.521327,
+stock_info_global_sina,passed,provider_success,,1.214536,
+stock_info_global_ths,passed,provider_success,,1.42013,
+stock_info_sh_delist,passed,provider_success,,1.528599,
+stock_info_sh_name_code,passed,provider_success,,5.464334,
+stock_info_sz_change_name,passed,provider_success,,0.984694,
+stock_info_sz_delist,failed,upstream_transport,ConnectionError,3.530209,"ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
+stock_info_sz_name_code,failed,upstream_transport,ConnectionError,3.084003,"ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
+stock_inner_trade_xq,failed,akshare_runtime,NetworkError,1.13306,NetworkError: Failed to request Xueqiu inner trade endpoint: Expecting value: line 1 column 1 (char 0)
+stock_institute_hold,passed,provider_success,,1.194168,
+stock_institute_hold_detail,passed_empty,provider_success,,1.262526,
+stock_institute_recommend,passed_empty,provider_success,,2.26664,
+stock_institute_recommend_detail,passed,provider_success,,1.398267,
+stock_intraday_em,failed,upstream_transport,ConnectionError,0.944412,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_intraday_sina,failed,akshare_runtime,KeyError,0.807607,KeyError: 'ticktime'
+stock_ipo_benefit_ths,failed,akshare_runtime,AttributeError,1.020078,AttributeError: 'NoneType' object has no attribute 'text'
+stock_ipo_declare_em,passed,provider_success,,18.64899,
+stock_ipo_hk_ths,passed,provider_success,,1.44033,
+stock_ipo_info,passed,provider_success,,0.950589,
+stock_ipo_review_em,passed,provider_success,,22.526598,
+stock_ipo_summary_cninfo,passed,provider_success,,1.247973,
+stock_ipo_ths,passed,provider_success,,1.525016,
+stock_ipo_tutor_em,passed,provider_success,,17.231153,
+stock_irm_ans_cninfo,passed,provider_success,,1.527864,
+stock_irm_cninfo,passed,provider_success,,7.032737,
 stock_jgdy_detail_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
 stock_jgdy_tj_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_js_weibo_nlp_time,passed,provider_success,,0.909593,
-stock_js_weibo_report,passed,provider_success,,0.7752,
-stock_kc_a_spot_em,failed,upstream_transport,ConnectionError,6.889596,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_lh_yyb_capital,passed,provider_success,,13.105444,
-stock_lh_yyb_control,passed,provider_success,,9.629785,
-stock_lh_yyb_most,passed,provider_success,,8.502707,
-stock_lhb_detail_daily_sina,passed,provider_success,,1.285038,
-stock_lhb_detail_em,passed,provider_success,,5.189214,
-stock_lhb_ggtj_sina,passed,provider_success,,5.899368,
-stock_lhb_hyyyb_em,passed,provider_success,,3.460221,
-stock_lhb_jgmmtj_em,passed,provider_success,,4.058737,
-stock_lhb_jgmx_sina,passed,provider_success,,8.557746,
-stock_lhb_jgstatistic_em,passed,provider_success,,2.972672,
-stock_lhb_jgzz_sina,passed,provider_success,,5.685433,
-stock_lhb_stock_detail_date_em,passed,provider_success,,0.715941,
-stock_lhb_stock_detail_em,passed,provider_success,,0.609702,
-stock_lhb_stock_statistic_em,passed,provider_success,,1.921653,
-stock_lhb_traderstatistic_em,passed,provider_success,,7.259627,
-stock_lhb_yyb_detail_em,passed,provider_success,,3.659038,
-stock_lhb_yybph_em,passed,provider_success,,5.835651,
-stock_lhb_yytj_sina,passed,provider_success,,15.285632,
-stock_lrb_em,passed,provider_success,,27.552633,
-stock_main_fund_flow,failed,upstream_transport,HTTPError,8.339377,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?fid=f184&po=1&pz=100&pn=1&np=1&fltt=2&invt=2&fields=f2%2Cf3%2Cf12%2Cf13%2Cf14%2Cf62%2Cf184%2Cf225%2Cf165%2Cf263%2Cf109%2Cf175%2Cf264%2Cf160%2Cf100%2Cf124%2Cf265%2Cf1&ut=b2884a393a59ad64002292a3e90d46a5&fs=m%3A0%2Bt%3A6%2Bf%3A%212%2Cm%3A0%2Bt%3A13%2Bf%3A%212%2Cm%3A0%2Bt%3A80%2Bf%3A%212%2Cm%3A1%2Bt%3A2%2Bf%3A%212%2Cm%3A1%2Bt%3A23%2Bf%3A%212%2Cm%3A0%2Bt%3A7%2Bf%3A%212%2Cm%3A1%2Bt%3A3%2Bf%3A%212
-stock_main_stock_holder,passed,provider_success,,1.424945,
-stock_management_change_ths,passed,provider_success,,1.947133,
-stock_margin_account_info,passed,provider_success,,17.545971,
-stock_margin_bse,passed,provider_success,,1.629343,
-stock_margin_detail_bse,passed,provider_success,,18.270329,
-stock_margin_detail_sse,passed,provider_success,,3.127329,
-stock_margin_detail_szse,passed,provider_success,,1.156731,
-stock_margin_ratio_pa,passed,provider_success,,3.598745,
-stock_margin_sse,passed,provider_success,,2.875574,
-stock_margin_szse,passed,provider_success,,0.610607,
-stock_margin_underlying_info_bse,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_margin_underlying_info_szse,passed,provider_success,,0.942496,
-stock_market_activity_legu,passed,provider_success,,1.105589,
-stock_market_fund_flow,failed,upstream_transport,ConnectionError,1.847107,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_market_pb_lg,passed,provider_success,,1.81545,
-stock_market_pe_lg,passed,provider_success,,1.893884,
-stock_new_a_spot_em,failed,upstream_transport,ConnectionError,9.565225,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_new_gh_cninfo,failed,akshare_runtime,ValueError,2.084582,"ValueError: Length mismatch: Expected axis has 0 elements, new values have 6 elements"
-stock_new_ipo_cninfo,passed,provider_success,,1.663918,
-stock_news_em,passed,provider_success,,0.787957,
-stock_news_main_cx,passed,provider_success,,2.073054,
+stock_js_weibo_nlp_time,passed,provider_success,,0.949219,
+stock_js_weibo_report,passed,provider_success,,1.19233,
+stock_kc_a_spot_em,failed,upstream_transport,ConnectionError,8.991328,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_lh_yyb_capital,passed,provider_success,,10.796148,
+stock_lh_yyb_control,passed,provider_success,,7.642087,
+stock_lh_yyb_most,passed,provider_success,,11.236253,
+stock_lhb_detail_daily_sina,passed,provider_success,,1.980139,
+stock_lhb_detail_em,passed,provider_success,,5.52554,
+stock_lhb_ggtj_sina,passed,provider_success,,6.920674,
+stock_lhb_hyyyb_em,passed,provider_success,,2.522713,
+stock_lhb_jgmmtj_em,passed,provider_success,,3.483131,
+stock_lhb_jgmx_sina,passed,provider_success,,6.732967,
+stock_lhb_jgstatistic_em,passed,provider_success,,3.734634,
+stock_lhb_jgzz_sina,timeout,upstream_timeout,Timeout,,exceeded 30.0s
+stock_lhb_stock_detail_date_em,passed,provider_success,,0.782159,
+stock_lhb_stock_detail_em,passed,provider_success,,0.866455,
+stock_lhb_stock_statistic_em,passed,provider_success,,1.749271,
+stock_lhb_traderstatistic_em,passed,provider_success,,4.037203,
+stock_lhb_yyb_detail_em,passed,provider_success,,4.71859,
+stock_lhb_yybph_em,passed,provider_success,,4.382589,
+stock_lhb_yytj_sina,passed,provider_success,,14.397883,
+stock_lrb_em,passed,provider_success,,24.529407,
+stock_main_fund_flow,failed,upstream_transport,HTTPError,7.552955,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?fid=f184&po=1&pz=100&pn=1&np=1&fltt=2&invt=2&fields=f2%2Cf3%2Cf12%2Cf13%2Cf14%2Cf62%2Cf184%2Cf225%2Cf165%2Cf263%2Cf109%2Cf175%2Cf264%2Cf160%2Cf100%2Cf124%2Cf265%2Cf1&ut=b2884a393a59ad64002292a3e90d46a5&fs=m%3A0%2Bt%3A6%2Bf%3A%212%2Cm%3A0%2Bt%3A13%2Bf%3A%212%2Cm%3A0%2Bt%3A80%2Bf%3A%212%2Cm%3A1%2Bt%3A2%2Bf%3A%212%2Cm%3A1%2Bt%3A23%2Bf%3A%212%2Cm%3A0%2Bt%3A7%2Bf%3A%212%2Cm%3A1%2Bt%3A3%2Bf%3A%212
+stock_main_stock_holder,passed,provider_success,,1.496139,
+stock_management_change_ths,passed,provider_success,,1.874271,
+stock_margin_account_info,passed,provider_success,,13.448949,
+stock_margin_bse,passed,provider_success,,1.520528,
+stock_margin_detail_bse,passed,provider_success,,16.569666,
+stock_margin_detail_sse,passed,provider_success,,2.365368,
+stock_margin_detail_szse,passed,provider_success,,1.369508,
+stock_margin_ratio_pa,passed,provider_success,,2.691312,
+stock_margin_sse,passed,provider_success,,2.752643,
+stock_margin_szse,passed,provider_success,,0.604765,
+stock_margin_underlying_info_bse,passed,provider_success,,21.120174,
+stock_margin_underlying_info_szse,passed,provider_success,,0.806364,
+stock_market_activity_legu,passed,provider_success,,1.169166,
+stock_market_fund_flow,passed,provider_success,,0.547202,
+stock_market_pb_lg,passed,provider_success,,2.154331,
+stock_market_pe_lg,passed,provider_success,,1.767164,
+stock_new_a_spot_em,failed,upstream_transport,ConnectionError,8.247847,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_new_gh_cninfo,failed,akshare_runtime,ValueError,2.025495,"ValueError: Length mismatch: Expected axis has 0 elements, new values have 6 elements"
+stock_new_ipo_cninfo,passed,provider_success,,2.943954,
+stock_news_em,passed,provider_success,,1.110566,
+stock_news_main_cx,passed,provider_success,,2.407053,
 stock_notice_report,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_pg_em,passed,provider_success,,8.709138,
-stock_price_js,failed,upstream_response,JSONDecodeError,1.181329,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-stock_profile_cninfo,passed,provider_success,,2.029158,
-stock_profit_forecast_em,passed,provider_success,,19.580976,
-stock_profit_forecast_ths,passed,provider_success,,2.325883,
-stock_profit_sheet_by_quarterly_em,passed,provider_success,,29.189131,
-stock_profit_sheet_by_report_delisted_em,passed,provider_success,,1.178757,
-stock_profit_sheet_by_report_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_profit_sheet_by_yearly_em,passed,provider_success,,9.586595,
+stock_pg_em,passed,provider_success,,4.927056,
+stock_price_js,failed,upstream_response,JSONDecodeError,1.387561,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+stock_profile_cninfo,passed,provider_success,,3.082227,
+stock_profit_forecast_em,passed,provider_success,,16.448939,
+stock_profit_forecast_ths,passed,provider_success,,2.744436,
+stock_profit_sheet_by_quarterly_em,passed,provider_success,,25.487102,
+stock_profit_sheet_by_report_delisted_em,passed,provider_success,,0.97865,
+stock_profit_sheet_by_report_em,passed,provider_success,,26.718763,
+stock_profit_sheet_by_yearly_em,passed,provider_success,,7.680793,
 stock_qbzf_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_qsjy_em,passed,provider_success,,0.823794,
-stock_rank_cxd_ths,passed,provider_success,,25.296493,
-stock_rank_cxfl_ths,passed,provider_success,,2.984472,
-stock_rank_cxg_ths,passed,provider_success,,1.589736,
-stock_rank_cxsl_ths,passed,provider_success,,5.506816,
-stock_rank_forecast_cninfo,passed,provider_success,,2.352478,
-stock_rank_ljqd_ths,passed,provider_success,,24.704671,
-stock_rank_ljqs_ths,passed,provider_success,,5.17273,
-stock_rank_lxsz_ths,passed,provider_success,,2.047669,
-stock_rank_lxxd_ths,passed,provider_success,,10.625158,
-stock_rank_xstp_ths,passed,provider_success,,15.028332,
+stock_qsjy_em,passed,provider_success,,0.680549,
+stock_rank_cxd_ths,passed,provider_success,,26.707986,
+stock_rank_cxfl_ths,passed,provider_success,,5.802691,
+stock_rank_cxg_ths,passed,provider_success,,1.648791,
+stock_rank_cxsl_ths,passed,provider_success,,6.333734,
+stock_rank_forecast_cninfo,passed,provider_success,,1.101766,
+stock_rank_ljqd_ths,timeout,upstream_timeout,Timeout,,exceeded 30.0s
+stock_rank_ljqs_ths,passed,provider_success,,5.018891,
+stock_rank_lxsz_ths,passed,provider_success,,2.99345,
+stock_rank_lxxd_ths,passed,provider_success,,9.864436,
+stock_rank_xstp_ths,passed,provider_success,,18.005418,
 stock_rank_xxtp_ths,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_rank_xzjp_ths,passed,provider_success,,0.686591,
-stock_register_all_em,passed,provider_success,,26.862621,
-stock_register_bj,passed,provider_success,,5.158093,
-stock_register_cyb,passed,provider_success,,7.177958,
-stock_register_db,passed,provider_success,,16.608287,
-stock_register_kcb,passed,provider_success,,6.597024,
-stock_register_sh,passed,provider_success,,5.806338,
-stock_register_sz,passed,provider_success,,5.132576,
-stock_report_disclosure,passed,provider_success,,5.451572,
-stock_report_fund_hold,passed,provider_success,,14.767902,
-stock_report_fund_hold_detail,passed,provider_success,,0.820027,
+stock_rank_xzjp_ths,passed,provider_success,,0.705466,
+stock_register_all_em,passed,provider_success,,19.047475,
+stock_register_bj,passed,provider_success,,5.587279,
+stock_register_cyb,passed,provider_success,,9.570431,
+stock_register_db,passed,provider_success,,3.64853,
+stock_register_kcb,passed,provider_success,,4.510455,
+stock_register_sh,passed,provider_success,,5.195801,
+stock_register_sz,passed,provider_success,,4.157312,
+stock_report_disclosure,passed,provider_success,,4.874425,
+stock_report_fund_hold,passed,provider_success,,15.867641,
+stock_report_fund_hold_detail,passed,provider_success,,1.41616,
 stock_repurchase_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_research_report_em,passed,provider_success,,7.942748,
-stock_restricted_release_detail_em,passed,provider_success,,29.333672,
-stock_restricted_release_queue_em,passed,provider_success,,0.64106,
-stock_restricted_release_queue_sina,passed,provider_success,,1.039091,
-stock_restricted_release_stockholder_em,passed,provider_success,,3.968665,
-stock_restricted_release_summary_em,passed,provider_success,,4.499633,
-stock_sector_detail,passed,provider_success,,3.103068,
-stock_sector_fund_flow_hist,failed,upstream_transport,HTTPError,8.184633,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?fid=f62&po=1&pz=100&pn=1&np=1&fltt=2&invt=2&ut=8dec03ba335b81bf4ebdf7b29ec27d15&fs=m%3A90+t%3A2&fields=f12%2Cf14%2Cf2%2Cf3%2Cf62%2Cf184%2Cf66%2Cf69%2Cf72%2Cf75%2Cf78%2Cf81%2Cf84%2Cf87%2Cf204%2Cf205%2Cf124%2Cf1%2Cf13
-stock_sector_fund_flow_rank,failed,upstream_response,JSONDecodeError,1.187817,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-stock_sector_fund_flow_summary,failed,upstream_transport,HTTPError,7.965256,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?fid=f62&po=1&pz=100&pn=1&np=1&fltt=2&invt=2&ut=8dec03ba335b81bf4ebdf7b29ec27d15&fs=m%3A90+t%3A2&fields=f12%2Cf14%2Cf2%2Cf3%2Cf62%2Cf184%2Cf66%2Cf69%2Cf72%2Cf75%2Cf78%2Cf81%2Cf84%2Cf87%2Cf204%2Cf205%2Cf124%2Cf1%2Cf13
-stock_sector_spot,passed,provider_success,,0.606468,
-stock_sgt_reference_exchange_rate_sse,passed,provider_success,,2.201816,
-stock_sgt_reference_exchange_rate_szse,failed,akshare_runtime,TypeError,0.859498,"TypeError: Expected file path name or file-like object, got <class 'bytes'> type"
-stock_sgt_settlement_exchange_rate_sse,passed,provider_success,,2.288196,
-stock_sgt_settlement_exchange_rate_szse,failed,akshare_runtime,TypeError,0.760086,"TypeError: Expected file path name or file-like object, got <class 'bytes'> type"
-stock_sh_a_spot_em,failed,upstream_transport,ConnectionError,10.19402,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_share_change_cninfo,passed,provider_success,,4.788679,
-stock_share_hold_change_bse,passed,provider_success,,1.71614,
-stock_share_hold_change_sse,passed,provider_success,,2.836248,
+stock_research_report_em,passed,provider_success,,3.091605,
+stock_restricted_release_detail_em,passed,provider_success,,24.085955,
+stock_restricted_release_queue_em,passed,provider_success,,0.871363,
+stock_restricted_release_queue_sina,passed,provider_success,,0.762882,
+stock_restricted_release_stockholder_em,passed,provider_success,,0.701839,
+stock_restricted_release_summary_em,passed,provider_success,,0.856395,
+stock_sector_detail,passed,provider_success,,2.891735,
+stock_sector_fund_flow_hist,failed,upstream_transport,HTTPError,7.660408,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?fid=f62&po=1&pz=100&pn=1&np=1&fltt=2&invt=2&ut=8dec03ba335b81bf4ebdf7b29ec27d15&fs=m%3A90+t%3A2&fields=f12%2Cf14%2Cf2%2Cf3%2Cf62%2Cf184%2Cf66%2Cf69%2Cf72%2Cf75%2Cf78%2Cf81%2Cf84%2Cf87%2Cf204%2Cf205%2Cf124%2Cf1%2Cf13
+stock_sector_fund_flow_rank,failed,upstream_response,JSONDecodeError,1.506537,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+stock_sector_fund_flow_summary,failed,upstream_transport,HTTPError,7.853485,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?fid=f62&po=1&pz=100&pn=1&np=1&fltt=2&invt=2&ut=8dec03ba335b81bf4ebdf7b29ec27d15&fs=m%3A90+t%3A2&fields=f12%2Cf14%2Cf2%2Cf3%2Cf62%2Cf184%2Cf66%2Cf69%2Cf72%2Cf75%2Cf78%2Cf81%2Cf84%2Cf87%2Cf204%2Cf205%2Cf124%2Cf1%2Cf13
+stock_sector_spot,passed,provider_success,,0.781246,
+stock_sgt_reference_exchange_rate_sse,passed,provider_success,,3.141633,
+stock_sgt_reference_exchange_rate_szse,failed,akshare_runtime,TypeError,0.836855,"TypeError: Expected file path name or file-like object, got <class 'bytes'> type"
+stock_sgt_settlement_exchange_rate_sse,passed,provider_success,,2.814534,
+stock_sgt_settlement_exchange_rate_szse,failed,akshare_runtime,TypeError,1.132698,"TypeError: Expected file path name or file-like object, got <class 'bytes'> type"
+stock_sh_a_spot_em,failed,upstream_transport,ConnectionError,7.14442,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_share_change_cninfo,passed,provider_success,,2.618798,
+stock_share_hold_change_bse,passed,provider_success,,1.165341,
+stock_share_hold_change_sse,passed,provider_success,,2.932241,
 stock_share_hold_change_szse,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_shareholder_change_ths,passed,provider_success,,2.383237,
+stock_shareholder_change_ths,passed,provider_success,,2.473813,
 stock_sns_sseinfo,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_sse_deal_daily,passed,provider_success,,0.983219,
-stock_sse_summary,passed,provider_success,,0.602179,
-stock_staq_net_stop,failed,upstream_transport,ConnectionError,1.66213,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_sy_em,passed,provider_success,,25.991247,
-stock_sy_hy_em,failed,akshare_runtime,TypeError,0.813784,TypeError: 'NoneType' object is not subscriptable
-stock_sy_jz_em,failed,akshare_runtime,TypeError,0.68739,TypeError: 'NoneType' object is not subscriptable
-stock_sy_profile_em,passed,provider_success,,4.341671,
-stock_sy_yq_em,passed,provider_success,,2.643806,
-stock_sz_a_spot_em,failed,upstream_transport,ConnectionError,9.489443,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_szse_area_summary,passed,provider_success,,0.927343,
-stock_szse_sector_summary,passed,provider_success,,3.131129,
-stock_szse_summary,passed,provider_success,,0.557189,
-stock_tfp_em,passed,provider_success,,5.32704,
-stock_us_daily,passed,provider_success,,1.542493,
-stock_us_famous_spot_em,failed,upstream_transport,ConnectionError,1.091145,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_us_hist,failed,upstream_transport,ConnectionError,0.997406,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_us_hist_min_em,failed,upstream_transport,ConnectionError,0.847917,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_us_pink_spot_em,failed,upstream_transport,ConnectionError,1.147844,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_sse_deal_daily,passed,provider_success,,2.04473,
+stock_sse_summary,passed,provider_success,,0.509587,
+stock_staq_net_stop,failed,upstream_transport,ConnectionError,1.882274,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_sy_em,passed,provider_success,,13.556136,
+stock_sy_hy_em,failed,akshare_runtime,TypeError,4.277538,TypeError: 'NoneType' object is not subscriptable
+stock_sy_jz_em,failed,akshare_runtime,TypeError,0.555755,TypeError: 'NoneType' object is not subscriptable
+stock_sy_profile_em,passed,provider_success,,0.8556,
+stock_sy_yq_em,passed,provider_success,,3.213852,
+stock_sz_a_spot_em,failed,upstream_transport,ConnectionError,7.306621,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_szse_area_summary,passed,provider_success,,0.668231,
+stock_szse_sector_summary,passed,provider_success,,4.994433,
+stock_szse_summary,passed,provider_success,,0.673014,
+stock_tfp_em,passed,provider_success,,4.667459,
+stock_us_daily,passed,provider_success,,1.275827,
+stock_us_famous_spot_em,failed,upstream_transport,ConnectionError,1.33504,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_us_hist,failed,upstream_transport,ConnectionError,0.850764,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_us_hist_min_em,failed,upstream_transport,ConnectionError,1.25751,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_us_pink_spot_em,failed,upstream_transport,ConnectionError,1.111858,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
 stock_us_spot,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_us_spot_em,failed,upstream_transport,ConnectionError,6.872335,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_us_valuation_baidu,failed,upstream_response,JSONDecodeError,1.359073,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-stock_value_em,passed,provider_success,,2.111845,
-stock_xgsglb_em,passed,provider_success,,5.772751,
+stock_us_spot_em,failed,upstream_transport,ConnectionError,9.300175,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_us_valuation_baidu,failed,upstream_response,JSONDecodeError,1.730739,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+stock_value_em,passed,provider_success,,2.21175,
+stock_xgsglb_em,passed,provider_success,,9.415231,
 stock_xgsr_ths,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_xjll_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_yjbb_em,passed,provider_success,,27.273498,
-stock_yjkb_em,passed,provider_success,,10.7277,
-stock_yjyg_em,passed,provider_success,,4.321435,
-stock_yysj_em,passed,provider_success,,23.834774,
-stock_yzxdr_em,passed,provider_success,,9.568157,
-stock_zcfz_bj_em,passed,provider_success,,21.101574,
-stock_zcfz_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_zdhtmx_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_zh_a_cdr_daily,passed,provider_success,,1.293019,
-stock_zh_a_daily,passed,provider_success,,1.648057,
-stock_zh_a_disclosure_relation_cninfo,passed,provider_success,,8.830038,
-stock_zh_a_disclosure_report_cninfo,passed,provider_success,,5.504573,
-stock_zh_a_gbjg_em,passed,provider_success,,0.518821,
-stock_zh_a_gdhs,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_zh_a_gdhs_detail_em,passed,provider_success,,2.165274,
-stock_zh_a_hist,failed,upstream_transport,ConnectionError,1.967994,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_zh_a_hist_min_em,failed,upstream_transport,ConnectionError,0.604433,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_zh_a_hist_pre_min_em,failed,upstream_response,JSONDecodeError,1.124245,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+stock_xjll_em,passed,provider_success,,23.620432,
+stock_yjbb_em,passed,provider_success,,24.570643,
+stock_yjkb_em,passed,provider_success,,3.038383,
+stock_yjyg_em,passed,provider_success,,3.691516,
+stock_yysj_em,passed,provider_success,,14.804321,
+stock_yzxdr_em,passed,provider_success,,9.279539,
+stock_zcfz_bj_em,passed,provider_success,,3.354529,
+stock_zcfz_em,passed,provider_success,,28.434957,
+stock_zdhtmx_em,passed,provider_success,,25.168737,
+stock_zh_a_cdr_daily,passed,provider_success,,0.698002,
+stock_zh_a_daily,passed,provider_success,,1.473927,
+stock_zh_a_disclosure_relation_cninfo,passed,provider_success,,5.088909,
+stock_zh_a_disclosure_report_cninfo,passed,provider_success,,6.970683,
+stock_zh_a_gbjg_em,passed,provider_success,,0.861408,
+stock_zh_a_gdhs,passed,provider_success,,18.56967,
+stock_zh_a_gdhs_detail_em,passed,provider_success,,1.737157,
+stock_zh_a_hist,failed,upstream_transport,ConnectionError,0.710316,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_zh_a_hist_min_em,failed,upstream_transport,ConnectionError,0.714134,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_zh_a_hist_pre_min_em,failed,upstream_response,JSONDecodeError,3.237867,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 stock_zh_a_hist_tx,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_zh_a_minute,passed,provider_success,,3.19706,
-stock_zh_a_new,passed,provider_success,,2.824779,
-stock_zh_a_new_em,failed,upstream_transport,ConnectionError,10.184226,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_zh_a_minute,passed,provider_success,,4.288149,
+stock_zh_a_new,passed,provider_success,,2.793139,
+stock_zh_a_new_em,failed,upstream_transport,ConnectionError,10.217617,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
 stock_zh_a_spot,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_zh_a_spot_em,failed,upstream_transport,ConnectionError,8.186835,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_zh_a_spot_tx,passed,provider_success,,18.984139,
-stock_zh_a_st_em,failed,upstream_transport,ConnectionError,6.59184,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_zh_a_stop_em,failed,upstream_transport,ConnectionError,7.348262,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_zh_a_spot_em,failed,upstream_transport,ConnectionError,6.64988,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_zh_a_spot_tx,passed,provider_success,,18.629644,
+stock_zh_a_st_em,failed,upstream_transport,ConnectionError,10.609149,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_zh_a_stop_em,failed,upstream_transport,ConnectionError,7.502763,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
 stock_zh_a_tick_tx_js,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_zh_ab_comparison_em,failed,upstream_transport,HTTPError,8.38539,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?np=1&fltt=1&invt=2&fs=m%3A1%2Bb%3ABK0498%2Cm%3A0%2Bb%3ABK0498&fields=f201%2Cf202%2Cf203%2Cf196%2Cf200%2Cf197%2Cf152%2Cf12%2Cf13%2Cf14%2Cf1%2Cf2%2Cf4%2Cf3%2Cf199&fid=f199&pn=1&pz=100&po=1&dect=1&wbp2u=%7C0%7C0%7C0%7Cweb
-stock_zh_ah_daily,passed,provider_success,,19.830025,
-stock_zh_ah_name,passed,provider_success,,10.046375,
-stock_zh_ah_spot,passed,provider_success,,10.237903,
-stock_zh_ah_spot_em,failed,upstream_transport,HTTPError,7.957672,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?np=1&fltt=1&invt=2&fs=b%3ADLMK0101&fields=f193%2Cf191%2Cf192%2Cf12%2Cf13%2Cf14%2Cf1%2Cf2%2Cf4%2Cf3%2Cf152%2Cf186%2Cf190%2Cf187%2Cf189%2Cf188&fid=f3&pn=1&pz=100&po=1&dect=1&wbp2u=%7C0%7C0%7C0%7Cweb
-stock_zh_b_daily,passed,provider_success,,2.153484,
-stock_zh_b_minute,passed,provider_success,,2.714971,
-stock_zh_b_spot,passed,provider_success,,3.735853,
-stock_zh_b_spot_em,failed,upstream_transport,ConnectionError,7.667392,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_zh_dupont_comparison_em,passed,provider_success,,8.219717,
-stock_zh_growth_comparison_em,passed,provider_success,,0.530496,
-stock_zh_index_daily,passed,provider_success,,0.796177,
-stock_zh_index_daily_em,failed,upstream_transport,ConnectionError,1.314935,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_zh_index_daily_tx,passed,provider_success,,3.229787,
-stock_zh_index_hist_csindex,passed,provider_success,,1.848976,
-stock_zh_index_spot_em,failed,upstream_transport,ConnectionError,7.426579,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-stock_zh_index_spot_sina,passed,provider_success,,4.748402,
-stock_zh_index_value_csindex,passed,provider_success,,1.61901,
-stock_zh_kcb_daily,passed,provider_success,,2.679734,
+stock_zh_ab_comparison_em,failed,upstream_transport,HTTPError,8.193716,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?np=1&fltt=1&invt=2&fs=m%3A1%2Bb%3ABK0498%2Cm%3A0%2Bb%3ABK0498&fields=f201%2Cf202%2Cf203%2Cf196%2Cf200%2Cf197%2Cf152%2Cf12%2Cf13%2Cf14%2Cf1%2Cf2%2Cf4%2Cf3%2Cf199&fid=f199&pn=1&pz=100&po=1&dect=1&wbp2u=%7C0%7C0%7C0%7Cweb
+stock_zh_ah_daily,passed,provider_success,,27.896949,
+stock_zh_ah_name,passed,provider_success,,10.361494,
+stock_zh_ah_spot,passed,provider_success,,12.608419,
+stock_zh_ah_spot_em,failed,upstream_transport,HTTPError,8.766048,HTTPError: 502 Server Error: Bad Gateway for url: https://push2.eastmoney.com/api/qt/clist/get?np=1&fltt=1&invt=2&fs=b%3ADLMK0101&fields=f193%2Cf191%2Cf192%2Cf12%2Cf13%2Cf14%2Cf1%2Cf2%2Cf4%2Cf3%2Cf152%2Cf186%2Cf190%2Cf187%2Cf189%2Cf188&fid=f3&pn=1&pz=100&po=1&dect=1&wbp2u=%7C0%7C0%7C0%7Cweb
+stock_zh_b_daily,passed,provider_success,,1.054742,
+stock_zh_b_minute,passed,provider_success,,4.277232,
+stock_zh_b_spot,passed,provider_success,,1.587657,
+stock_zh_b_spot_em,failed,upstream_transport,ConnectionError,6.840298,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_zh_dupont_comparison_em,passed,provider_success,,0.627825,
+stock_zh_growth_comparison_em,passed,provider_success,,0.403368,
+stock_zh_index_daily,passed,provider_success,,0.641682,
+stock_zh_index_daily_em,failed,upstream_transport,ConnectionError,0.680064,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_zh_index_daily_tx,passed,provider_success,,4.912631,
+stock_zh_index_hist_csindex,passed,provider_success,,2.271952,
+stock_zh_index_spot_em,failed,upstream_transport,ConnectionError,7.688518,"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+stock_zh_index_spot_sina,passed,provider_success,,4.085092,
+stock_zh_index_value_csindex,passed,provider_success,,2.078692,
+stock_zh_kcb_daily,passed,provider_success,,1.984388,
 stock_zh_kcb_report_em,timeout,upstream_timeout,Timeout,,exceeded 30.0s
-stock_zh_kcb_spot,passed,provider_success,,4.985361,
-stock_zh_scale_comparison_em,passed,provider_success,,0.504053,
-stock_zh_valuation_baidu,passed,provider_success,,1.875875,
-stock_zh_valuation_comparison_em,passed,provider_success,,1.338753,
-stock_zh_vote_baidu,passed,provider_success,,3.510965,
-stock_zt_pool_dtgc_em,failed,akshare_runtime,ValueError,0.146732,ValueError: 跌停股池只能获取最近 30 个交易日的数据
-stock_zt_pool_em,passed_empty,provider_success,,1.160186,
-stock_zt_pool_previous_em,passed_empty,provider_success,,1.109209,
-stock_zt_pool_strong_em,passed_empty,provider_success,,1.075225,
-stock_zt_pool_sub_new_em,passed_empty,provider_success,,1.007857,
-stock_zt_pool_zbgc_em,failed,akshare_runtime,ValueError,0.15834,ValueError: 炸板股池只能获取最近 30 个交易日的数据
-stock_zygc_em,passed,provider_success,,1.478449,
-stock_zyjs_ths,passed,provider_success,,2.387054,
-sunrise_daily,failed,akshare_runtime,ValueError,0.237983,ValueError: No tables found
-sunrise_monthly,failed,akshare_runtime,ValueError,0.251586,ValueError: No tables found
-sw_index_first_info,passed,provider_success,,2.441015,
-sw_index_second_info,passed,provider_success,,2.500033,
-sw_index_third_cons,passed,provider_success,,1.665029,
-sw_index_third_info,passed,provider_success,,2.69831,
-tool_trade_date_hist_sina,passed,provider_success,,0.446878,
-video_tv,failed,upstream_response,JSONDecodeError,2.043011,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-video_variety_show,failed,upstream_response,JSONDecodeError,2.309751,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-volatility_yz_rv,passed,provider_success,,0.165569,
-xincaifu_rank,failed,upstream_transport,ConnectionError,0.65903,"ConnectionError: HTTPConnectionPool(host='service.ikuyu.cn', port=80): Max retries exceeded with url: /XinCaiFu2/pcremoting/bdListAction.do?method=getPage&callback=jsonpCallback&sortBy=&order=&type=4&keyword=&pageSize=1000&year=2022&pageNo=1&from=jsonp (Caused by NameResolutionError(""HTTPConnection(host='service.ikuyu.cn', port=80): Failed to resolve 'service.ikuyu.cn' ([Errno -5] No address associated with hostname)""))"
+stock_zh_kcb_spot,passed,provider_success,,4.583134,
+stock_zh_scale_comparison_em,passed,provider_success,,0.647535,
+stock_zh_valuation_baidu,passed,provider_success,,2.19846,
+stock_zh_valuation_comparison_em,passed,provider_success,,0.645368,
+stock_zh_vote_baidu,passed,provider_success,,3.323486,
+stock_zt_pool_dtgc_em,failed,akshare_runtime,ValueError,0.146291,ValueError: 跌停股池只能获取最近 30 个交易日的数据
+stock_zt_pool_em,passed_empty,provider_success,,1.042111,
+stock_zt_pool_previous_em,passed_empty,provider_success,,1.242085,
+stock_zt_pool_strong_em,passed_empty,provider_success,,0.965591,
+stock_zt_pool_sub_new_em,passed_empty,provider_success,,1.075319,
+stock_zt_pool_zbgc_em,failed,akshare_runtime,ValueError,0.08203,ValueError: 炸板股池只能获取最近 30 个交易日的数据
+stock_zygc_em,passed,provider_success,,1.420284,
+stock_zyjs_ths,passed,provider_success,,3.662522,
+sunrise_daily,failed,akshare_runtime,ValueError,0.255949,ValueError: No tables found
+sunrise_monthly,failed,akshare_runtime,ValueError,0.21568,ValueError: No tables found
+sw_index_first_info,passed,provider_success,,2.624337,
+sw_index_second_info,passed,provider_success,,2.384195,
+sw_index_third_cons,passed,provider_success,,1.776609,
+sw_index_third_info,passed,provider_success,,2.334984,
+tool_trade_date_hist_sina,passed,provider_success,,0.299996,
+video_tv,failed,upstream_response,JSONDecodeError,1.326319,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+video_variety_show,failed,upstream_response,JSONDecodeError,3.516686,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+volatility_yz_rv,passed,provider_success,,0.092175,
+xincaifu_rank,failed,upstream_transport,ConnectionError,0.442116,"ConnectionError: HTTPConnectionPool(host='service.ikuyu.cn', port=80): Max retries exceeded with url: /XinCaiFu2/pcremoting/bdListAction.do?method=getPage&callback=jsonpCallback&sortBy=&order=&type=4&keyword=&pageSize=1000&year=2022&pageNo=1&from=jsonp (Caused by NameResolutionError(""HTTPConnection(host='service.ikuyu.cn', port=80): Failed to resolve 'service.ikuyu.cn' ([Errno -5] No address associated with hostname)""))"
