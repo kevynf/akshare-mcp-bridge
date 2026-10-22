@@ -1,37 +1,37 @@
 {
-  "akshare_version": "1.18.94",
-  "generated_at": "2026-10-01T11:25:01.214792+00:00",
+  "akshare_version": "1.19.1",
+  "generated_at": "2026-10-22T14:24:27.881946+00:00",
   "interface_count": 1096,
   "mcp_adapter_accepted": 1094,
   "mcp_adapter_acceptance_rate": 0.9981751824817519,
   "status_counts": {
-    "failed": 220,
-    "passed": 766,
-    "passed_empty": 22,
-    "timeout": 86,
+    "failed": 219,
+    "passed_empty": 20,
+    "passed": 740,
+    "timeout": 115,
     "fixture_required": 2
   },
   "status_rates": {
-    "failed": 0.20072992700729927,
-    "passed": 0.698905109489051,
-    "passed_empty": 0.020072992700729927,
-    "timeout": 0.07846715328467153,
+    "failed": 0.19981751824817517,
+    "passed_empty": 0.01824817518248175,
+    "passed": 0.6751824817518248,
+    "timeout": 0.10492700729927007,
     "fixture_required": 0.0018248175182481751
   },
   "scope_counts": {
-    "upstream_response": 51,
-    "provider_success": 788,
-    "upstream_timeout": 86,
-    "akshare_runtime": 77,
-    "upstream_transport": 92,
+    "akshare_runtime": 76,
+    "upstream_response": 53,
+    "provider_success": 760,
+    "upstream_timeout": 115,
+    "upstream_transport": 90,
     "fixture": 2
   },
   "scope_rates": {
-    "upstream_response": 0.046532846715328466,
-    "provider_success": 0.718978102189781,
-    "upstream_timeout": 0.07846715328467153,
-    "akshare_runtime": 0.07025547445255474,
-    "upstream_transport": 0.08394160583941605,
+    "akshare_runtime": 0.06934306569343066,
+    "upstream_response": 0.048357664233576646,
+    "provider_success": 0.6934306569343066,
+    "upstream_timeout": 0.10492700729927007,
+    "upstream_transport": 0.08211678832116788,
     "fixture": 0.0018248175182481751
   },
   "documentation": {
