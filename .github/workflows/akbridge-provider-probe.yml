@@ -19,7 +19,15 @@ jobs:
       matrix:
         # Four parallel shards keep the wall clock near the slowest shard while
         # bounding per-runner provider pressure.
-        shard: ["1/4", "2/4", "3/4", "4/4"]
+        include:
+          - shard: "1/4"
+            shard_id: "1-of-4"
+          - shard: "2/4"
+            shard_id: "2-of-4"
+          - shard: "3/4"
+            shard_id: "3-of-4"
+          - shard: "4/4"
+            shard_id: "4-of-4"
     env:
       # The strict schema gate compares against the checked-in manifest, which
       # is generated with the repository's canonical interpreter. Running the
@@ -52,7 +60,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: akbridge-provider-acceptance-${{ replace(matrix.shard, '/', '-') }}
+          name: akbridge-provider-acceptance-${{ matrix.shard_id }}
           path: |
             artifacts/maintenance/provider-run.json
             artifacts/maintenance/provider-latest.json
