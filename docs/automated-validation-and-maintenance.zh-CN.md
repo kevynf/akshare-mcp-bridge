@@ -36,8 +36,10 @@
   --output artifacts\catalog.json
 ```
 
-严格离线检查（定时任务附加 `--check-latest` 查询 PyPI 最新 AKShare 版本；网络不可用记为
-`unavailable`，不误报回归，需要门禁失败时再加 `--fail-on-update`）：
+严格离线检查（定时任务附加 `--check-latest` 查询 PyPI 最新 AKShare 版本。该探测默认允许 15 秒
+超时并最多重试 3 次，瞬时读超时不会被误报；只有持续失败才记为 `unavailable`，且不会导致门禁失败。
+`version` 子命令与报告中的 `version_check` 字段都包含 `attempts` 次数；需要门禁失败时再加
+`--fail-on-update`）：
 
 ```powershell
 .venv\Scripts\python.exe -m akbridge.maintenance ci --strict `

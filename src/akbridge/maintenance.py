@@ -12,6 +12,7 @@ import argparse
 import datetime as dt
 import hashlib
 import json
+import time
 import urllib.request
 from collections.abc import Callable
 from pathlib import Path
@@ -219,9 +220,17 @@ def check_latest_akshare(
     *,
     installed: str | None = None,
     fetcher: Callable[[str], bytes] | None = None,
-    timeout: float = 5.0,
+    timeout: float = 15.0,
+    attempts: int = 3,
+    retry_delay: float = 0.5,
 ) -> dict[str, Any]:
-    """Check PyPI for a newer AKShare release without requiring a package tool."""
+    """Check PyPI for a newer AKShare release without requiring a package tool.
+
+    PyPI latency is highly variable on CI runners and in some regions, so a
+    single read timeout must not be reported as an unavailable lookup.  The
+    probe is retried with a bounded delay; only a persistent failure is
+    surfaced, and network availability is never treated as an adapter failure.
+    """
     installed = installed or getattr(akshare, "__version__", "unknown")
     if fetcher is None:
 
@@ -229,23 +238,31 @@ def check_latest_akshare(
             with urllib.request.urlopen(url, timeout=timeout) as response:
                 return response.read()
 
-    try:
-        payload = json.loads(fetcher("https://pypi.org/pypi/akshare/json"))
-        latest = str(payload["info"]["version"])
-    except Exception as exc:  # Network availability is not an adapter failure.
+    last_error: Exception | None = None
+    for attempt in range(max(1, attempts)):
+        if attempt:
+            time.sleep(retry_delay * attempt)
+        try:
+            payload = json.loads(fetcher("https://pypi.org/pypi/akshare/json"))
+            latest = str(payload["info"]["version"])
+        except Exception as exc:  # Network availability is not an adapter failure.
+            last_error = exc
+            continue
         return {
-            "status": "unavailable",
+            "status": "ok",
             "installed": installed,
-            "latest": None,
-            "update_available": None,
-            "error": f"{type(exc).__name__}: {exc}"[:500],
+            "latest": latest,
+            "update_available": latest != installed,
+            "error": None,
+            "attempts": attempt + 1,
         }
     return {
-        "status": "ok",
+        "status": "unavailable",
         "installed": installed,
-        "latest": latest,
-        "update_available": latest != installed,
-        "error": None,
+        "latest": None,
+        "update_available": None,
+        "error": f"{type(last_error).__name__}: {last_error}"[:500],
+        "attempts": max(1, attempts),
     }
 
 
@@ -371,7 +388,7 @@ def main() -> None:
     version_parser = sub.add_parser(
         "version", help="check the installed AKShare version against PyPI"
     )
-    version_parser.add_argument("--timeout", type=float, default=5.0)
+    version_parser.add_argument("--timeout", type=float, default=15.0)
 
     verify_parser = sub.add_parser("verify", help="run offline adapter and router checks")
     verify_parser.add_argument("--strict", action="store_true")

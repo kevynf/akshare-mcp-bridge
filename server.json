@@ -7,12 +7,12 @@
     "url": "https://github.com/kevynf/akshare-mcp-bridge",
     "source": "github"
   },
-  "version": "0.1.4",
+  "version": "0.2.0",
   "packages": [
     {
       "registryType": "pypi",
       "identifier": "akbridge",
-      "version": "0.1.4",
+      "version": "0.2.0",
       "runtimeHint": "uvx",
       "transport": {
         "type": "stdio"

@@ -10,10 +10,21 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 from typing import Any
+from urllib.parse import quote
 
 from .catalog import CATEGORY_LABELS, ApiFunction
 
 ROUTER_TOOL_NAMES = ("akbridge_search", "akbridge_describe", "akbridge_call")
+
+# URI scheme used to expose documentation chunks as first-class MCP resources.
+DOC_URI_PREFIX = "akbridge://docs/"
+
+
+def document_uri(chunk_id: str) -> str:
+    """Return an RFC 3986-safe URI for a documentation chunk id."""
+    encoded = quote(chunk_id, safe="")
+    return f"{DOC_URI_PREFIX}{encoded}"
+
 
 DOMAIN_TERMS: dict[str, tuple[str, ...]] = {
     "stock": ("stock", "股票", "a股", "港股", "美股", "证券"),
@@ -72,6 +83,24 @@ CALL_SCHEMA: dict[str, Any] = {
         "page": {"type": "integer", "minimum": 1, "default": 1},
         "page_size": {"type": "integer", "minimum": 1, "maximum": 5000},
         "include_metadata": {"type": "boolean", "default": True},
+        "include_metrics": {
+            "type": "boolean",
+            "default": False,
+            "description": (
+                "When true, append a process-wide CallMetrics snapshot.  "
+                "Disabled by default to keep responses small; read the "
+                "akbridge://metrics resource for full diagnostics."
+            ),
+        },
+        "allow_side_effect": {
+            "type": "boolean",
+            "default": False,
+            "description": (
+                "Explicit acknowledgement required to invoke an interface marked "
+                "side_effect=true. Ask the user first; true is an acknowledgement, "
+                "not proof of consent."
+            ),
+        },
     },
     "required": ["name"],
     "additionalProperties": False,
@@ -124,7 +153,8 @@ class SearchHit:
             "side_effect": self.api.side_effect,
             "score": round(self.score, 4),
             "documentation": [
-                {key: item[key] for key in ("title", "source_url")} for item in self.documentation
+                {key: item[key] for key in ("title", "source_url", "uri") if item.get(key)}
+                for item in self.documentation
             ],
             "route": {
                 "category": self.api.category,
@@ -148,6 +178,9 @@ class CatalogIndex:
         self._documentation: dict[str, list[dict[str, str]]] = {name: [] for name in catalog}
         self._route_table: dict[str, dict[str, list[str]]] = {}
         self._module_documents: dict[tuple[str, str], str] = {}
+        # Full chunk text kept aside so the server can serve it as MCP resources
+        # without re-joining the per-API search evidence.
+        self._chunks: dict[str, dict[str, Any]] = {}
         for name, api in catalog.items():
             for alias in (name, *api.aliases):
                 key = alias.casefold().strip()
@@ -184,10 +217,25 @@ class CatalogIndex:
             text = str(chunk.get("text", "")).strip()
             if not text:
                 continue
+            chunk_id = str(chunk.get("id", "")).strip()
+            chunk_uri = document_uri(chunk_id) if chunk_id else ""
+            if chunk_id:
+                self._chunks[chunk_id] = {
+                    "id": chunk_id,
+                    "uri": chunk_uri,
+                    "title": str(chunk.get("title", "")),
+                    "path": str(chunk.get("path", "")),
+                    "source_url": str(chunk.get("source_url", "")),
+                    "text": text,
+                    "api_names": list(chunk.get("api_names", [])),
+                    "categories": list(chunk.get("categories", [])),
+                }
             reference = {
                 "title": str(chunk.get("title", "")),
                 "source_url": str(chunk.get("source_url", "")),
             }
+            if chunk_uri:
+                reference["uri"] = chunk_uri
             for name in chunk.get("api_names", []):
                 if name in self.catalog:
                     self._documentation[name].append(reference)
@@ -200,6 +248,14 @@ class CatalogIndex:
             category: {module: list(names) for module, names in sorted(modules.items())}
             for category, modules in sorted(self._route_table.items())
         }
+
+    def document_chunks(self) -> list[dict[str, Any]]:
+        """Return every indexed documentation chunk in deterministic order."""
+        return [self._chunks[key] for key in sorted(self._chunks)]
+
+    def document_chunk(self, chunk_id: str) -> dict[str, Any] | None:
+        """Look up one chunk by the ``id`` field produced by ``akbridge-docs``."""
+        return self._chunks.get(chunk_id)
 
     def _route_matches(
         self,
@@ -380,28 +436,156 @@ def describe_api(
     return CatalogIndex(catalog).describe(name, include_schema=include_schema)
 
 
+# --- Output schemas (structuredContent) ---------------------------------------
+#
+# The MCP SDK validates ``structuredContent`` against ``outputSchema`` when one
+# is declared.  Keep these schemas permissive (additionalProperties=true) so
+# additive response fields do not break older clients.
+
+SEARCH_OUTPUT_SCHEMA: dict[str, Any] = {
+    "type": "object",
+    "properties": {
+        "query": {"type": "string"},
+        "category": {"type": ["string", "null"]},
+        "count": {"type": "integer"},
+        "results": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string"},
+                    "display_name": {"type": "string"},
+                    "category": {"type": "string"},
+                    "category_label": {"type": "string"},
+                    "aliases": {"type": "array", "items": {"type": "string"}},
+                    "use_cases": {"type": "array", "items": {"type": "string"}},
+                    "signature": {"type": "string"},
+                    "description": {"type": "string"},
+                    "return": {"type": "object"},
+                    "side_effect": {"type": "boolean"},
+                    "score": {"type": "number"},
+                    "documentation": {"type": "array", "items": {"type": "object"}},
+                    "route": {"type": "object"},
+                },
+                "required": ["name", "category", "score", "side_effect"],
+                "additionalProperties": True,
+            },
+        },
+        "routing": {"type": "object"},
+        "context": {"type": "string"},
+    },
+    "required": ["query", "count", "results"],
+    "additionalProperties": True,
+}
+
+DESCRIBE_OUTPUT_SCHEMA: dict[str, Any] = {
+    "type": "object",
+    "properties": {
+        "name": {"type": "string"},
+        "display_name": {"type": "string"},
+        "category": {"type": "string"},
+        "category_label": {"type": "string"},
+        "aliases": {"type": "array", "items": {"type": "string"}},
+        "use_cases": {"type": "array", "items": {"type": "string"}},
+        "examples": {"type": "array"},
+        "description": {"type": "string"},
+        "signature": {"type": "string"},
+        "return": {"type": "object"},
+        "parameters": {"type": "object"},
+        "side_effect": {"type": "boolean"},
+        "source_url": {"type": ["string", "null"]},
+        "source_module": {"type": "string"},
+        "input_schema": {"type": "object"},
+        "required_parameters": {"type": "array", "items": {"type": "string"}},
+        "router_usage": {"type": "object"},
+    },
+    "required": ["name", "category", "signature", "side_effect"],
+    "additionalProperties": True,
+}
+
+# Result payload is polymorphic: DataFrame / Series / scalar / list / dict.
+# Declaring a permissive object schema plus a `result` discriminator keeps
+# structured content useful without locking out future serializers.
+CALL_OUTPUT_SCHEMA: dict[str, Any] = {
+    "type": "object",
+    "properties": {
+        "name": {"type": "string"},
+        "requested_name": {"type": "string"},
+        "output_mode": {"type": "string", "enum": ["raw", "compact", "summary"]},
+        "result": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "description": (
+                        "DataFrame, Series, dictionary, or other object result. "
+                        "DataFrame payloads use type=dataframe or dataframe_summary."
+                    ),
+                    "additionalProperties": True,
+                },
+                {"type": "array", "items": {}},
+                {"type": "string"},
+                {"type": "number"},
+                {"type": "boolean"},
+                {"type": "null"},
+            ]
+        },
+        "metrics": {
+            "type": "object",
+            "description": "Included only when include_metrics=true.",
+        },
+    },
+    "required": ["name", "requested_name", "output_mode", "result"],
+    "additionalProperties": True,
+}
+
+
 def router_tool_definitions() -> tuple[dict[str, Any], ...]:
     """Return serializable definitions used by the MCP server and tests."""
     return (
         {
             "name": "akbridge_search",
+            "title": "AKBridge Search",
             "description": (
-                "Search the local AKShare semantic catalog and return a small RAG context."
+                "Search the local AKShare semantic catalog and return a small RAG context. "
+                "Always call this before akbridge_call when the user describes data in "
+                "natural language; never guess interface names."
             ),
             "inputSchema": SEARCH_SCHEMA,
+            "outputSchema": SEARCH_OUTPUT_SCHEMA,
+            "meta": {
+                "documentation_uri": "https://github.com/kevynf/akshare-mcp-bridge#readme",
+                "category": "discovery",
+            },
         },
         {
             "name": "akbridge_describe",
+            "title": "AKBridge Describe",
             "description": (
-                "Describe one AKShare interface, including parameters and return metadata."
+                "Describe one AKShare interface, including parameters, signature, "
+                "return metadata, side_effect flag, and a safe example call.  Use this "
+                "to confirm a name returned by akbridge_search before calling it."
             ),
             "inputSchema": DESCRIBE_SCHEMA,
+            "outputSchema": DESCRIBE_OUTPUT_SCHEMA,
+            "meta": {
+                "documentation_uri": "https://github.com/kevynf/akshare-mcp-bridge#readme",
+                "category": "discovery",
+            },
         },
         {
             "name": "akbridge_call",
+            "title": "AKBridge Call",
             "description": (
-                "Resolve and call one AKShare interface with deterministic output controls."
+                "Resolve and call one AKShare interface with deterministic output "
+                "controls (output_mode, page, page_size).  Interfaces flagged "
+                "side_effect=true mutate global state or credentials and require "
+                "explicit user authorization before invocation."
             ),
             "inputSchema": CALL_SCHEMA,
+            "outputSchema": CALL_OUTPUT_SCHEMA,
+            "meta": {
+                "documentation_uri": "https://github.com/kevynf/akshare-mcp-bridge#readme",
+                "category": "execution",
+            },
         },
     )

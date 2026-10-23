@@ -2,12 +2,12 @@
 
 ## Project Structure & Module Organization
 
-AKBridge is a Python 3.11+ MCP adapter for AKShare. Runtime code lives in `src/akbridge/`: `server.py` defines transports and tools, `catalog.py` discovers APIs, `router.py` handles search and routing, and `serialization.py` normalizes provider results. Reliability, acceptance, maintenance, document indexing, and credential handling are kept in focused sibling modules. Tests live in `tests/` and follow the runtime areas (`test_router.py`, `test_reliability.py`, and similar). Generated catalogs and acceptance reports belong under `artifacts/`; operational documentation is in `docs/`. GitHub automation is defined in `.github/workflows/`.
+AKBridge is a Python 3.11+ MCP adapter for AKShare. Runtime code lives in `src/akbridge/`: `server.py` defines transports (stdio, legacy SSE, Streamable HTTP) and tool/resource/prompt handlers, `catalog.py` discovers APIs, `router.py` handles search and routing, `serialization.py` normalizes provider results, `errors.py` carries the stable `ErrorCode` enum used to emit structured JSON error responses, `prompts.py` renders protocol-level MCP prompts, and `skill.py` is the bundled markdown runbook exposed as the `akbridge://skill` resource. Reliability, acceptance, maintenance, document indexing, and credential handling are kept in focused sibling modules. Tests live in `tests/` and follow the runtime areas (`test_router.py`, `test_reliability.py`, `test_mcp_e2e_v2.py`, `test_metrics_optin.py`, `test_document_resources.py`, and similar). Generated catalogs and acceptance reports belong under `artifacts/`; operational documentation is in `docs/`. GitHub automation is defined in `.github/workflows/`.
 
 ## Build, Test, and Development Commands
 
 - `uv sync --group dev` installs the pinned runtime and development dependencies.
-- `uv run akbridge --mode router` starts the recommended stdio MCP server locally.
+- `uv run akbridge` starts the recommended stdio MCP server locally (defaults to `--mode router` since 0.2.0).
 - `uv run --no-sync python -m pytest -q` runs the complete test suite.
 - `uv run --no-sync ruff check src tests` checks imports and lint rules.
 - `uv run --no-sync ruff format --check src tests` verifies formatting.
@@ -23,7 +23,7 @@ Use four-space indentation, type annotations, and concise docstrings. Ruff targe
 
 ## Testing Guidelines
 
-Tests use pytest and are named `tests/test_<area>.py`; test functions begin with `test_`. Add regression coverage for behavioral changes, including async, serialization, or router edge cases where relevant. Provider-independent tests are preferred. Changes to interface contracts must update `artifacts/acceptance/manifest.json` and `artifacts/catalog.json` (the maintenance workflow commits refreshed copies once the strict gate passes and the regenerated content differs), while preserving `--mode all` compatibility. The strict gate and the manifest baseline must always run under the repository's canonical interpreter, Python 3.14, via `UV_PYTHON`; other interpreters render PEP 604 unions differently and produce false schema regressions.
+Tests use pytest and are named `tests/test_<area>.py`; test functions begin with `test_`. Add regression coverage for behavioral changes, including async, serialization, router, prompts, structured-content, or resource edge cases where relevant. Provider-independent tests are preferred. Changes to interface contracts must update `artifacts/acceptance/manifest.json` and `artifacts/catalog.json` (the maintenance workflow commits refreshed copies once the strict gate passes and the regenerated content differs), while preserving `--mode all` compatibility. The strict gate and the manifest baseline must always run under the repository's canonical interpreter, Python 3.14, via `UV_PYTHON`; other interpreters render PEP 604 unions differently and produce false schema regressions.
 
 ## Commit & Pull Request Guidelines
 
