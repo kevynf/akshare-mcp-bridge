@@ -11,7 +11,7 @@
     <img alt="Python 3.11+" src="https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white">
     <a href="https://pypi.org/project/akbridge/"><img alt="PyPI version" src="https://img.shields.io/pypi/v/akbridge?label=PyPI"></a>
     <a href="https://pypi.org/project/akshare/"><img alt="AKShare version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fpypi.org%2Fpypi%2Fakshare%2Fjson&amp;query=%24.info.version&amp;label=AKShare"></a>
-    <a href="https://modelcontextprotocol.io/"><img alt="MCP stdio 与 SSE" src="https://img.shields.io/badge/MCP-stdio%20%7C%20SSE-6f42c1"></a>
+    <a href="https://modelcontextprotocol.io/"><img alt="MCP stdio、Streamable HTTP 与旧版 SSE" src="https://img.shields.io/badge/MCP-stdio%20%7C%20Streamable%20HTTP-6f42c1"></a>
     <a href="LICENSE"><img alt="MIT 许可证" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
   </p>
 </div>
@@ -21,6 +21,8 @@
   <a href="#客户端配置">客户端配置</a> |
   <a href="#调用示例">调用示例</a>
 </p>
+
+> **AKBridge 0.2.0 破坏性变更**：默认工具面从 `all` 改为 `router`，已依赖默认模式的客户端需显式传 `--mode all`。同版本支持 structured content、MCP Prompts、按需文档资源和 Streamable HTTP；旧版 SSE 仍保留并标记为 deprecated。
 
 将 AKShare 公共接口自动暴露为 MCP 工具，并提供路由检索、结构化输出、逐接口验收以及自动化验收与维护。当前 AKShare 基线版本、接口数量和验收结果见[中文验收汇总](artifacts/acceptance/SUMMARY.md)与[English acceptance summary](artifacts/acceptance/SUMMARY.en.md)。
 
@@ -84,7 +86,7 @@ stdio 服务启动后不会显示网页、菜单或命令提示符，MCP 客户�
 
 ## 两种工具模式
 
-`all` 是默认模式，保留所有已发现的 AKShare 原始函数工具，适合兼容已有客户端、逐接口验收和人工精确调用。实际连接 LLM 时建议使用 `router` 模式，它只公布三个稳定工具：
+`router` 是默认模式（自 0.2.0 起），只公布三个稳定工具，是连接 LLM 的推荐方式。`all` 模式保留所有已发现的 AKShare 原始函数工具，适合兼容已有客户端、逐接口验收和人工精确调用，但超过 50 个接口时会在 stderr 给出提示。`hybrid` 模式同时暴露两套接口，主要用于迁移与调试。
 
 | 工具 | 用途 |
 | --- | --- |
@@ -93,14 +95,19 @@ stdio 服务启动后不会显示网页、菜单或命令提示符，MCP 客户�
 | `akbridge_call` | 解析规范名称或唯一别名，调用接口，并选择输出模式和分页。 |
 
 ```powershell
-akbridge --mode router
+akbridge              # 默认即 router 模式
+akbridge --mode all   # 显式选择完整工具面
 ```
 
 检索器从 AKShare 公开函数自动生成 `一级分类 → 源码模块 → 接口` 路由树，例如 `stock → stock_feature.stock_hist_em → stock_zh_a_hist`。函数名、签名、别名和 docstring 构成默认的确定性词法证据，不调用 LLM、嵌入服务或远程向量数据库。MCP 资源 `akbridge://skill` 提供同一套运行时调用规程，它随服务暴露，不会自动安装成客户端 Skill。
 
+自 0.2.0 起，三个 router 工具都声明了 `outputSchema`，并以 `structuredContent` 形式返回结构化结果，便于 MCP 客户端零成本消费；同时保留 `TextContent` JSON 文本作为向后兼容的回退。工具描述头部带有人类可读的 `title`（"AKBridge Search" 等）和 `_meta.documentation_uri` 指向 README。
+
 ### AKShare 文档词法路由
 
 正式发布的 wheel 和 sdist 会在 GitHub Actions 中，根据固定的 AKShare 版本解析对应的 `release-vX.Y.Z` 标签和 commit SHA，自动构建并包含文档索引；`router` 模式默认加载包内索引，服务搜索期间不会联网。文档块只关联 AKShare 顶层公开函数，补充自然语言术语和排序证据，不决定领域或模块结构；搜索结果会返回命中的文档标题和来源链接。
+
+自 0.2.0 起，AKBridge 通过 MCP `ResourceTemplate` 发布文档资源模板；`akbridge_search` 命中时，`documentation` 数组会附带具体的 `uri`，客户端可用 `resources/read` 读取完整文档，无需访问外部 URL。没有加载文档索引时，模板仍可见，但搜索结果不会返回具体文档 URI。
 
 源码开发时可手动重建或覆盖索引：
 
@@ -213,6 +220,54 @@ tool_timeout_sec = 120
 
 字段和单位提示由结果列名和 dtype 自动推断，属于辅助元数据，不替代 AKShare 或数据源的正式定义。
 
+### 指标与可观测性
+
+`akbridge_call` 默认 **不** 在响应里附带 `metrics` 快照，避免 `by_api` 累积表让每次响应变大。需要时显式传 `include_metrics: true`，或读取 `akbridge://metrics` 资源拿到全量计数器：
+
+```json
+{"name": "stock_zh_a_hist", "arguments": {...}, "include_metrics": true}
+```
+
+`akbridge_call` 的 annotation 标记为 open-world 和 state-changing；客户端是否展示这些 annotation 取决于客户端实现。副作用接口的授权门禁还会由服务端强制执行。
+
+### 结构化错误响应
+
+所有工具错误都以 `isError=true` 返回，错误正文是 JSON 文档，包含稳定的 `error.code` 以及 LLM 恢复建议：
+
+```json
+{
+  "error": {
+    "code": "UNKNOWN_API",
+    "message": "Unknown AKShare API: foo",
+    "suggestions": ["stock_zh_a_hist", "..."],
+    "retry_hint": "Use akbridge_search to find candidates, then akbridge_describe to confirm the canonical name and schema."
+  }
+}
+```
+
+错误码枚举：`UNKNOWN_API`、`TOOL_NOT_AVAILABLE`、`SCHEMA_VIOLATION`、`INVALID_ARGUMENT`、`UPSTREAM_TIMEOUT`、`UPSTREAM_ERROR`、`CIRCUIT_OPEN`、`RATE_LIMITED`、`SIDE_EFFECT_DENIED`、`UNKNOWN_RESOURCE`、`UNKNOWN_PROMPT`、`INTERNAL_ERROR`。LLM 客户端可以基于 `code` 选择检索备用接口、放慢调用频率或放弃。
+
+### 副作用接口
+
+以 `set_*`、`login`、`logout`、`configure` 开头或名字含 `token/secret/password/api_key/cookie` 的接口被标记为副作用接口。无论客户端是否处理 annotations，AKBridge 都会在服务端拒绝缺少 `allow_side_effect=true` 的调用；这个参数仅表示上层已完成授权确认，AKBridge 不会自行显示确认框：
+
+- `ToolAnnotations.readOnlyHint=false`、`destructiveHint=true`、`idempotentHint=false`
+- 工具描述头部加 `⚠️ SIDE EFFECT:` 警告前缀
+- `_meta.x-requires-confirmation=true`，为支持该约定的 MCP 客户端提供授权提示
+- 不参与缓存和自动重试
+
+## MCP Prompts
+
+自 0.2.0 起，AKBridge 暴露三个协议层 MCP prompts，对应常见工作流：
+
+| Prompt | 用途 | 必填参数 |
+| --- | --- | --- |
+| `akbridge.query_financial_data` | 端到端 search → describe → call 引导 | `question` |
+| `akbridge.describe_api` | 查看接口 schema、参数、示例 | `name` |
+| `akbridge.search_catalog` | 检索接口目录 | `query` |
+
+支持 MCP Prompts 的客户端可以从 Prompt 菜单选择对应流程；具体触发 UI 由客户端决定。
+
 ## DataFrame 入参
 
 少数计算接口需要 `pandas.DataFrame`，MCP 客户端可以传入记录数组：
@@ -308,11 +363,17 @@ $env:AKBRIDGE_CALL_TIMEOUT = "120"
 
 运行中的进程通过 MCP 资源 `akbridge://metrics` 提供调用次数、失败数、重试数、缓存命中和耗时计数；`AKBRIDGE_JSON_LOGS=1` 可将重试诊断以 JSON Lines 写入 stderr，不污染 stdio MCP 协议。
 
-需要通过网络部署时可选 SSE 传输，默认只绑定本机，对外暴露前应由反向代理配置 TLS、认证和访问控制：
+需要通过网络部署时推荐使用 **Streamable HTTP** 传输（自 0.2.0 起，对应 MCP 2025-03-26 规范），旧的 SSE 传输仍可用但已标记为 deprecated：
 
 ```powershell
+# 推荐：Streamable HTTP
+.venv\Scripts\python.exe -m akbridge.server --transport http --mode router --host 127.0.0.1 --port 8000
+
+# 旧版（deprecated）
 .venv\Scripts\python.exe -m akbridge.server --transport sse --mode router --host 127.0.0.1 --port 8000
 ```
+
+HTTP 端点默认位于 `/mcp`，可通过 `AKBRIDGE_HTTP_PATH` 覆盖；`--http-json-response` 强制返回纯 JSON 而不是 SSE 流，便于不支持 SSE 流的客户端接入。DNS rebinding 防护默认启用：本机绑定默认允许 localhost、127.0.0.1 和 [::1]，包括带任意端口的形式；自定义域名需用 `--http-allowed-host` 指定，浏览器跨域 Origin 需用 `--http-allowed-origin` 显式指定。对应环境变量为逗号分隔的 `AKBRIDGE_HTTP_ALLOWED_HOSTS` 和 `AKBRIDGE_HTTP_ALLOWED_ORIGINS`。可通过环境变量 `AKBRIDGE_HTTP_BEARER_TOKEN` 启用 bearer-token 验证；对外部署仍建议配置 TLS 和反向代理访问控制。旧版 SSE 不包含这些 Host/Origin 与 bearer-token 防护，只能在可信本机环境使用或放在已完成身份验证的反向代理之后。
 
 ## 测试
 

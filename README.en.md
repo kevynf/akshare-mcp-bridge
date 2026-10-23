@@ -11,10 +11,12 @@
     <img alt="Python 3.11+" src="https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white">
     <a href="https://pypi.org/project/akbridge/"><img alt="PyPI version" src="https://img.shields.io/pypi/v/akbridge?label=PyPI"></a>
     <a href="https://pypi.org/project/akshare/"><img alt="AKShare version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fpypi.org%2Fpypi%2Fakshare%2Fjson&amp;query=%24.info.version&amp;label=AKShare"></a>
-    <a href="https://modelcontextprotocol.io/"><img alt="MCP stdio and SSE" src="https://img.shields.io/badge/MCP-stdio%20%7C%20SSE-6f42c1"></a>
+    <a href="https://modelcontextprotocol.io/"><img alt="MCP stdio, Streamable HTTP and legacy SSE" src="https://img.shields.io/badge/MCP-stdio%20%7C%20Streamable%20HTTP-6f42c1"></a>
     <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
   </p>
 </div>
+
+> **AKBridge 0.2.0 breaking change**: the default tool surface moved from `all` to `router`, so clients that relied on the default must pass `--mode all` explicitly. This release adds structured content, MCP Prompts, on-demand documentation resources, and Streamable HTTP; legacy SSE remains available but is deprecated.
 
 <p align="center">
   <a href="#installation">Installation</a> |
@@ -117,9 +119,10 @@ communicates with the process through standard input and output.
 
 ## Two tool modes
 
-`all` is the default mode; it keeps all discovered AKShare raw function tools, which suits existing
-clients, per-interface acceptance, and precise manual calls. When connecting to an LLM, use `router`
-mode, which publishes only three stable tools:
+`router` is the default mode (since 0.2.0) and publishes only three stable tools, which is the
+recommended surface for LLM clients. `all` keeps every discovered AKShare function tool for existing
+clients, per-interface acceptance, and precise manual calls; it prints a warning to stderr when more
+than 50 tools are exposed. `hybrid` publishes both surfaces for migration and debugging:
 
 | Tool | Purpose |
 | --- | --- |
@@ -128,8 +131,13 @@ mode, which publishes only three stable tools:
 | `akbridge_call` | Resolves canonical names or unique aliases, calls the interface, and selects the output mode and pagination. |
 
 ```powershell
-akbridge --mode router
+akbridge              # router is the default
+akbridge --mode all   # explicitly expose the complete tool set
 ```
+
+All three router tools declare an `outputSchema` and return `structuredContent`, while retaining a
+JSON `TextContent` fallback for older clients. Their human-readable titles and `_meta.documentation_uri`
+link to this README.
 
 The retriever automatically builds a `top-level category -> source module -> interface` routing tree
 from AKShare public functions, for example `stock -> stock_feature.stock_hist_em ->
@@ -146,6 +154,11 @@ by resolving the `release-vX.Y.Z` tag and commit SHA corresponding to the pinned
 searches. Documentation chunks relate only to AKShare top-level public functions, adding
 natural-language terms and ranking evidence; they do not determine domain or module structure, and
 search results return the matching document titles and source links.
+
+Since 0.2.0, AKBridge publishes an MCP `ResourceTemplate` for documentation chunks. When a search
+hits a chunk, its `documentation` entry includes a concrete `uri` that clients can read with
+`resources/read` without fetching the external source. If no document index is loaded, the template
+remains visible but search returns no concrete document URIs.
 
 The index can be rebuilt or overridden manually in source checkouts:
 
@@ -272,6 +285,44 @@ The typical order is to search first, then describe, and finally call:
 
 Field and unit hints are inferred automatically from the result column names and dtype; they are
 auxiliary metadata and do not replace the official definitions of AKShare or the data source.
+
+### Metrics and observability
+
+`akbridge_call` omits the process-wide metrics snapshot by default to keep responses small. Set
+`include_metrics: true` when needed, or read `akbridge://metrics` for the full counters:
+
+```json
+{"name": "stock_zh_a_hist", "arguments": {...}, "include_metrics": true}
+```
+
+The `akbridge_call` tool is annotated as an open-world, state-changing call. Annotation support
+depends on the client; the interface-level `side_effect` gate is also enforced by the server.
+
+### Structured errors
+
+Tool failures keep MCP's `isError=true` flag, and `content[0].text` contains JSON with a stable
+`error.code`, message, suggestions, and recovery hint. Codes include `UNKNOWN_API`,
+`TOOL_NOT_AVAILABLE`, `SCHEMA_VIOLATION`, `INVALID_ARGUMENT`, `UPSTREAM_TIMEOUT`, `UPSTREAM_ERROR`, `CIRCUIT_OPEN`,
+`RATE_LIMITED`, `SIDE_EFFECT_DENIED`, `UNKNOWN_RESOURCE`, `UNKNOWN_PROMPT`, and `INTERNAL_ERROR`.
+
+### Side-effect interfaces
+
+Potentially state-changing interfaces carry `readOnlyHint=false`, `destructiveHint=true`, a warning in
+their description, and `_meta.x-requires-confirmation=true`. AKBridge also enforces a server-side
+gate: calls require `allow_side_effect: true`. The caller must obtain explicit user authorization
+before setting that flag; the flag itself does not create a confirmation dialog.
+
+## MCP Prompts
+
+AKBridge exposes three protocol-level prompts for clients with MCP Prompts support:
+
+| Prompt | Purpose | Required argument |
+| --- | --- | --- |
+| `akbridge.query_financial_data` | Guide the complete search → describe → call workflow | `question` |
+| `akbridge.describe_api` | Look up one interface's schema and usage | `name` |
+| `akbridge.search_catalog` | Search the interface catalog | `query` |
+
+Prompt names and invocation UI vary by client; select them from the client's MCP Prompts interface.
 
 ## DataFrame arguments
 
@@ -408,13 +459,24 @@ A running process exposes call counts, failures, retries, cache hits, and latenc
 MCP resource `akbridge://metrics`; `AKBRIDGE_JSON_LOGS=1` writes retry diagnostics to stderr as
 JSON Lines, without polluting the stdio MCP protocol.
 
-The optional SSE transport is available when network deployment is needed; it binds to the local
-machine only by default, and a reverse proxy should provide TLS, authentication, and access control
-before exposing it externally:
+Streamable HTTP is the recommended network transport. Legacy SSE remains available but is deprecated:
 
 ```powershell
+# Recommended: Streamable HTTP
+.venv\Scripts\python.exe -m akbridge.server --transport http --mode router --host 127.0.0.1 --port 8000
+
+# Legacy (deprecated)
 .venv\Scripts\python.exe -m akbridge.server --transport sse --mode router --host 127.0.0.1 --port 8000
 ```
+
+The HTTP endpoint defaults to `/mcp` and can be changed with `AKBRIDGE_HTTP_PATH`;
+`--http-json-response` returns plain JSON instead of an SSE stream. DNS rebinding protection is
+enabled: localhost, 127.0.0.1, and [::1] are allowed both with and without a port by default. Use
+repeatable `--http-allowed-host` and `--http-allowed-origin` options, or comma-separated
+`AKBRIDGE_HTTP_ALLOWED_HOSTS` and `AKBRIDGE_HTTP_ALLOWED_ORIGINS`, for a network deployment. Set
+`AKBRIDGE_HTTP_BEARER_TOKEN` to require bearer-token authentication. For external exposure, also use
+TLS and reverse-proxy access controls. Legacy SSE does not include these Host/Origin or bearer-token
+checks; use it only on trusted local networks or behind an authenticated reverse proxy.
 
 ## Tests
 

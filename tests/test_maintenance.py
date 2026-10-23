@@ -58,7 +58,45 @@ def test_version_check_is_machine_readable_and_injectable() -> None:
         "latest": "2.0.0",
         "update_available": True,
         "error": None,
+        "attempts": 1,
     }
+
+
+def test_version_check_retries_transient_network_failures() -> None:
+    attempts = {"count": 0}
+
+    def flaky_fetcher(_url: str) -> bytes:
+        attempts["count"] += 1
+        if attempts["count"] < 3:
+            raise TimeoutError("The read operation timed out")
+        return b'{"info": {"version": "1.5.0"}}'
+
+    payload = check_latest_akshare(
+        installed="1.5.0",
+        fetcher=flaky_fetcher,
+        attempts=3,
+        retry_delay=0.0,
+    )
+
+    assert payload["status"] == "ok"
+    assert payload["latest"] == "1.5.0"
+    assert payload["update_available"] is False
+    assert payload["attempts"] == 3
+
+
+def test_version_check_reports_persistent_network_failure_without_raising() -> None:
+    def broken_fetcher(_url: str) -> bytes:
+        raise TimeoutError("The read operation timed out")
+
+    payload = check_latest_akshare(
+        installed="1.5.0", fetcher=broken_fetcher, attempts=2, retry_delay=0.0
+    )
+
+    assert payload["status"] == "unavailable"
+    assert payload["latest"] is None
+    assert payload["update_available"] is None
+    assert payload["attempts"] == 2
+    assert "TimeoutError" in payload["error"]
 
 
 def test_maintenance_writes_machine_reports_without_provider_calls(tmp_path: Path) -> None:

@@ -19,7 +19,7 @@ def test_stdio_client_lists_all_discovered_tools() -> None:
         environment["PYTHONUTF8"] = "1"
         parameters = StdioServerParameters(
             command=sys.executable,
-            args=["-m", "akbridge.server"],
+            args=["-m", "akbridge.server", "--mode", "all"],
             cwd=str(Path(__file__).resolve().parents[1]),
             env=environment,
             encoding="utf-8",
@@ -27,19 +27,30 @@ def test_stdio_client_lists_all_discovered_tools() -> None:
         async with stdio_client(parameters) as streams, ClientSession(*streams) as session:
             await session.initialize()
             result = await session.list_tools()
+            prompts = await session.list_prompts()
             fixture_path = (
                 Path(__file__).resolve().parents[1] / "artifacts/acceptance/fixtures.json"
             )
             fixture = json.loads(fixture_path.read_text(encoding="utf-8"))["volatility_yz_rv"]
             call_result = await session.call_tool("volatility_yz_rv", fixture)
+            side_effect_result = await session.call_tool("set_token", {})
+            router_tool_result = await session.call_tool("akbridge_search", {"query": "CPI"})
 
         names = {tool.name for tool in result.tools}
         assert len(names) == len(discover_functions())
+        assert prompts.prompts == []
         assert "stock_zh_a_hist" in names
         assert not call_result.isError
         payload = json.loads(call_result.content[0].text)
         assert payload["type"] == "dataframe"
         assert payload["row_count"] > 0
+        assert side_effect_result.isError
+        side_effect_error = json.loads(side_effect_result.content[0].text)
+        assert side_effect_error["error"]["code"] == "SIDE_EFFECT_DENIED"
+        assert router_tool_result.isError
+        router_tool_error = json.loads(router_tool_result.content[0].text)
+        assert router_tool_error["error"]["code"] == "TOOL_NOT_AVAILABLE"
+        assert router_tool_error["error"]["details"]["mode"] == "all"
 
     asyncio.run(exercise())
 

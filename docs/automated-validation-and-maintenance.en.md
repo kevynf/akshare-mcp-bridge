@@ -39,8 +39,10 @@ Generate an auditable baseline:
 ```
 
 Strict offline check (append `--check-latest` in scheduled jobs to query the latest AKShare release
-on PyPI; network unavailability is reported as `unavailable` rather than a regression, and
-`--fail-on-update` makes a newly available release fail the gate):
+on PyPI. The probe allows a 15-second timeout and retries up to three attempts, so a transient read
+timeout is not misreported; only a persistent failure is recorded as `unavailable`, which never fails
+the gate. The `version` subcommand and the `version_check` report field include an `attempts` count,
+and `--fail-on-update` makes a newly available release fail the gate):
 
 ```powershell
 .venv\Scripts\python.exe -m akbridge.maintenance ci --strict `

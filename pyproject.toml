@@ -25,6 +25,9 @@ dependencies = [
   "akshare==1.19.1",
   "mcp==1.30.0",
   "pandas>=2.2.0",
+  "jsonschema>=4.20.0",
+  "starlette>=0.27.0",
+  "uvicorn>=0.31.1",
 ]
 
 [project.urls]
@@ -43,6 +46,9 @@ dev = [
   "pytest>=8.3.0",
   "pytest-cov>=6.0.0",
   "ruff==0.16.2",
+  # Starlette's TestClient emits a deprecation warning when driven by httpx;
+  # httpx2 is the supported path and keeps the HTTP transport tests warning-free.
+  "httpx2>=2.16.0",
 ]
 
 [project.scripts]
