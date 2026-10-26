@@ -41,7 +41,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "akshare", specifier = "==1.19.1" },
+    { name = "akshare", specifier = "==1.19.3" },
     { name = "jsonschema", specifier = ">=4.20.0" },
     { name = "mcp", specifier = "==1.30.0" },
     { name = "pandas", specifier = ">=2.2.0" },
@@ -70,7 +70,7 @@ wheels = [
 
 [[package]]
 name = "akshare"
-version = "1.19.1"
+version = "1.19.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "akracer", marker = "sys_platform == 'linux'" },
@@ -90,9 +90,9 @@ dependencies = [
     { name = "urllib3" },
     { name = "xlrd" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/2f/f9/c3f8d60c548a1c71691ac06385046b4f54253fd503adc9d2bd1ce2c45ce7/akshare-1.19.1.tar.gz", hash = "sha256:2c552bbaf192381256fc0198adca72f35aec7ac114f50fb802c3833069ca9f7e", size = 1051144, upload-time = "2026-09-30T05:39:17.443Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f1/21/ce0ac9db42f3762f81b3d6b531248cf50a656ba1e1c355640ca7d8848581/akshare-1.19.3.tar.gz", hash = "sha256:c63a17211ea018b9921befd07da1b2c548026cf2a6d7b7b1e7d01a5e0f41ad00", size = 1052090, upload-time = "2026-10-23T11:20:07.444Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fa/b5/1b5e3bde55427d3a165390b973ed2d3aefd56ba7a78732c635b700b9bf9c/akshare-1.19.1-py3-none-any.whl", hash = "sha256:8ab82d4a468d2c384df02de470df3a44e8b899fd8cfe116bceff52dd7b804df9", size = 1265064, upload-time = "2026-09-30T05:39:15.795Z" },
+    { url = "https://files.pythonhosted.org/packages/a9/cd/e7a1b9e60bc6fd12fae26b17326d535413cc845379090aa4b05f3cbcddb0/akshare-1.19.3-py3-none-any.whl", hash = "sha256:a93cbe67acf2042e922bc05a3a817ee51406e21855b8da98e23fa60b18325b12", size = 1265512, upload-time = "2026-10-23T11:20:05.811Z" },
 ]
 
 [[package]]
