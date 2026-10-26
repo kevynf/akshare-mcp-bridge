@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "akshare_version": "1.19.1",
-  "generated_at": "2026-10-04T02:51:23.552155+00:00",
+  "akshare_version": "1.19.3",
+  "generated_at": "2026-10-26T09:57:59.340801+00:00",
   "interface_count": 1096,
   "interfaces": [
     {
@@ -26295,7 +26295,7 @@
           "symbol": "即时"
         }
       ],
-      "description": "同花顺-数据中心-资金流向-概念资金流\nhttps://data.10jqka.com.cn/funds/gnzjl/#refCountId=data_55f13c2c_254\n:param symbol: choice of {“即时”，\"3日排行\", \"5日排行\", \"10日排行\", \"20日排行\"}\n:type symbol: str\n:return: 概念资金流\n:rtype: pandas.DataFrame",
+      "description": "同花顺-数据中心-资金流向-概念资金流\nhttps://data.10jqka.com.cn/funds/gnzjl/#refCountId=data_55f13c2c_254\n:param symbol: choice of {“即时”，\"3日排行\", \"5日排行\", \"10日排行\", \"20日排行\"}\n:type symbol: str\n:return: 概念资金流\n:rtype: pandas.DataFrame\n:raises InvalidParameterError: symbol 不在可选值中时抛出",
       "signature": "(symbol: str = '即时') -> pandas.DataFrame",
       "return": {
         "kind": "dataframe",
@@ -26332,7 +26332,7 @@
           "symbol": "即时"
         }
       ],
-      "description": "同花顺-数据中心-资金流向-个股资金流\nhttps://data.10jqka.com.cn/funds/ggzjl/#refCountId=data_55f13c2c_254\n:param symbol: choice of {“即时”，\"3日排行\", \"5日排行\", \"10日排行\", \"20日排行\"}\n:type symbol: str\n:return: 个股资金流\n:rtype: pandas.DataFrame",
+      "description": "同花顺-数据中心-资金流向-个股资金流\nhttps://data.10jqka.com.cn/funds/ggzjl/#refCountId=data_55f13c2c_254\n:param symbol: choice of {“即时”，\"3日排行\", \"5日排行\", \"10日排行\", \"20日排行\"}\n:type symbol: str\n:return: 个股资金流\n:rtype: pandas.DataFrame\n:raises InvalidParameterError: symbol 不在可选值中时抛出",
       "signature": "(symbol: str = '即时') -> pandas.DataFrame",
       "return": {
         "kind": "dataframe",
@@ -26369,7 +26369,7 @@
           "symbol": "即时"
         }
       ],
-      "description": "同花顺-数据中心-资金流向-行业资金流\nhttps://data.10jqka.com.cn/funds/hyzjl/#refCountId=data_55f13c2c_254\n:param symbol: choice of {“即时”，\"3日排行\", \"5日排行\", \"10日排行\", \"20日排行\"}\n:type symbol: str\n:return: 行业资金流\n:rtype: pandas.DataFrame",
+      "description": "同花顺-数据中心-资金流向-行业资金流\nhttps://data.10jqka.com.cn/funds/hyzjl/#refCountId=data_55f13c2c_254\n:param symbol: choice of {“即时”，\"3日排行\", \"5日排行\", \"10日排行\", \"20日排行\"}\n:type symbol: str\n:return: 行业资金流\n:rtype: pandas.DataFrame\n:raises InvalidParameterError: symbol 不在可选值中时抛出",
       "signature": "(symbol: str = '即时') -> pandas.DataFrame",
       "return": {
         "kind": "dataframe",

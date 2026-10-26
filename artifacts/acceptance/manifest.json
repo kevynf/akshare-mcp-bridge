@@ -1,6 +1,6 @@
 {
-  "akshare_version": "1.19.1",
-  "generated_at": "2026-10-04T02:51:10.367733+00:00",
+  "akshare_version": "1.19.3",
+  "generated_at": "2026-10-26T09:57:58.577126+00:00",
   "interface_count": 1096,
   "interfaces": [
     {
@@ -30164,9 +30164,9 @@
       "side_effect": false,
       "source_url": "https://data.10jqka.com.cn/funds/gnzjl/#refCountId=data_55f13c2c_254",
       "source_module": "akshare.stock_feature.stock_fund_flow",
-      "description": "同花顺-数据中心-资金流向-概念资金流\nhttps://data.10jqka.com.cn/funds/gnzjl/#refCountId=data_55f13c2c_254\n:param symbol: choice of {“即时”，\"3日排行\", \"5日排行\", \"10日排行\", \"20日排行\"}\n:type symbol: str\n:return: 概念资金流\n:rtype: pandas.DataFrame",
+      "description": "同花顺-数据中心-资金流向-概念资金流\nhttps://data.10jqka.com.cn/funds/gnzjl/#refCountId=data_55f13c2c_254\n:param symbol: choice of {“即时”，\"3日排行\", \"5日排行\", \"10日排行\", \"20日排行\"}\n:type symbol: str\n:return: 概念资金流\n:rtype: pandas.DataFrame\n:raises InvalidParameterError: symbol 不在可选值中时抛出",
       "schema_hash": "f745ce714ed5e5931d5a35edd778c9e9b0ae8e5d0bab69cc23708cd67f912ea1",
-      "metadata_hash": "99157dd48e40c6d624847ee06886a760c803b2051341e3eacb0a2bf74a1a6fe3",
+      "metadata_hash": "0bcca2cadaa2683b161c5d9d7050f7adac1b6e0b72b3aed36b4d20aa703a7dc6",
       "required_parameters": [],
       "schema_status": "passed",
       "call_status": "pending"
@@ -30206,9 +30206,9 @@
       "side_effect": false,
       "source_url": "https://data.10jqka.com.cn/funds/ggzjl/#refCountId=data_55f13c2c_254",
       "source_module": "akshare.stock_feature.stock_fund_flow",
-      "description": "同花顺-数据中心-资金流向-个股资金流\nhttps://data.10jqka.com.cn/funds/ggzjl/#refCountId=data_55f13c2c_254\n:param symbol: choice of {“即时”，\"3日排行\", \"5日排行\", \"10日排行\", \"20日排行\"}\n:type symbol: str\n:return: 个股资金流\n:rtype: pandas.DataFrame",
+      "description": "同花顺-数据中心-资金流向-个股资金流\nhttps://data.10jqka.com.cn/funds/ggzjl/#refCountId=data_55f13c2c_254\n:param symbol: choice of {“即时”，\"3日排行\", \"5日排行\", \"10日排行\", \"20日排行\"}\n:type symbol: str\n:return: 个股资金流\n:rtype: pandas.DataFrame\n:raises InvalidParameterError: symbol 不在可选值中时抛出",
       "schema_hash": "f745ce714ed5e5931d5a35edd778c9e9b0ae8e5d0bab69cc23708cd67f912ea1",
-      "metadata_hash": "9cfabf487fd4aa0c41de86a0e296b22ef6a40f200b170eb1bd8f1150ff063e83",
+      "metadata_hash": "03a18b04e6ccbdbf5a38724e24cc735a24c5a0839f362852dec1a232ce3c788f",
       "required_parameters": [],
       "schema_status": "passed",
       "call_status": "pending"
@@ -30248,9 +30248,9 @@
       "side_effect": false,
       "source_url": "https://data.10jqka.com.cn/funds/hyzjl/#refCountId=data_55f13c2c_254",
       "source_module": "akshare.stock_feature.stock_fund_flow",
-      "description": "同花顺-数据中心-资金流向-行业资金流\nhttps://data.10jqka.com.cn/funds/hyzjl/#refCountId=data_55f13c2c_254\n:param symbol: choice of {“即时”，\"3日排行\", \"5日排行\", \"10日排行\", \"20日排行\"}\n:type symbol: str\n:return: 行业资金流\n:rtype: pandas.DataFrame",
+      "description": "同花顺-数据中心-资金流向-行业资金流\nhttps://data.10jqka.com.cn/funds/hyzjl/#refCountId=data_55f13c2c_254\n:param symbol: choice of {“即时”，\"3日排行\", \"5日排行\", \"10日排行\", \"20日排行\"}\n:type symbol: str\n:return: 行业资金流\n:rtype: pandas.DataFrame\n:raises InvalidParameterError: symbol 不在可选值中时抛出",
       "schema_hash": "f745ce714ed5e5931d5a35edd778c9e9b0ae8e5d0bab69cc23708cd67f912ea1",
-      "metadata_hash": "ebd58984751932e172f15afb8330ccc5480981555aeeafe6bd94fee91f1f778c",
+      "metadata_hash": "b8c204cd86f0b9e86ea9fc756688305eb9ee323b93b3a604853a4039aff1fda0",
       "required_parameters": [],
       "schema_status": "passed",
       "call_status": "pending"
