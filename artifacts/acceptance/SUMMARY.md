@@ -1,6 +1,6 @@
 # AKBridge 验收汇总
 
-- AKShare 版本：`1.19.1`
+- AKShare 版本：`1.19.3`
 - 生成时间：`None`
 - 已发现接口：**1096**
 - MCP 适配通过：**1094 / 1096（99.82%）**
@@ -14,20 +14,20 @@
 | --- | ---: | ---: |
 | `failed` | 220 / 1096 | 20.07% |
 | `fixture_required` | 2 / 1096 | 0.18% |
-| `passed` | 764 / 1096 | 69.71% |
-| `passed_empty` | 20 / 1096 | 1.82% |
-| `timeout` | 90 / 1096 | 8.21% |
+| `passed` | 745 / 1096 | 67.97% |
+| `passed_empty` | 21 / 1096 | 1.92% |
+| `timeout` | 108 / 1096 | 9.85% |
 
 ## 结果范围
 
 | 范围 | 数量 | 占比 |
 | --- | ---: | ---: |
-| `akshare_runtime` | 81 / 1096 | 7.39% |
+| `akshare_runtime` | 80 / 1096 | 7.30% |
 | `fixture` | 2 / 1096 | 0.18% |
-| `provider_success` | 784 / 1096 | 71.53% |
-| `upstream_response` | 51 / 1096 | 4.65% |
-| `upstream_timeout` | 90 / 1096 | 8.21% |
-| `upstream_transport` | 88 / 1096 | 8.03% |
+| `provider_success` | 766 / 1096 | 69.89% |
+| `upstream_response` | 53 / 1096 | 4.84% |
+| `upstream_timeout` | 108 / 1096 | 9.85% |
+| `upstream_transport` | 87 / 1096 | 7.94% |
 
 每个接口的精确结果见 `ledger.csv`。
 
