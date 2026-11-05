@@ -100,8 +100,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           akshare_version="$(uv run --no-sync python -c 'import akshare; print(akshare.__version__)')"
-          akshare_tag="release-v${akshare_version}"
-          akshare_ref="$(gh api "repos/akfamily/akshare/commits/${akshare_tag}" --jq .sha)"
+          # AKShare renamed its release tags from release-vX.Y.Z to vX.Y.Z; the
+          # shared resolver tries both conventions and fails clearly when the
+          # pinned version has no tag yet.
+          akshare_ref="$(scripts/resolve-akshare-ref.sh "${akshare_version}")"
+          echo "AKShare ${akshare_version} resolves to commit ${akshare_ref}."
           uv run --no-sync akbridge-docs build \
             --ref "${akshare_ref}" \
             --output src/akbridge/data/akshare-docs.json

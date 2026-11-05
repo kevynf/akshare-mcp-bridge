@@ -105,7 +105,7 @@ akbridge --mode all   # 显式选择完整工具面
 
 ### AKShare 文档词法路由
 
-正式发布的 wheel 和 sdist 会在 GitHub Actions 中，根据固定的 AKShare 版本解析对应的 `release-vX.Y.Z` 标签和 commit SHA，自动构建并包含文档索引；`router` 模式默认加载包内索引，服务搜索期间不会联网。文档块只关联 AKShare 顶层公开函数，补充自然语言术语和排序证据，不决定领域或模块结构；搜索结果会返回命中的文档标题和来源链接。
+正式发布的 wheel 和 sdist 会在 GitHub Actions 中，根据固定的 AKShare 版本解析对应的版本标签（新版 `vX.Y.Z` 或旧版 `release-vX.Y.Z`）和 commit SHA，自动构建并包含文档索引；`router` 模式默认加载包内索引，服务搜索期间不会联网。文档块只关联 AKShare 顶层公开函数，补充自然语言术语和排序证据，不决定领域或模块结构；搜索结果会返回命中的文档标题和来源链接。
 
 自 0.2.0 起，AKBridge 通过 MCP `ResourceTemplate` 发布文档资源模板；`akbridge_search` 命中时，`documentation` 数组会附带具体的 `uri`，客户端可用 `resources/read` 读取完整文档，无需访问外部 URL。没有加载文档索引时，模板仍可见，但搜索结果不会返回具体文档 URI。
 
