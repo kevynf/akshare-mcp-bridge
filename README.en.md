@@ -149,7 +149,7 @@ not automatically installed as a client Skill.
 ### AKShare documentation lexical routing
 
 Published wheels and sdists automatically build and include a documentation index in GitHub Actions
-by resolving the `release-vX.Y.Z` tag and commit SHA corresponding to the pinned AKShare version;
+by resolving the version tag (either the newer `vX.Y.Z` or the legacy `release-vX.Y.Z`) and commit SHA corresponding to the pinned AKShare version;
 `router` mode loads the packaged index by default, and no network access occurs during service
 searches. Documentation chunks relate only to AKShare top-level public functions, adding
 natural-language terms and ranking evidence; they do not determine domain or module structure, and
