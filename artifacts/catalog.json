@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "akshare_version": "1.20.25",
-  "generated_at": "2026-11-05T04:05:40.810656+00:00",
+  "akshare_version": "1.20.27",
+  "generated_at": "2026-11-09T12:42:30.984269+00:00",
   "interface_count": 1090,
   "interfaces": [
     {
@@ -15919,7 +15919,7 @@
       "examples": [
         {}
       ],
-      "description": "国家金融与发展实验室-中国宏观杠杆率数据\nhttp://114.115.232.154:8080/\n:return: 中国宏观杠杆率数据\n:rtype: pandas.DataFrame",
+      "description": "国家金融与发展实验室-中国宏观杠杆率数据\nhttp://www.nifd.cn/cdata/\n:return: 中国宏观杠杆率数据\n:rtype: pandas.DataFrame",
       "signature": "() -> pandas.DataFrame",
       "return": {
         "kind": "dataframe",
@@ -15928,7 +15928,7 @@
       },
       "parameters": {},
       "side_effect": false,
-      "source_url": "http://114.115.232.154:8080/",
+      "source_url": "http://www.nifd.cn/cdata/",
       "source_module": "akshare.macro.macro_cnbs"
     },
     {
