@@ -15,7 +15,7 @@ resolution-markers = [
 
 [[package]]
 name = "akbridge"
-version = "0.2.2"
+version = "0.2.3"
 source = { editable = "." }
 dependencies = [
     { name = "akshare" },
@@ -41,7 +41,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "akshare", specifier = "==1.20.27" },
+    { name = "akshare", specifier = "==1.20.38" },
     { name = "jsonschema", specifier = ">=4.20.0" },
     { name = "mcp", specifier = "==1.30.0" },
     { name = "pandas", specifier = ">=2.2.0" },
@@ -61,7 +61,7 @@ dev = [
 
 [[package]]
 name = "akshare"
-version = "1.20.27"
+version = "1.20.38"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "beautifulsoup4" },
@@ -76,9 +76,9 @@ dependencies = [
     { name = "urllib3" },
     { name = "xlrd" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/08/05/3c4301b90a9ebd09e348a9e0c27d56d4343cc8446f5a41f055fb3bc4548e/akshare-1.20.27.tar.gz", hash = "sha256:8b92e6c7e580d3253b663e7429d0f3d2a101762b2f431b8b8210c091e37acf5e", size = 947922, upload-time = "2026-11-04T13:30:27.154Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/22/19/b00321daaf2cbd317292edad48e32114cf006da0c3529ca7339befdf8308/akshare-1.20.38.tar.gz", hash = "sha256:0a7761bee831c13ef92f641f0015b2fb020a93eff4dc6c05a53530996dfa79ba", size = 977230, upload-time = "2026-11-12T05:46:11.266Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ec/eb/f080e4048ab77e69ca3f0b4e527b0df8d4ed218e1ca06368feb34f35856d/akshare-1.20.27-py3-none-any.whl", hash = "sha256:62c2fe3b97f8c6790bf43f9ae90ca76d096b1eeb049417975e7d181f0f35d1c5", size = 1141999, upload-time = "2026-11-04T13:30:25.097Z" },
+    { url = "https://files.pythonhosted.org/packages/ed/bb/62672fc530ec84c6995c5591bf08d4942a4c6bc7383bdccb3e0f9c241fe1/akshare-1.20.38-py3-none-any.whl", hash = "sha256:28741eaddffaad61efa8037d6915faf031854de1da9cc0ab301c91f2c2b1592c", size = 1151576, upload-time = "2026-11-12T05:46:09.146Z" },
 ]
 
 [[package]]
